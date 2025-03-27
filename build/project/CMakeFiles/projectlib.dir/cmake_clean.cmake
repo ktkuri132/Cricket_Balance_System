@@ -1,0 +1,15 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/projectlib.dir/Dev/led.c.obj"
+  "CMakeFiles/projectlib.dir/Dev/led.c.obj.d"
+  "CMakeFiles/projectlib.dir/Dev/tim.c.obj"
+  "CMakeFiles/projectlib.dir/Dev/tim.c.obj.d"
+  "CMakeFiles/projectlib.dir/Dev/usart.c.obj"
+  "CMakeFiles/projectlib.dir/Dev/usart.c.obj.d"
+  "libprojectlib.a"
+  "libprojectlib.pdb"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang C)
+  include(CMakeFiles/projectlib.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()
