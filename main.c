@@ -18,18 +18,31 @@ int main() {
     USART1_Init(port);
     USART2_Init(port);
     PWM_Init(port);
-    TIM3->CCR3=2500;
-    TIM3->CCR4=4500;
-    TIM2_INT_Init(5);	//10KhzÊ±ÖÓ
+    TIM3->CCR3=1000;
+    TIM3->CCR4=1000;
+    // TIM2_INT_Init(5);	//10KhzÊ±ÖÓ
     while (1) {
-        uint32_t sysclk = HAL_RCC_GetSysClockFreq();
-        uint32_t hclk = HAL_RCC_GetHCLKFreq();
-        // printf("System Clock Frequency: %lu Hz\n", sysclk);
-        // printf("HCLK Frequency: %lu Hz\n", hclk);
-        LED_ON(port);
-        syscall.bsp_systick_delay_ms(1000);
-        LED_OFF(port);
-        syscall.bsp_systick_delay_ms(1000);
+        // uint32_t sysclk = HAL_RCC_GetSysClockFreq();
+        // uint32_t hclk = HAL_RCC_GetHCLKFreq();
+        // // printf("System Clock Frequency: %lu Hz\n", sysclk);
+        // // printf("HCLK Frequency: %lu Hz\n", hclk);
+        // LED_ON(port);
+        // syscall.bsp_systick_delay_ms(1000);
+        // LED_OFF(port);
+        // syscall.bsp_systick_delay_ms(1000);
+        static uint32_t PWM = 1000;
+        for(PWM=1000;PWM<=5000;PWM+=10){
+        	TIM3->CCR3=PWM;
+            TIM3->CCR4=PWM;
+            printf("PWM: %d\n", TIM3->CCR3);
+        	syscall.bsp_systick_delay_ms(5);
+        }
+        for(PWM=5000;PWM>=1000;PWM-=10){
+        	TIM3->CCR3=PWM;
+            TIM3->CCR4=PWM;
+            printf("PWM: %d\n", TIM3->CCR3);
+        	syscall.bsp_systick_delay_ms(5);
+        }
     }
 }
 

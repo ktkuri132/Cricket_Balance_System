@@ -66,4 +66,7 @@ project/CMakeFiles/projectlib.dir/Dev/tim.c.obj: \
  C:\Users\423\Desktop\Cricket_Balance_System_1\h723_core\STM32H7xx_HAL_Driver\inc/stm32h7xx_hal_usart.h \
  C:\Users\423\Desktop\Cricket_Balance_System_1\h723_core\STM32H7xx_HAL_Driver\inc/stm32h7xx_hal_usart_ex.h \
  C:\Users\423\Desktop\Cricket_Balance_System_1\h723_core/syscall.h \
- C:\Users\423\Desktop\Cricket_Balance_System_1\bsp/h723/h723.h
+ C:\Users\423\Desktop\Cricket_Balance_System_1\bsp/h723/h723.h \
+ C:/PROGRA~2/ARMGNU~1/133167~1.3RE/arm-none-eabi/include/stdlib.h \
+ C:/PROGRA~2/ARMGNU~1/133167~1.3RE/arm-none-eabi/include/machine/stdlib.h \
+ C:/PROGRA~2/ARMGNU~1/133167~1.3RE/arm-none-eabi/include/alloca.h

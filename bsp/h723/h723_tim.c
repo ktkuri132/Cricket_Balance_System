@@ -48,6 +48,7 @@ void H723_TIM_Init(void* const Parameters) {
                     } else if (TIM_Parameter->OCMode == PWM_Mode_2) {
                         TIM_Parameter->TIMx->CCMR1 |= OC1_PWM_MODE2;
                     }
+                    TIM_Parameter->TIMx->CCMR1 |= 1<<11;
                     TIM_Parameter->TIMx->CCER |= TIM_CCER_CC1E;
                 } break;
                 case Channel_2: {
@@ -56,6 +57,7 @@ void H723_TIM_Init(void* const Parameters) {
                     } else if (TIM_Parameter->OCMode == PWM_Mode_2) {
                         TIM_Parameter->TIMx->CCMR1 |= OC2_PWM_MODE2;
                     }
+                    TIM_Parameter->TIMx->CCMR1 |= 1<<11;
                     TIM_Parameter->TIMx->CCER |= TIM_CCER_CC2E;
                 } break;
                 case Channel_3: {
@@ -64,6 +66,7 @@ void H723_TIM_Init(void* const Parameters) {
                     } else if (TIM_Parameter->OCMode == PWM_Mode_2) {
                         TIM_Parameter->TIMx->CCMR2 |= OC3_PWM_MODE2;
                     }
+                    TIM_Parameter->TIMx->CCMR2 |= 1<<11;
                     TIM_Parameter->TIMx->CCER |= TIM_CCER_CC3E;
                 } break;
                 case Channel_4: {
@@ -72,6 +75,7 @@ void H723_TIM_Init(void* const Parameters) {
                     } else if (TIM_Parameter->OCMode == PWM_Mode_2) {
                         TIM_Parameter->TIMx->CCMR2 |= OC4_PWM_MODE2;
                     }
+                    TIM_Parameter->TIMx->CCMR2 |= 1<<11;
                     TIM_Parameter->TIMx->CCER |= TIM_CCER_CC4E;
                 } break;
                 default:
@@ -80,7 +84,8 @@ void H723_TIM_Init(void* const Parameters) {
         }
     }
 
-    TIM_Parameter->TIMx->CR1 |= TIM_CR1_ARPE | TIM_CR1_CEN;
+    TIM_Parameter->TIMx->CR1 |= TIM_CR1_ARPE;
+    TIM_Parameter->TIMx->CR1 |= TIM_CR1_CEN;
 }
 
 void H723_TIM_IT_Init(void* const Parameters) {}

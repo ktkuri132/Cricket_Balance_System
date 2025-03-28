@@ -1,10 +1,11 @@
 #include <stdint.h>
 #include <sysport.h>
 #include "stm32h7xx.h"
-
+#include <stdlib.h>
 
 void PWM_Init(SYS_Port *port){
     TIM_Parameters tim3_init;
+    
     tim3_init.TIMx = TIM3;
     tim3_init.GPIOx = GPIOB;
     tim3_init.GPIO_Pin_Source[PIN0] = ENABLE;
@@ -12,8 +13,8 @@ void PWM_Init(SYS_Port *port){
     tim3_init.GPIO_AF = 2;
     tim3_init.RCC_TIMBusPeriph = RCC_APB1LENR_TIM3EN;
     tim3_init.RCC_GPIOBusPeriph = RCC_AHB4ENR_GPIOBEN;
-    tim3_init.ARR = 9000-1;
-    tim3_init.PSC = 30-1;
+    tim3_init.ARR = 6000-1;
+    tim3_init.PSC = 135-1;
     tim3_init.Channel[Channel_4] = ENABLE;
     tim3_init.Channel[Channel_3] = ENABLE;
     tim3_init.OCMode = 1;
