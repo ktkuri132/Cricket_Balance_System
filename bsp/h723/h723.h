@@ -12,6 +12,12 @@ typedef enum{
     AF_0,AF_1,AF_2,AF_3,AF_4,AF_5,AF_6,AF_7,
     AF_8,AF_9,AF_10,AF_11,AF_12,AF_13,AF_14,AF_15
  
+}GPIO_AF;
+
+typedef enum{
+    PIN0,PIN1,PIN2,PIN3,PIN4,PIN5,PIN6,PIN7,
+    PIN8,PIN9,PIN10,PIN11,PIN12,PIN13,PIN14,PIN15
+
 }GPIO_Pin;
 
 typedef enum{
@@ -57,12 +63,14 @@ typedef struct{
     uint32_t PSC;
     uint32_t ClockDivision;
     uint32_t CounterMode;
-    uint32_t Channel;
-    uint32_t OCMode;
+    uint8_t Channel[4];
+    uint8_t OCMode;
     uint32_t OutputState;
     uint32_t Pulse;
     uint32_t OCPolarity;
 
+    uint32_t RCC_TIMBusPeriph;
+    uint32_t RCC_GPIOBusPeriph;
     GPIO_TypeDef *GPIOx;
     uint16_t GPIO_Pin_Source[16];
     uint32_t Output_Pin;

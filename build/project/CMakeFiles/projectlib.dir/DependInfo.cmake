@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "C:/Users/423/Desktop/Cricket_Balance_System_1/project/Dev/bsp.c" "project/CMakeFiles/projectlib.dir/Dev/bsp.c.obj" "gcc" "project/CMakeFiles/projectlib.dir/Dev/bsp.c.obj.d"
   "C:/Users/423/Desktop/Cricket_Balance_System_1/project/Dev/led.c" "project/CMakeFiles/projectlib.dir/Dev/led.c.obj" "gcc" "project/CMakeFiles/projectlib.dir/Dev/led.c.obj.d"
   "C:/Users/423/Desktop/Cricket_Balance_System_1/project/Dev/tim.c" "project/CMakeFiles/projectlib.dir/Dev/tim.c.obj" "gcc" "project/CMakeFiles/projectlib.dir/Dev/tim.c.obj.d"
   "C:/Users/423/Desktop/Cricket_Balance_System_1/project/Dev/usart.c" "project/CMakeFiles/projectlib.dir/Dev/usart.c.obj" "gcc" "project/CMakeFiles/projectlib.dir/Dev/usart.c.obj.d"

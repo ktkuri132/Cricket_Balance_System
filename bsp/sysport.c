@@ -3,6 +3,7 @@
 #include <stdint.h>
 
 #define USART
+#define TIM
 
 SYS_Port*  SysPort_Init() {
     static SYS_Port sys_port = {
@@ -38,7 +39,7 @@ SYS_Port*  SysPort_Init() {
         #endif
         #ifdef TIM
         .tim_port = {
-            .bsp_tim_x_inti = NULL,
+            .bsp_tim_x_inti = H723_TIM_Init,
             .bsp_tim_x_start = NULL,
             .bsp_tim_x_stop = NULL,
             .bsp_tim_x_set_period = NULL,

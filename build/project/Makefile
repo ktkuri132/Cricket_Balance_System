@@ -129,6 +129,30 @@ projectlib/fast:
 	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/build
 .PHONY : projectlib/fast
 
+Dev/bsp.obj: Dev/bsp.c.obj
+.PHONY : Dev/bsp.obj
+
+# target to build an object file
+Dev/bsp.c.obj:
+	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Dev/bsp.c.obj
+.PHONY : Dev/bsp.c.obj
+
+Dev/bsp.i: Dev/bsp.c.i
+.PHONY : Dev/bsp.i
+
+# target to preprocess a source file
+Dev/bsp.c.i:
+	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Dev/bsp.c.i
+.PHONY : Dev/bsp.c.i
+
+Dev/bsp.s: Dev/bsp.c.s
+.PHONY : Dev/bsp.s
+
+# target to generate assembly for a file
+Dev/bsp.c.s:
+	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Dev/bsp.c.s
+.PHONY : Dev/bsp.c.s
+
 Dev/led.obj: Dev/led.c.obj
 .PHONY : Dev/led.obj
 
@@ -210,6 +234,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... projectlib
+	@echo ... Dev/bsp.obj
+	@echo ... Dev/bsp.i
+	@echo ... Dev/bsp.s
 	@echo ... Dev/led.obj
 	@echo ... Dev/led.i
 	@echo ... Dev/led.s
