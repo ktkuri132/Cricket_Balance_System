@@ -13,6 +13,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/34575/Desktop/Cricket_Balance_System/project/Control/tool.c" "project/CMakeFiles/projectlib.dir/Control/tool.c.obj" "gcc" "project/CMakeFiles/projectlib.dir/Control/tool.c.obj.d"
   "C:/Users/34575/Desktop/Cricket_Balance_System/project/Dev/bsp.c" "project/CMakeFiles/projectlib.dir/Dev/bsp.c.obj" "gcc" "project/CMakeFiles/projectlib.dir/Dev/bsp.c.obj.d"
   "C:/Users/34575/Desktop/Cricket_Balance_System/project/Dev/led.c" "project/CMakeFiles/projectlib.dir/Dev/led.c.obj" "gcc" "project/CMakeFiles/projectlib.dir/Dev/led.c.obj.d"
+  "C:/Users/34575/Desktop/Cricket_Balance_System/project/Dev/test.c" "project/CMakeFiles/projectlib.dir/Dev/test.c.obj" "gcc" "project/CMakeFiles/projectlib.dir/Dev/test.c.obj.d"
   "C:/Users/34575/Desktop/Cricket_Balance_System/project/Dev/tim.c" "project/CMakeFiles/projectlib.dir/Dev/tim.c.obj" "gcc" "project/CMakeFiles/projectlib.dir/Dev/tim.c.obj.d"
   "C:/Users/34575/Desktop/Cricket_Balance_System/project/Dev/usart.c" "project/CMakeFiles/projectlib.dir/Dev/usart.c.obj" "gcc" "project/CMakeFiles/projectlib.dir/Dev/usart.c.obj.d"
   )

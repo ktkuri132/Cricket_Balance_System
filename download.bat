@@ -8,7 +8,7 @@ REM 设置OpenOCD配置文件路径
 set INTERFACE=C:\Program Files (x86)\OpenOCD-20240916-0.12.0\share\openocd\scripts\interface
 set TARGET=C:\Program Files (x86)\OpenOCD-20240916-0.12.0\share\openocd\scripts\target
 REM 设置要烧录的ELF文件路径
-set ELF_FILE=C:\\Users\\423\\Desktop\\Cricket_Balance_System_1\\build\\CBS.elf
+set ELF_FILE=C:\\Users\\34575\\Desktop\\Cricket_Balance_System\\build\\CBS.elf
 
 REM 检查ELF文件是否存在
 if not exist "%ELF_FILE%" (

@@ -9,6 +9,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/projectlib.dir/Dev/bsp.c.obj.d"
   "CMakeFiles/projectlib.dir/Dev/led.c.obj"
   "CMakeFiles/projectlib.dir/Dev/led.c.obj.d"
+  "CMakeFiles/projectlib.dir/Dev/test.c.obj"
+  "CMakeFiles/projectlib.dir/Dev/test.c.obj.d"
   "CMakeFiles/projectlib.dir/Dev/tim.c.obj"
   "CMakeFiles/projectlib.dir/Dev/tim.c.obj.d"
   "CMakeFiles/projectlib.dir/Dev/usart.c.obj"

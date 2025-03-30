@@ -141,10 +141,24 @@ project/CMakeFiles/projectlib.dir/Dev/led.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/projectlib.dir/Dev/led.c.s"
 	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build\project && C:\PROGRA~2\ARMGNU~1\133167~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\34575\Desktop\Cricket_Balance_System\project\Dev\led.c -o CMakeFiles\projectlib.dir\Dev\led.c.s
 
+project/CMakeFiles/projectlib.dir/Dev/test.c.obj: project/CMakeFiles/projectlib.dir/flags.make
+project/CMakeFiles/projectlib.dir/Dev/test.c.obj: C:/Users/34575/Desktop/Cricket_Balance_System/project/Dev/test.c
+project/CMakeFiles/projectlib.dir/Dev/test.c.obj: project/CMakeFiles/projectlib.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\34575\Desktop\Cricket_Balance_System\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object project/CMakeFiles/projectlib.dir/Dev/test.c.obj"
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build\project && C:\PROGRA~2\ARMGNU~1\133167~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT project/CMakeFiles/projectlib.dir/Dev/test.c.obj -MF CMakeFiles\projectlib.dir\Dev\test.c.obj.d -o CMakeFiles\projectlib.dir\Dev\test.c.obj -c C:\Users\34575\Desktop\Cricket_Balance_System\project\Dev\test.c
+
+project/CMakeFiles/projectlib.dir/Dev/test.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/projectlib.dir/Dev/test.c.i"
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build\project && C:\PROGRA~2\ARMGNU~1\133167~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\34575\Desktop\Cricket_Balance_System\project\Dev\test.c > CMakeFiles\projectlib.dir\Dev\test.c.i
+
+project/CMakeFiles/projectlib.dir/Dev/test.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/projectlib.dir/Dev/test.c.s"
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build\project && C:\PROGRA~2\ARMGNU~1\133167~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\34575\Desktop\Cricket_Balance_System\project\Dev\test.c -o CMakeFiles\projectlib.dir\Dev\test.c.s
+
 project/CMakeFiles/projectlib.dir/Dev/tim.c.obj: project/CMakeFiles/projectlib.dir/flags.make
 project/CMakeFiles/projectlib.dir/Dev/tim.c.obj: C:/Users/34575/Desktop/Cricket_Balance_System/project/Dev/tim.c
 project/CMakeFiles/projectlib.dir/Dev/tim.c.obj: project/CMakeFiles/projectlib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\34575\Desktop\Cricket_Balance_System\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object project/CMakeFiles/projectlib.dir/Dev/tim.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\34575\Desktop\Cricket_Balance_System\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object project/CMakeFiles/projectlib.dir/Dev/tim.c.obj"
 	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build\project && C:\PROGRA~2\ARMGNU~1\133167~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT project/CMakeFiles/projectlib.dir/Dev/tim.c.obj -MF CMakeFiles\projectlib.dir\Dev\tim.c.obj.d -o CMakeFiles\projectlib.dir\Dev\tim.c.obj -c C:\Users\34575\Desktop\Cricket_Balance_System\project\Dev\tim.c
 
 project/CMakeFiles/projectlib.dir/Dev/tim.c.i: cmake_force
@@ -158,7 +172,7 @@ project/CMakeFiles/projectlib.dir/Dev/tim.c.s: cmake_force
 project/CMakeFiles/projectlib.dir/Dev/usart.c.obj: project/CMakeFiles/projectlib.dir/flags.make
 project/CMakeFiles/projectlib.dir/Dev/usart.c.obj: C:/Users/34575/Desktop/Cricket_Balance_System/project/Dev/usart.c
 project/CMakeFiles/projectlib.dir/Dev/usart.c.obj: project/CMakeFiles/projectlib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\34575\Desktop\Cricket_Balance_System\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object project/CMakeFiles/projectlib.dir/Dev/usart.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\34575\Desktop\Cricket_Balance_System\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object project/CMakeFiles/projectlib.dir/Dev/usart.c.obj"
 	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build\project && C:\PROGRA~2\ARMGNU~1\133167~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT project/CMakeFiles/projectlib.dir/Dev/usart.c.obj -MF CMakeFiles\projectlib.dir\Dev\usart.c.obj.d -o CMakeFiles\projectlib.dir\Dev\usart.c.obj -c C:\Users\34575\Desktop\Cricket_Balance_System\project\Dev\usart.c
 
 project/CMakeFiles/projectlib.dir/Dev/usart.c.i: cmake_force
@@ -176,6 +190,7 @@ projectlib_OBJECTS = \
 "CMakeFiles/projectlib.dir/Control/tool.c.obj" \
 "CMakeFiles/projectlib.dir/Dev/bsp.c.obj" \
 "CMakeFiles/projectlib.dir/Dev/led.c.obj" \
+"CMakeFiles/projectlib.dir/Dev/test.c.obj" \
 "CMakeFiles/projectlib.dir/Dev/tim.c.obj" \
 "CMakeFiles/projectlib.dir/Dev/usart.c.obj"
 
@@ -187,11 +202,12 @@ project/libprojectlib.a: project/CMakeFiles/projectlib.dir/Control/pid.c.obj
 project/libprojectlib.a: project/CMakeFiles/projectlib.dir/Control/tool.c.obj
 project/libprojectlib.a: project/CMakeFiles/projectlib.dir/Dev/bsp.c.obj
 project/libprojectlib.a: project/CMakeFiles/projectlib.dir/Dev/led.c.obj
+project/libprojectlib.a: project/CMakeFiles/projectlib.dir/Dev/test.c.obj
 project/libprojectlib.a: project/CMakeFiles/projectlib.dir/Dev/tim.c.obj
 project/libprojectlib.a: project/CMakeFiles/projectlib.dir/Dev/usart.c.obj
 project/libprojectlib.a: project/CMakeFiles/projectlib.dir/build.make
 project/libprojectlib.a: project/CMakeFiles/projectlib.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\34575\Desktop\Cricket_Balance_System\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking C static library libprojectlib.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\34575\Desktop\Cricket_Balance_System\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking C static library libprojectlib.a"
 	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build\project && $(CMAKE_COMMAND) -P CMakeFiles\projectlib.dir\cmake_clean_target.cmake
 	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build\project && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\projectlib.dir\link.txt --verbose=$(VERBOSE)
 

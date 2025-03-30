@@ -110,6 +110,7 @@ typedef struct{
 }RCC_PeriphClock_Port;
 
 typedef struct {
+    uint64_t SysRunTime; // 系统运行时间
     SYSCALL_Port syscall_port;
     RCC_PeriphClock_Port rcc_periph_port;
     GPIO_Port gpio_port;
@@ -117,7 +118,7 @@ typedef struct {
     USART_Port usart_port;
     TIM_Port tim_port;
     void (*System_Init)(void);
-
+    void (*SysTick_Init)(void);
 } SYS_Port;
 
 SYS_Port *SysPort_Init();

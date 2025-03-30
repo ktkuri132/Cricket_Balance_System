@@ -24,7 +24,7 @@ void USART1_Init(SYS_Port *port){
     RCC->APB2ENR |= RCC_APB2ENR_USART1EN;
     USART_Parameters usart_init;
     usart_init.USARTx   = USART1;
-    usart_init.baudrate = 115200;
+    usart_init.baudrate = 250000;
     usart_init.GPIOx    = GPIOA;
     usart_init.GPIO_Mode_x = 2;
     usart_init.GPIO_PuPd_x = 0;

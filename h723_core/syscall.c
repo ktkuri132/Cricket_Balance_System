@@ -32,6 +32,7 @@
 #include <sys/time.h>
 #include <sys/times.h>
 #include <time.h>
+#include "stm32h723xx.h"
 
 /* Variables */
 extern int __io_putchar(int ch) __attribute__((weak));
@@ -100,6 +101,20 @@ void SystemClock_Config() {
     if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_4) != HAL_OK) {
     }
 }
+
+/**
+ * @brief  This function is executed in case of error occurrence.
+ * @retval None
+ */
+void SysTick_Init(void) {
+    /* Configure the SysTick to have an interrupt in 1ms time basis */
+    SysTick->LOAD  = (SystemCoreClock / 1000) - 1; /* Set reload register */
+    NVIC_SetPriority(SysTick_IRQn, 0);               /* Set Priority for SysTick Interrupt */
+    NVIC_EnableIRQ(SysTick_IRQn);                  /* Enable SysTick Interrupt */
+    SysTick->VAL   = 0;                            /* Load the SysTick Counter Value */
+    SysTick->CTRL |= SysTick_CTRL_CLKSOURCE_Msk | SysTick_CTRL_TICKINT_Msk | SysTick_CTRL_ENABLE_Msk;
+}
+
 
 void delay_us(uint32_t nus) {
     SysTick->LOAD = (nus * (SystemCoreClock / 1000000)) - 1;

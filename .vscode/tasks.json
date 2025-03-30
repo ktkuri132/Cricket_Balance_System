@@ -4,7 +4,7 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "编译",
+            "label": "下载",
             "type": "shell",
             "command": "./download"
         }

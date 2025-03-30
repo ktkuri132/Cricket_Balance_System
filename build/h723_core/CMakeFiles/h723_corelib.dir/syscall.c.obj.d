@@ -88,4 +88,5 @@ h723_core/CMakeFiles/h723_corelib.dir/syscall.c.obj: \
  C:/PROGRA~2/ARMGNU~1/133167~1.3RE/arm-none-eabi/include/sys/_locale.h \
  C:/PROGRA~2/ARMGNU~1/133167~1.3RE/arm-none-eabi/include/sys/time.h \
  C:/PROGRA~2/ARMGNU~1/133167~1.3RE/arm-none-eabi/include/machine/_time.h \
- C:/PROGRA~2/ARMGNU~1/133167~1.3RE/arm-none-eabi/include/sys/times.h
+ C:/PROGRA~2/ARMGNU~1/133167~1.3RE/arm-none-eabi/include/sys/times.h \
+ C:\Users\34575\Desktop\Cricket_Balance_System\h723_core\stm32h723xx.h

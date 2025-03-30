@@ -126,6 +126,8 @@ typedef struct{
     FunctionalState NewState;
 }RCC_PeriphClock_Parameters;
 
+void NVIC_Init(void);
+
 void GPIO_Set(GPIO_TypeDef* GPIOx,u32 BITx,u32 MODE,u32 OTYPE,u32 OSPEED,u32 PUPD);
 void GPIO_AF_Set(GPIO_TypeDef* GPIOx,u8 BITx,u8 AFx);
 

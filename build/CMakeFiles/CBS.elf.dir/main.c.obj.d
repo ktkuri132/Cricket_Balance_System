@@ -77,5 +77,6 @@ CMakeFiles/CBS.elf.dir/main.c.obj: \
  C:/PROGRA~2/ARMGNU~1/133167~1.3RE/arm-none-eabi/include/sys/_locale.h \
  C:/PROGRA~2/ARMGNU~1/133167~1.3RE/arm-none-eabi/include/strings.h \
  C:/PROGRA~2/ARMGNU~1/133167~1.3RE/arm-none-eabi/include/sys/string.h \
+ C:\Users\34575\Desktop\Cricket_Balance_System\h723_core/stm32h7xx_it.h \
  C:\Users\34575\Desktop\Cricket_Balance_System\include/control.h \
  C:\Users\34575\Desktop\Cricket_Balance_System/bsp/Serial.h

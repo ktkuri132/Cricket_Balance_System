@@ -895,6 +895,12 @@
 },
 {
   "directory": "C:/Users/34575/Desktop/Cricket_Balance_System/build/project",
+  "command": "C:\\PROGRA~2\\ARMGNU~1\\133167~1.3RE\\bin\\AR19DD~1.EXE  -IC:\\Users\\34575\\Desktop\\Cricket_Balance_System\\h723_core -IC:\\Users\\34575\\Desktop\\Cricket_Balance_System\\h723_core\\STM32H7xx_HAL_Driver\\inc -IC:\\Users\\34575\\Desktop\\Cricket_Balance_System\\bsp -IC:\\Users\\34575\\Desktop\\Cricket_Balance_System\\include -IC:\\Users\\34575\\Desktop\\Cricket_Balance_System\\project -IC:\\Users\\34575\\Desktop\\Cricket_Balance_System -g -std=gnu11 -mfloat-abi=hard -mfpu=fpv5-d16 -mcpu=cortex-m7 -mthumb -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Og -g -o CMakeFiles\\projectlib.dir\\Dev\\test.c.obj -c C:\\Users\\34575\\Desktop\\Cricket_Balance_System\\project\\Dev\\test.c",
+  "file": "C:/Users/34575/Desktop/Cricket_Balance_System/project/Dev/test.c",
+  "output": "project/CMakeFiles/projectlib.dir/Dev/test.c.obj"
+},
+{
+  "directory": "C:/Users/34575/Desktop/Cricket_Balance_System/build/project",
   "command": "C:\\PROGRA~2\\ARMGNU~1\\133167~1.3RE\\bin\\AR19DD~1.EXE  -IC:\\Users\\34575\\Desktop\\Cricket_Balance_System\\h723_core -IC:\\Users\\34575\\Desktop\\Cricket_Balance_System\\h723_core\\STM32H7xx_HAL_Driver\\inc -IC:\\Users\\34575\\Desktop\\Cricket_Balance_System\\bsp -IC:\\Users\\34575\\Desktop\\Cricket_Balance_System\\include -IC:\\Users\\34575\\Desktop\\Cricket_Balance_System\\project -IC:\\Users\\34575\\Desktop\\Cricket_Balance_System -g -std=gnu11 -mfloat-abi=hard -mfpu=fpv5-d16 -mcpu=cortex-m7 -mthumb -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Og -g -o CMakeFiles\\projectlib.dir\\Dev\\tim.c.obj -c C:\\Users\\34575\\Desktop\\Cricket_Balance_System\\project\\Dev\\tim.c",
   "file": "C:/Users/34575/Desktop/Cricket_Balance_System/project/Dev/tim.c",
   "output": "project/CMakeFiles/projectlib.dir/Dev/tim.c.obj"

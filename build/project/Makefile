@@ -249,6 +249,30 @@ Dev/led.c.s:
 	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Dev/led.c.s
 .PHONY : Dev/led.c.s
 
+Dev/test.obj: Dev/test.c.obj
+.PHONY : Dev/test.obj
+
+# target to build an object file
+Dev/test.c.obj:
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Dev/test.c.obj
+.PHONY : Dev/test.c.obj
+
+Dev/test.i: Dev/test.c.i
+.PHONY : Dev/test.i
+
+# target to preprocess a source file
+Dev/test.c.i:
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Dev/test.c.i
+.PHONY : Dev/test.c.i
+
+Dev/test.s: Dev/test.c.s
+.PHONY : Dev/test.s
+
+# target to generate assembly for a file
+Dev/test.c.s:
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Dev/test.c.s
+.PHONY : Dev/test.c.s
+
 Dev/tim.obj: Dev/tim.c.obj
 .PHONY : Dev/tim.obj
 
@@ -321,6 +345,9 @@ help:
 	@echo ... Dev/led.obj
 	@echo ... Dev/led.i
 	@echo ... Dev/led.s
+	@echo ... Dev/test.obj
+	@echo ... Dev/test.i
+	@echo ... Dev/test.s
 	@echo ... Dev/tim.obj
 	@echo ... Dev/tim.i
 	@echo ... Dev/tim.s

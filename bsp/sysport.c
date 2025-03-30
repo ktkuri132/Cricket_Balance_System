@@ -8,10 +8,11 @@
 SYS_Port*  SysPort_Init() {
     static SYS_Port sys_port = {
         .System_Init = SystemClock_Config,
+        .SysTick_Init = SysTick_Init,
         .syscall_port = {
           .bsp_systick_delay_us = delay_us,
           .bsp_systick_delay_ms = delay_ms,
-          .NVIC_Configuration = NULL,
+          .NVIC_Configuration = NVIC_Init,
         },
         .rcc_periph_port = {
             .bsp_rcc_periph_clock = NULL,

@@ -196,7 +196,12 @@ SECTIONS
     . = ALIGN(8);
   } >DTCMRAM
 
-
+ .ram_d1_data :
+  {
+    . = ALIGN(4);
+    *(.ram_d1_data)
+    . = ALIGN(4);
+  } >RAM
 
   /* Remove information from the standard libraries */
   /DISCARD/ :
