@@ -47,19 +47,19 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "C:\Program Files\CMake\bin\cmake.exe"
+CMAKE_COMMAND = "C:\Program Files (x86)\cmake-4.0.0-windows-x86_64\bin\cmake.exe"
 
 # The command to remove a file.
-RM = "C:\Program Files\CMake\bin\cmake.exe" -E rm -f
+RM = "C:\Program Files (x86)\cmake-4.0.0-windows-x86_64\bin\cmake.exe" -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\423\Desktop\Cricket_Balance_System_1
+CMAKE_SOURCE_DIR = C:\Users\34575\Desktop\Cricket_Balance_System
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\423\Desktop\Cricket_Balance_System_1\build
+CMAKE_BINARY_DIR = C:\Users\34575\Desktop\Cricket_Balance_System\build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -67,7 +67,7 @@ CMAKE_BINARY_DIR = C:\Users\423\Desktop\Cricket_Balance_System_1\build
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake cache editor..."
-	"C:\Program Files\CMake\bin\cmake-gui.exe" -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	"C:\Program Files (x86)\cmake-4.0.0-windows-x86_64\bin\cmake-gui.exe" -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -77,7 +77,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake to regenerate build system..."
-	"C:\Program Files\CMake\bin\cmake.exe" --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	"C:\Program Files (x86)\cmake-4.0.0-windows-x86_64\bin\cmake.exe" --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -86,14 +86,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(CMAKE_COMMAND) -E cmake_progress_start C:\Users\423\Desktop\Cricket_Balance_System_1\build\CMakeFiles C:\Users\423\Desktop\Cricket_Balance_System_1\build\bsp\\CMakeFiles\progress.marks
-	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 bsp/all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\423\Desktop\Cricket_Balance_System_1\build\CMakeFiles 0
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(CMAKE_COMMAND) -E cmake_progress_start C:\Users\34575\Desktop\Cricket_Balance_System\build\CMakeFiles C:\Users\34575\Desktop\Cricket_Balance_System\build\bsp\\CMakeFiles\progress.marks
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 bsp/all
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\34575\Desktop\Cricket_Balance_System\build\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 bsp/clean
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 bsp/clean
 .PHONY : clean
 
 # The main clean target
@@ -102,22 +102,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 bsp/preinstall
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 bsp/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 bsp/preinstall
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 bsp/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 1
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 bsp/CMakeFiles/bsplib.dir/rule:
-	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 bsp/CMakeFiles/bsplib.dir/rule
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 bsp/CMakeFiles/bsplib.dir/rule
 .PHONY : bsp/CMakeFiles/bsplib.dir/rule
 
 # Convenience name for target.
@@ -126,7 +126,7 @@ bsplib: bsp/CMakeFiles/bsplib.dir/rule
 
 # fast build rule for target.
 bsplib/fast:
-	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/build
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/build
 .PHONY : bsplib/fast
 
 Serial.obj: Serial.c.obj
@@ -134,7 +134,7 @@ Serial.obj: Serial.c.obj
 
 # target to build an object file
 Serial.c.obj:
-	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/Serial.c.obj
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/Serial.c.obj
 .PHONY : Serial.c.obj
 
 Serial.i: Serial.c.i
@@ -142,7 +142,7 @@ Serial.i: Serial.c.i
 
 # target to preprocess a source file
 Serial.c.i:
-	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/Serial.c.i
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/Serial.c.i
 .PHONY : Serial.c.i
 
 Serial.s: Serial.c.s
@@ -150,7 +150,7 @@ Serial.s: Serial.c.s
 
 # target to generate assembly for a file
 Serial.c.s:
-	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/Serial.c.s
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/Serial.c.s
 .PHONY : Serial.c.s
 
 f407/f407_gpio.obj: f407/f407_gpio.c.obj
@@ -158,7 +158,7 @@ f407/f407_gpio.obj: f407/f407_gpio.c.obj
 
 # target to build an object file
 f407/f407_gpio.c.obj:
-	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/f407/f407_gpio.c.obj
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/f407/f407_gpio.c.obj
 .PHONY : f407/f407_gpio.c.obj
 
 f407/f407_gpio.i: f407/f407_gpio.c.i
@@ -166,7 +166,7 @@ f407/f407_gpio.i: f407/f407_gpio.c.i
 
 # target to preprocess a source file
 f407/f407_gpio.c.i:
-	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/f407/f407_gpio.c.i
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/f407/f407_gpio.c.i
 .PHONY : f407/f407_gpio.c.i
 
 f407/f407_gpio.s: f407/f407_gpio.c.s
@@ -174,7 +174,7 @@ f407/f407_gpio.s: f407/f407_gpio.c.s
 
 # target to generate assembly for a file
 f407/f407_gpio.c.s:
-	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/f407/f407_gpio.c.s
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/f407/f407_gpio.c.s
 .PHONY : f407/f407_gpio.c.s
 
 f407/f407_i2c.obj: f407/f407_i2c.c.obj
@@ -182,7 +182,7 @@ f407/f407_i2c.obj: f407/f407_i2c.c.obj
 
 # target to build an object file
 f407/f407_i2c.c.obj:
-	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/f407/f407_i2c.c.obj
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/f407/f407_i2c.c.obj
 .PHONY : f407/f407_i2c.c.obj
 
 f407/f407_i2c.i: f407/f407_i2c.c.i
@@ -190,7 +190,7 @@ f407/f407_i2c.i: f407/f407_i2c.c.i
 
 # target to preprocess a source file
 f407/f407_i2c.c.i:
-	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/f407/f407_i2c.c.i
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/f407/f407_i2c.c.i
 .PHONY : f407/f407_i2c.c.i
 
 f407/f407_i2c.s: f407/f407_i2c.c.s
@@ -198,7 +198,7 @@ f407/f407_i2c.s: f407/f407_i2c.c.s
 
 # target to generate assembly for a file
 f407/f407_i2c.c.s:
-	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/f407/f407_i2c.c.s
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/f407/f407_i2c.c.s
 .PHONY : f407/f407_i2c.c.s
 
 f407/f407_rcc.obj: f407/f407_rcc.c.obj
@@ -206,7 +206,7 @@ f407/f407_rcc.obj: f407/f407_rcc.c.obj
 
 # target to build an object file
 f407/f407_rcc.c.obj:
-	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/f407/f407_rcc.c.obj
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/f407/f407_rcc.c.obj
 .PHONY : f407/f407_rcc.c.obj
 
 f407/f407_rcc.i: f407/f407_rcc.c.i
@@ -214,7 +214,7 @@ f407/f407_rcc.i: f407/f407_rcc.c.i
 
 # target to preprocess a source file
 f407/f407_rcc.c.i:
-	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/f407/f407_rcc.c.i
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/f407/f407_rcc.c.i
 .PHONY : f407/f407_rcc.c.i
 
 f407/f407_rcc.s: f407/f407_rcc.c.s
@@ -222,7 +222,7 @@ f407/f407_rcc.s: f407/f407_rcc.c.s
 
 # target to generate assembly for a file
 f407/f407_rcc.c.s:
-	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/f407/f407_rcc.c.s
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/f407/f407_rcc.c.s
 .PHONY : f407/f407_rcc.c.s
 
 f407/f407_time.obj: f407/f407_time.c.obj
@@ -230,7 +230,7 @@ f407/f407_time.obj: f407/f407_time.c.obj
 
 # target to build an object file
 f407/f407_time.c.obj:
-	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/f407/f407_time.c.obj
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/f407/f407_time.c.obj
 .PHONY : f407/f407_time.c.obj
 
 f407/f407_time.i: f407/f407_time.c.i
@@ -238,7 +238,7 @@ f407/f407_time.i: f407/f407_time.c.i
 
 # target to preprocess a source file
 f407/f407_time.c.i:
-	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/f407/f407_time.c.i
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/f407/f407_time.c.i
 .PHONY : f407/f407_time.c.i
 
 f407/f407_time.s: f407/f407_time.c.s
@@ -246,7 +246,7 @@ f407/f407_time.s: f407/f407_time.c.s
 
 # target to generate assembly for a file
 f407/f407_time.c.s:
-	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/f407/f407_time.c.s
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/f407/f407_time.c.s
 .PHONY : f407/f407_time.c.s
 
 f407/f407_usart.obj: f407/f407_usart.c.obj
@@ -254,7 +254,7 @@ f407/f407_usart.obj: f407/f407_usart.c.obj
 
 # target to build an object file
 f407/f407_usart.c.obj:
-	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/f407/f407_usart.c.obj
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/f407/f407_usart.c.obj
 .PHONY : f407/f407_usart.c.obj
 
 f407/f407_usart.i: f407/f407_usart.c.i
@@ -262,7 +262,7 @@ f407/f407_usart.i: f407/f407_usart.c.i
 
 # target to preprocess a source file
 f407/f407_usart.c.i:
-	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/f407/f407_usart.c.i
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/f407/f407_usart.c.i
 .PHONY : f407/f407_usart.c.i
 
 f407/f407_usart.s: f407/f407_usart.c.s
@@ -270,7 +270,7 @@ f407/f407_usart.s: f407/f407_usart.c.s
 
 # target to generate assembly for a file
 f407/f407_usart.c.s:
-	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/f407/f407_usart.c.s
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/f407/f407_usart.c.s
 .PHONY : f407/f407_usart.c.s
 
 h723/h723_gpio.obj: h723/h723_gpio.c.obj
@@ -278,7 +278,7 @@ h723/h723_gpio.obj: h723/h723_gpio.c.obj
 
 # target to build an object file
 h723/h723_gpio.c.obj:
-	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/h723/h723_gpio.c.obj
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/h723/h723_gpio.c.obj
 .PHONY : h723/h723_gpio.c.obj
 
 h723/h723_gpio.i: h723/h723_gpio.c.i
@@ -286,7 +286,7 @@ h723/h723_gpio.i: h723/h723_gpio.c.i
 
 # target to preprocess a source file
 h723/h723_gpio.c.i:
-	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/h723/h723_gpio.c.i
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/h723/h723_gpio.c.i
 .PHONY : h723/h723_gpio.c.i
 
 h723/h723_gpio.s: h723/h723_gpio.c.s
@@ -294,7 +294,7 @@ h723/h723_gpio.s: h723/h723_gpio.c.s
 
 # target to generate assembly for a file
 h723/h723_gpio.c.s:
-	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/h723/h723_gpio.c.s
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/h723/h723_gpio.c.s
 .PHONY : h723/h723_gpio.c.s
 
 h723/h723_tim.obj: h723/h723_tim.c.obj
@@ -302,7 +302,7 @@ h723/h723_tim.obj: h723/h723_tim.c.obj
 
 # target to build an object file
 h723/h723_tim.c.obj:
-	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/h723/h723_tim.c.obj
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/h723/h723_tim.c.obj
 .PHONY : h723/h723_tim.c.obj
 
 h723/h723_tim.i: h723/h723_tim.c.i
@@ -310,7 +310,7 @@ h723/h723_tim.i: h723/h723_tim.c.i
 
 # target to preprocess a source file
 h723/h723_tim.c.i:
-	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/h723/h723_tim.c.i
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/h723/h723_tim.c.i
 .PHONY : h723/h723_tim.c.i
 
 h723/h723_tim.s: h723/h723_tim.c.s
@@ -318,7 +318,7 @@ h723/h723_tim.s: h723/h723_tim.c.s
 
 # target to generate assembly for a file
 h723/h723_tim.c.s:
-	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/h723/h723_tim.c.s
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/h723/h723_tim.c.s
 .PHONY : h723/h723_tim.c.s
 
 h723/h723_usart.obj: h723/h723_usart.c.obj
@@ -326,7 +326,7 @@ h723/h723_usart.obj: h723/h723_usart.c.obj
 
 # target to build an object file
 h723/h723_usart.c.obj:
-	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/h723/h723_usart.c.obj
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/h723/h723_usart.c.obj
 .PHONY : h723/h723_usart.c.obj
 
 h723/h723_usart.i: h723/h723_usart.c.i
@@ -334,7 +334,7 @@ h723/h723_usart.i: h723/h723_usart.c.i
 
 # target to preprocess a source file
 h723/h723_usart.c.i:
-	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/h723/h723_usart.c.i
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/h723/h723_usart.c.i
 .PHONY : h723/h723_usart.c.i
 
 h723/h723_usart.s: h723/h723_usart.c.s
@@ -342,7 +342,7 @@ h723/h723_usart.s: h723/h723_usart.c.s
 
 # target to generate assembly for a file
 h723/h723_usart.c.s:
-	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/h723/h723_usart.c.s
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/h723/h723_usart.c.s
 .PHONY : h723/h723_usart.c.s
 
 sysport.obj: sysport.c.obj
@@ -350,7 +350,7 @@ sysport.obj: sysport.c.obj
 
 # target to build an object file
 sysport.c.obj:
-	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/sysport.c.obj
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/sysport.c.obj
 .PHONY : sysport.c.obj
 
 sysport.i: sysport.c.i
@@ -358,7 +358,7 @@ sysport.i: sysport.c.i
 
 # target to preprocess a source file
 sysport.c.i:
-	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/sysport.c.i
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/sysport.c.i
 .PHONY : sysport.c.i
 
 sysport.s: sysport.c.s
@@ -366,7 +366,7 @@ sysport.s: sysport.c.s
 
 # target to generate assembly for a file
 sysport.c.s:
-	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/sysport.c.s
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/sysport.c.s
 .PHONY : sysport.c.s
 
 # Help Target
@@ -419,6 +419,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 0
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

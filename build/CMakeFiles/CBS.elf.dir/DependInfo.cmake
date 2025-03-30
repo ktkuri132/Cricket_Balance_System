@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "C:/Users/423/Desktop/Cricket_Balance_System_1/main.c" "CMakeFiles/CBS.elf.dir/main.c.obj" "gcc" "CMakeFiles/CBS.elf.dir/main.c.obj.d"
+  "C:/Users/34575/Desktop/Cricket_Balance_System/main.c" "CMakeFiles/CBS.elf.dir/main.c.obj" "gcc" "CMakeFiles/CBS.elf.dir/main.c.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.
