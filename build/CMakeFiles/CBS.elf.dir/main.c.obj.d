@@ -68,4 +68,14 @@ CMakeFiles/CBS.elf.dir/main.c.obj: \
  C:\Users\423\Desktop\Cricket_Balance_System_1\h723_core/syscall.h \
  C:\Users\423\Desktop\Cricket_Balance_System_1\bsp/h723/h723.h \
  C:\Users\423\Desktop\Cricket_Balance_System_1\include/Init.h \
- C:\Users\423\Desktop\Cricket_Balance_System_1\bsp/h723/h723.h
+ C:\Users\423\Desktop\Cricket_Balance_System_1\bsp/h723/h723.h \
+ C:\Users\423\Desktop\Cricket_Balance_System_1\bsp/Serial.h \
+ C:/PROGRA~2/ARMGNU~1/133167~1.3RE/arm-none-eabi/include/stdlib.h \
+ C:/PROGRA~2/ARMGNU~1/133167~1.3RE/arm-none-eabi/include/machine/stdlib.h \
+ C:/PROGRA~2/ARMGNU~1/133167~1.3RE/arm-none-eabi/include/alloca.h \
+ C:/PROGRA~2/ARMGNU~1/133167~1.3RE/arm-none-eabi/include/string.h \
+ C:/PROGRA~2/ARMGNU~1/133167~1.3RE/arm-none-eabi/include/sys/_locale.h \
+ C:/PROGRA~2/ARMGNU~1/133167~1.3RE/arm-none-eabi/include/strings.h \
+ C:/PROGRA~2/ARMGNU~1/133167~1.3RE/arm-none-eabi/include/sys/string.h \
+ C:\Users\423\Desktop\Cricket_Balance_System_1\include/control.h \
+ C:\Users\423\Desktop\Cricket_Balance_System_1/bsp/Serial.h

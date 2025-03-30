@@ -39,12 +39,12 @@ void Stde_DataTypeDef_Init(Stde_DataTypeDef *data)
     memset(data->Data, 0, sizeof(data->Data));
 }
 
-#define DR USART1->RDR
+#define DR USART2->RDR
 
 /// @brief STDE串口协议处理函数
-uint8_t STDE_UART(Stde_DataTypeDef* DataTypeStruct)
+uint8_t STDE_UART(USART_TypeDef* USARTx, Stde_DataTypeDef* DataTypeStruct)
 {
-    DataTypeStruct->c = DR;   //获取第一个字符
+    DataTypeStruct->c = USARTx->RDR;   //获取第一个字符
     if(DataTypeStruct->c=='s')          //如果是开始字符
     {
         DataTypeStruct->UART_Strat = 1;     //开始接收

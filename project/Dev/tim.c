@@ -31,6 +31,3 @@ void TIM2_INT_Init(uint8_t ms){
 	TIM2->CR1|=TIM_CR1_CEN;				
 }
 
-void DS3218_Output(SYS_Port *port,uint8_t status){
-    
-}

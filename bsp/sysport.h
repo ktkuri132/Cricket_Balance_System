@@ -11,10 +11,10 @@
 #include "h723/h723.h"
 #define sys_port port
 
-typedef  uint32_t u32;
-typedef  uint16_t u16;
-typedef  uint8_t u8;
-typedef volatile uint32_t  vu32;
+// typedef  uint32_t u32;
+// typedef  uint16_t u16;
+// typedef  uint8_t u8;
+// typedef volatile uint32_t  vu32;
 
 #ifndef sys_port
 #error "sys_port is not defined,plesae define sys_port,like this: SYS_Port *sys_port in you main.c file,and like this :#define sys_port port"

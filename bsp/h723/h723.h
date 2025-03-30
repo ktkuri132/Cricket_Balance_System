@@ -8,6 +8,11 @@
 #include <stddef.h>
 #include "stm32h723xx.h"
 
+typedef  uint32_t u32;
+typedef  uint16_t u16;
+typedef  uint8_t u8;
+typedef volatile uint32_t  vu32;
+
 typedef enum{
     AF_0,AF_1,AF_2,AF_3,AF_4,AF_5,AF_6,AF_7,
     AF_8,AF_9,AF_10,AF_11,AF_12,AF_13,AF_14,AF_15
@@ -24,9 +29,46 @@ typedef enum{
     Channel_1,Channel_2,Channel_3,Channel_4
 }Channel;
 
+//
+#define GPIO_MODE_IN    	0		
+#define GPIO_MODE_OUT		1		
+#define GPIO_MODE_AF		2		
+#define GPIO_MODE_AIN		3		
+
+#define GPIO_SPEED_LOW		0		
+#define GPIO_SPEED_MID		1		
+#define GPIO_SPEED_FAST		2		
+#define GPIO_SPEED_HIGH		3		  
+
+#define GPIO_PUPD_NONE		0		
+#define GPIO_PUPD_PU		1		
+#define GPIO_PUPD_PD		2		
+#define GPIO_PUPD_RES		3		
+
+#define GPIO_OTYPE_PP		0		
+#define GPIO_OTYPE_OD		1		 
+
+#define PIN0				1<<0
+#define PIN1				1<<1
+#define PIN2				1<<2
+#define PIN3				1<<3
+#define PIN4				1<<4
+#define PIN5				1<<5
+#define PIN6				1<<6
+#define PIN7				1<<7
+#define PIN8				1<<8
+#define PIN9				1<<9
+#define PIN10				1<<10
+#define PIN11				1<<11
+#define PIN12				1<<12
+#define PIN13				1<<13
+#define PIN14				1<<14
+#define PIN15				1<<15 
+
 typedef struct {
     GPIO_TypeDef *GPIOx;
     uint32_t GPIO_Pin_x;
+    uint8_t GPIO_Pin_Source_x;
     uint32_t GPIO_Mode_x;
     uint32_t GPIO_PuPd_x;
     uint32_t GPIO_Speed_x;
@@ -84,6 +126,8 @@ typedef struct{
     FunctionalState NewState;
 }RCC_PeriphClock_Parameters;
 
+void GPIO_Set(GPIO_TypeDef* GPIOx,u32 BITx,u32 MODE,u32 OTYPE,u32 OSPEED,u32 PUPD);
+void GPIO_AF_Set(GPIO_TypeDef* GPIOx,u8 BITx,u8 AFx);
 
 void H723_PeriphClockCmd(void* const Parameters);
 void H723_GPIO_Config(void* const Parameters);

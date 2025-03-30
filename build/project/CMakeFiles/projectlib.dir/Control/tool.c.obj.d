@@ -1,5 +1,7 @@
-project/CMakeFiles/projectlib.dir/Dev/usart.c.obj: \
- C:\Users\423\Desktop\Cricket_Balance_System_1\project\Dev\usart.c \
+project/CMakeFiles/projectlib.dir/Control/tool.c.obj: \
+ C:\Users\423\Desktop\Cricket_Balance_System_1\project\Control\tool.c \
+ C:\Users\423\Desktop\Cricket_Balance_System_1\include/control.h \
+ C:\Users\423\Desktop\Cricket_Balance_System_1/bsp/Serial.h \
  C:\Users\423\Desktop\Cricket_Balance_System_1\bsp/sysport.h \
  C:/PROGRA~2/ARMGNU~1/133167~1.3RE/lib/gcc/arm-none-eabi/13.3.1/include/stdint.h \
  C:/PROGRA~2/ARMGNU~1/133167~1.3RE/arm-none-eabi/include/stdint.h \
@@ -67,4 +69,10 @@ project/CMakeFiles/projectlib.dir/Dev/usart.c.obj: \
  C:\Users\423\Desktop\Cricket_Balance_System_1\h723_core\STM32H7xx_HAL_Driver\inc/stm32h7xx_hal_usart_ex.h \
  C:\Users\423\Desktop\Cricket_Balance_System_1\h723_core/syscall.h \
  C:\Users\423\Desktop\Cricket_Balance_System_1\bsp/h723/h723.h \
- C:\Users\423\Desktop\Cricket_Balance_System_1\bsp/h723/h723.h
+ C:/PROGRA~2/ARMGNU~1/133167~1.3RE/arm-none-eabi/include/stdlib.h \
+ C:/PROGRA~2/ARMGNU~1/133167~1.3RE/arm-none-eabi/include/machine/stdlib.h \
+ C:/PROGRA~2/ARMGNU~1/133167~1.3RE/arm-none-eabi/include/alloca.h \
+ C:/PROGRA~2/ARMGNU~1/133167~1.3RE/arm-none-eabi/include/string.h \
+ C:/PROGRA~2/ARMGNU~1/133167~1.3RE/arm-none-eabi/include/sys/_locale.h \
+ C:/PROGRA~2/ARMGNU~1/133167~1.3RE/arm-none-eabi/include/strings.h \
+ C:/PROGRA~2/ARMGNU~1/133167~1.3RE/arm-none-eabi/include/sys/string.h

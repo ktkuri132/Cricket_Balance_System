@@ -129,6 +129,78 @@ projectlib/fast:
 	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/build
 .PHONY : projectlib/fast
 
+Control/control.obj: Control/control.c.obj
+.PHONY : Control/control.obj
+
+# target to build an object file
+Control/control.c.obj:
+	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Control/control.c.obj
+.PHONY : Control/control.c.obj
+
+Control/control.i: Control/control.c.i
+.PHONY : Control/control.i
+
+# target to preprocess a source file
+Control/control.c.i:
+	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Control/control.c.i
+.PHONY : Control/control.c.i
+
+Control/control.s: Control/control.c.s
+.PHONY : Control/control.s
+
+# target to generate assembly for a file
+Control/control.c.s:
+	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Control/control.c.s
+.PHONY : Control/control.c.s
+
+Control/pid.obj: Control/pid.c.obj
+.PHONY : Control/pid.obj
+
+# target to build an object file
+Control/pid.c.obj:
+	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Control/pid.c.obj
+.PHONY : Control/pid.c.obj
+
+Control/pid.i: Control/pid.c.i
+.PHONY : Control/pid.i
+
+# target to preprocess a source file
+Control/pid.c.i:
+	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Control/pid.c.i
+.PHONY : Control/pid.c.i
+
+Control/pid.s: Control/pid.c.s
+.PHONY : Control/pid.s
+
+# target to generate assembly for a file
+Control/pid.c.s:
+	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Control/pid.c.s
+.PHONY : Control/pid.c.s
+
+Control/tool.obj: Control/tool.c.obj
+.PHONY : Control/tool.obj
+
+# target to build an object file
+Control/tool.c.obj:
+	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Control/tool.c.obj
+.PHONY : Control/tool.c.obj
+
+Control/tool.i: Control/tool.c.i
+.PHONY : Control/tool.i
+
+# target to preprocess a source file
+Control/tool.c.i:
+	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Control/tool.c.i
+.PHONY : Control/tool.c.i
+
+Control/tool.s: Control/tool.c.s
+.PHONY : Control/tool.s
+
+# target to generate assembly for a file
+Control/tool.c.s:
+	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Control/tool.c.s
+.PHONY : Control/tool.c.s
+
 Dev/bsp.obj: Dev/bsp.c.obj
 .PHONY : Dev/bsp.obj
 
@@ -234,6 +306,15 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... projectlib
+	@echo ... Control/control.obj
+	@echo ... Control/control.i
+	@echo ... Control/control.s
+	@echo ... Control/pid.obj
+	@echo ... Control/pid.i
+	@echo ... Control/pid.s
+	@echo ... Control/tool.obj
+	@echo ... Control/tool.i
+	@echo ... Control/tool.s
 	@echo ... Dev/bsp.obj
 	@echo ... Dev/bsp.i
 	@echo ... Dev/bsp.s

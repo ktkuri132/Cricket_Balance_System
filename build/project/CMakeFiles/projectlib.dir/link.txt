@@ -1,2 +1,2 @@
-arm-none-eabi-ar qc libprojectlib.a CMakeFiles/projectlib.dir/Dev/bsp.c.obj CMakeFiles/projectlib.dir/Dev/led.c.obj CMakeFiles/projectlib.dir/Dev/tim.c.obj CMakeFiles/projectlib.dir/Dev/usart.c.obj
+arm-none-eabi-ar qc libprojectlib.a CMakeFiles/projectlib.dir/Control/control.c.obj CMakeFiles/projectlib.dir/Control/pid.c.obj CMakeFiles/projectlib.dir/Control/tool.c.obj CMakeFiles/projectlib.dir/Dev/bsp.c.obj CMakeFiles/projectlib.dir/Dev/led.c.obj CMakeFiles/projectlib.dir/Dev/tim.c.obj CMakeFiles/projectlib.dir/Dev/usart.c.obj
 C:\PROGRA~2\ARMGNU~1\133167~1.3RE\bin\AR17F9~1.EXE libprojectlib.a

@@ -35,8 +35,13 @@ void H723_USART_Init(void* const Parameters) {
     USART_Parameter->USARTx->CR1 &= ~USART_CR1_PCE;
     // 使能接收中断
     USART_Parameter->USARTx->CR1 |= USART_CR1_RXNEIE;
+    USART_Parameter->USARTx->CR3 |= USART_CR3_OVRDIS;
+    // USART_Parameter->USARTx->CR3 |= USART_CR3_EIE;
+    
     // 设置一个停止位
     USART_Parameter->USARTx->CR2 &= ~USART_CR2_STOP;
     // 使能发送和接收
     USART_Parameter->USARTx->CR1 |= USART_CR1_TE | USART_CR1_RE;
+    
+    
 }

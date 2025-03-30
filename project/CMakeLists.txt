@@ -9,6 +9,8 @@ get_filename_component(DIR_NAME ${CMAKE_CURRENT_SOURCE_DIR} NAME)
 # 添加源文件
 file(GLOB_RECURSE ${DIR_NAME}_Source
         Dev/*.c
+        Control/*.c
+        
 )
 
 

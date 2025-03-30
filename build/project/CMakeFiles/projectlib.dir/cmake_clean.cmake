@@ -1,4 +1,10 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/projectlib.dir/Control/control.c.obj"
+  "CMakeFiles/projectlib.dir/Control/control.c.obj.d"
+  "CMakeFiles/projectlib.dir/Control/pid.c.obj"
+  "CMakeFiles/projectlib.dir/Control/pid.c.obj.d"
+  "CMakeFiles/projectlib.dir/Control/tool.c.obj"
+  "CMakeFiles/projectlib.dir/Control/tool.c.obj.d"
   "CMakeFiles/projectlib.dir/Dev/bsp.c.obj"
   "CMakeFiles/projectlib.dir/Dev/bsp.c.obj.d"
   "CMakeFiles/projectlib.dir/Dev/led.c.obj"
