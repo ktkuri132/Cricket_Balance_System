@@ -1,7 +1,11 @@
 #include <sysport.h>
 #include "h723/h723.h"
 
-
+/**
+    * @brief 应用层USART1初始化函数
+    * @param port 指向SYS_Port结构体的指针
+    * @return void
+    */
 void USART1_Init(SYS_Port *port){
     
 
@@ -38,6 +42,11 @@ void USART1_Init(SYS_Port *port){
     
 }
 
+/**
+    * @brief 应用层USART2初始化函数
+    * @param port 指向SYS_Port结构体的指针
+    * @return void
+    */
 void USART2_Init(SYS_Port *port){
     
     // GPIO_Init_Parameters gpio_init;

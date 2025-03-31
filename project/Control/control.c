@@ -6,7 +6,14 @@
 PID pid_x;
 
 
-
+/**
+    * @brief PID控制器初始化函数
+    * @param pid 指向PID结构体的指针
+    * @param Kp 比例系数
+    * @param Ki 积分系数
+    * @param Kd 微分系数
+    * @param max_output 最大输出值
+*/
 void Control_Init() {
     static uint8_t i = 0;
     if (!i) {

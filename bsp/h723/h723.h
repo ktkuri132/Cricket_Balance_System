@@ -8,6 +8,7 @@
 #include <stddef.h>
 #include "stm32h723xx.h"
 
+
 typedef  uint32_t u32;
 typedef  uint16_t u16;
 typedef  uint8_t u8;
@@ -126,7 +127,7 @@ typedef struct{
     FunctionalState NewState;
 }RCC_PeriphClock_Parameters;
 
-void NVIC_Init(void);
+// void NVIC_Init(void);
 
 void GPIO_Set(GPIO_TypeDef* GPIOx,u32 BITx,u32 MODE,u32 OTYPE,u32 OSPEED,u32 PUPD);
 void GPIO_AF_Set(GPIO_TypeDef* GPIOx,u8 BITx,u8 AFx);
@@ -138,5 +139,35 @@ void H723_GPIO_AF_Config(void* const Parameters);
 void H723_USART_Init(void* const Parameters);
 void H723_TIM_Init(void* const Parameters);
 
+/**
+    * @brief  系统NVIC中断配置函数
+    * @retval None
+*/
+static inline void NVIC_Init(void){
+    NVIC_SetPriorityGrouping(4);	//设置中断优先级分组为4：4位抢占优先级，0位响应优先级
+    
+    NVIC_EnableIRQ(TIM2_IRQn);
+    NVIC_EnableIRQ(USART1_IRQn);	//使能USART1中断通道
+    NVIC_EnableIRQ(USART2_IRQn);	//使能USART2中断通道
+
+    NVIC_SetPriority(TIM2_IRQn, 1);	//设置TIM2中断优先级为0
+    NVIC_SetPriority(USART1_IRQn, 2);	//设置USART1中断优先级为2
+    NVIC_SetPriority(USART2_IRQn, 2);	//设置USART2中断优先级为2
+}
+
+/**
+    * @brief  非阻塞延迟函数
+    * @param  nus: 延迟的微秒数
+    * @retval None
+*/
+static inline void sleep_us(uint32_t nus){
+    static uint32_t tick = srt.SysRunTime; // 获取当前系统运行时间
+}
+
+static inline void sleep_ms(uint32_t nms){
+    for (uint32_t i = 0; i < nms; i++) {
+        sleep_us(1000);
+    }
+}
 
 #endif

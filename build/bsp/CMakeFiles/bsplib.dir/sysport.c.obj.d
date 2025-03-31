@@ -24,6 +24,9 @@ bsp/CMakeFiles/bsplib.dir/sysport.c.obj: \
  C:/PROGRA~2/ARMGNU~1/133167~1.3RE/arm-none-eabi/include/_ansi.h \
  C:/PROGRA~2/ARMGNU~1/133167~1.3RE/lib/gcc/arm-none-eabi/13.3.1/include/stdarg.h \
  C:/PROGRA~2/ARMGNU~1/133167~1.3RE/arm-none-eabi/include/sys/stdio.h \
+ C:\Users\34575\Desktop\Cricket_Balance_System\bsp\h723/h723.h \
+ C:\Users\34575\Desktop\Cricket_Balance_System\bsp/sysport.h \
+ C:\Users\34575\Desktop\Cricket_Balance_System\h723_core/stm32h7xx.h \
  C:\Users\34575\Desktop\Cricket_Balance_System\h723_core/stm32h723xx.h \
  C:\Users\34575\Desktop\Cricket_Balance_System\h723_core/core_cm7.h \
  C:\Users\34575\Desktop\Cricket_Balance_System\h723_core/cmsis_version.h \
@@ -31,8 +34,6 @@ bsp/CMakeFiles/bsplib.dir/sysport.c.obj: \
  C:\Users\34575\Desktop\Cricket_Balance_System\h723_core/cmsis_gcc.h \
  C:\Users\34575\Desktop\Cricket_Balance_System\h723_core/mpu_armv7.h \
  C:\Users\34575\Desktop\Cricket_Balance_System\h723_core/system_stm32h7xx.h \
- C:\Users\34575\Desktop\Cricket_Balance_System\h723_core/stm32h7xx.h \
- C:\Users\34575\Desktop\Cricket_Balance_System\h723_core/stm32h723xx.h \
  C:\Users\34575\Desktop\Cricket_Balance_System\h723_core\STM32H7xx_HAL_Driver\inc/stm32h7xx_hal.h \
  C:\Users\34575\Desktop\Cricket_Balance_System\h723_core/stm32h7xx_hal_conf.h \
  C:\Users\34575\Desktop\Cricket_Balance_System\h723_core\STM32H7xx_HAL_Driver\inc/stm32h7xx_hal_rcc.h \
@@ -67,6 +68,5 @@ bsp/CMakeFiles/bsplib.dir/sysport.c.obj: \
  C:\Users\34575\Desktop\Cricket_Balance_System\h723_core\STM32H7xx_HAL_Driver\inc/stm32h7xx_hal_uart_ex.h \
  C:\Users\34575\Desktop\Cricket_Balance_System\h723_core\STM32H7xx_HAL_Driver\inc/stm32h7xx_hal_usart.h \
  C:\Users\34575\Desktop\Cricket_Balance_System\h723_core\STM32H7xx_HAL_Driver\inc/stm32h7xx_hal_usart_ex.h \
- C:\Users\34575\Desktop\Cricket_Balance_System\h723_core/syscall.h \
- C:\Users\34575\Desktop\Cricket_Balance_System\bsp\h723/h723.h \
- C:\Users\34575\Desktop\Cricket_Balance_System\bsp/sysport.h
+ C:\Users\34575\Desktop\Cricket_Balance_System\h723_core/stm32h723xx.h \
+ C:\Users\34575\Desktop\Cricket_Balance_System\h723_core/syscall.h

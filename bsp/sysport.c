@@ -5,6 +5,12 @@
 #define USART
 #define TIM
 
+
+
+/**
+    * @brief  系统接口初始化函数
+    * @param  None
+ */
 SYS_Port*  SysPort_Init() {
     static SYS_Port sys_port = {
         .System_Init = SystemClock_Config,
@@ -42,18 +48,11 @@ SYS_Port*  SysPort_Init() {
         .tim_port = {
             .bsp_tim_x_inti = H723_TIM_Init,
             .bsp_tim_x_start = NULL,
-            .bsp_tim_x_stop = NULL,
-            .bsp_tim_x_set_period = NULL,
-            .bsp_tim_x_set_prescaler = NULL,
-            .bsp_tim_x_set_clock_division = NULL,
-            .bsp_tim_x_set_counter_mode = NULL,
-            .bsp_tim_x_set_channel = NULL,
         }
         #endif
     };
     return &sys_port;
 }
-
 
 
 /**

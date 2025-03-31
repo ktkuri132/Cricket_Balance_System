@@ -17,17 +17,17 @@
 #define PWM_Mode_2 2
 
 
-void NVIC_Init(void){
-    NVIC_SetPriorityGrouping(4);	//设置中断优先级分组为4：4位抢占优先级，0位响应优先级
+// void NVIC_Init(void){
+//     NVIC_SetPriorityGrouping(4);	//设置中断优先级分组为4：4位抢占优先级，0位响应优先级
     
-    NVIC_EnableIRQ(TIM2_IRQn);
-    NVIC_EnableIRQ(USART1_IRQn);	//使能USART1中断通道
-    NVIC_EnableIRQ(USART2_IRQn);	//使能USART2中断通道
+//     NVIC_EnableIRQ(TIM2_IRQn);
+//     NVIC_EnableIRQ(USART1_IRQn);	//使能USART1中断通道
+//     NVIC_EnableIRQ(USART2_IRQn);	//使能USART2中断通道
 
-    NVIC_SetPriority(TIM2_IRQn, 1);	//设置TIM2中断优先级为0
-    NVIC_SetPriority(USART1_IRQn, 2);	//设置USART1中断优先级为2
-    NVIC_SetPriority(USART2_IRQn, 2);	//设置USART2中断优先级为2
-}
+//     NVIC_SetPriority(TIM2_IRQn, 1);	//设置TIM2中断优先级为0
+//     NVIC_SetPriority(USART1_IRQn, 2);	//设置USART1中断优先级为2
+//     NVIC_SetPriority(USART2_IRQn, 2);	//设置USART2中断优先级为2
+// }
 
 void H723_TIM_Init(void* const Parameters) {
     TIM_Parameters* TIM_Parameter = (TIM_Parameters*)Parameters;

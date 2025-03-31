@@ -297,7 +297,6 @@ void Wirte_Char(uint8_t x, uint8_t y, char c, uint8_t color)
     Graphics_Memory[x][y].fresh = 1; // 设置刷新标志位
     Graphics_Memory[x][y].color_fresh = 1; // 设置颜色刷新标志位
     Graphics_Memory[x][y].sit_fresh = 1; // 设置坐标刷新标志位
-    // 这里可以添加代码将字符显示到屏幕上，例如调用LCD或OLED的显示函数
 }
 
 /// @brief 读取显存区中的字符和坐标信息

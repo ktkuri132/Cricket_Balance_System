@@ -38,9 +38,9 @@
 extern int __io_putchar(int ch) __attribute__((weak));
 extern int __io_getchar(void) __attribute__((weak));
 
-
-
+/// @brief  系统时钟配置函数
 void SystemClock_Config() {
+    /* 重置RCC时钟配置  */
     RCC->CR                            = 0x00000001;
     RCC->CFGR                          = 0x00000000;
     RCC->D1CFGR                        = 0x00000000;
@@ -50,6 +50,7 @@ void SystemClock_Config() {
     RCC->PLLCFGR                       = 0x00000000;
     RCC->CIER                          = 0x00000000;
     *((volatile uint32_t *)0x51008108) = 0x00000001;
+    /* 使能STM32H7的指令缓存  */
     SCB_EnableICache();
     SCB_EnableDCache();
     SCB->CACR |= 1 << 2;
@@ -103,19 +104,26 @@ void SystemClock_Config() {
 }
 
 /**
- * @brief  This function is executed in case of error occurrence.
+ * @brief  SysTick定时器中断初始化函数
  * @retval None
  */
 void SysTick_Init(void) {
     /* Configure the SysTick to have an interrupt in 1ms time basis */
-    SysTick->LOAD  = (SystemCoreClock / 1000) - 1; /* Set reload register */
-    NVIC_SetPriority(SysTick_IRQn, 0);               /* Set Priority for SysTick Interrupt */
-    NVIC_EnableIRQ(SysTick_IRQn);                  /* Enable SysTick Interrupt */
-    SysTick->VAL   = 0;                            /* Load the SysTick Counter Value */
+    SysTick->LOAD  = (SystemCoreClock / 1000) - 1; /* 设置重装寄存器 */
+    NVIC_SetPriority(SysTick_IRQn, 0);               /* 设置Systick定时器中断优先级 */
+    NVIC_EnableIRQ(SysTick_IRQn);                  /* 设置SysTick定时器中断使能 */
+    SysTick->VAL   = 0;                            /* 装载SysTick定时器的初始值 */
+    /* 配置SysTick时钟源  使能SysTick中断   开始计时  */
     SysTick->CTRL |= SysTick_CTRL_CLKSOURCE_Msk | SysTick_CTRL_TICKINT_Msk | SysTick_CTRL_ENABLE_Msk;
 }
+        
 
 
+/**
+ * @brief  SysTick延迟函数
+ * @param  nus: 延迟的微秒数
+ * @retval None
+ */
 void delay_us(uint32_t nus) {
     SysTick->LOAD = (nus * (SystemCoreClock / 1000000)) - 1;
     SysTick->VAL = 0x00;
@@ -126,6 +134,11 @@ void delay_us(uint32_t nus) {
     SysTick->VAL = 0X00;
 }
 
+/**
+ * @brief  SysTick延迟函数
+ * @param  nms: 延迟的毫秒数
+ * @retval None
+ */
 void delay_ms(uint32_t nms) {
     uint32_t i;
     for (i = 0; i < nms; i++) {
@@ -165,6 +178,12 @@ __attribute__((weak)) int _read(int file, char *ptr, int len) {
     return len;
 }
 
+/**
+    * @brief  重定义Wirte函数,用于重定向printf输出到USART1
+    * @param  ch: 字符
+    * @param  f: 文件指针
+    * @retval None
+*/
 __attribute__((weak)) int _write(int file, char *ptr, int len) {
     (void)file;
     int i = 0;

@@ -43,7 +43,6 @@ int main() {
     port->SysTick_Init(); 
     Stde_DataTypeDef_Init(USART2_Data);
 
-    
     LED_Init(port);
     USART2_Init(port);
     USART1_Init(port);
@@ -62,18 +61,35 @@ int main() {
     Wirte_String(13, 1, 1,"|                                                                  |");
     Wirte_String(14, 1, 1,"|                                                                  |");
     Wirte_String(15, 1, 1,"|------------------------------------------------------------------|");
+   
+    Wirte_String(9, 2, 2, "Time:    Conut:      Sec:    Min:"); // 显示数字
     refresh_Partscreen(0, 1, 1); // 刷新屏幕
     while (1) {
         
-        Wirte_String(9, 2, 2, "OpenMV:%d", OpenMVData_Y); // 显示数字
-        Wirte_String(10, 2, 2, "SysRunTime:%d", port->SysRunTime); // 显示数字
+        Wirte_String(10, 2, 2, "OpenMV:%d", OpenMVData_Y); // 显示数字
+        Wirte_String(9, 27, 2, "%d", srt.SysRunTimeSec); // 显示秒
+        Wirte_String(9, 35, 2, "%d", srt.SysRunTimeMin); // 显示分钟
         refresh_Partscreen(0, 1, 1); // 刷新屏幕
     }
 }
 
 
 void SysTick_Handler(){
-    port->SysRunTime++;
+    static uint64_t TempRunTime = 0;
+    TempRunTime++;
+    if(TempRunTime >= 10) { 
+        TempRunTime = 0;
+        srt.SysRunTimeBeat++;   // 10ms为一个系统节拍
+    }
+    if(srt.SysRunTimeBeat >= 100) { 
+        srt.SysRunTimeBeat = 0;
+        srt.SysRunTimeSec++;
+    }
+    if(srt.SysRunTimeSec == 60){
+        srt.SysRunTimeSec = 0;
+        srt.SysRunTimeMin++;
+    }
+    srt.SysRunTime++;
 }
 
 void TIM2_IRQHandler(void)
