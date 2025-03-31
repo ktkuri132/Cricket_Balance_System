@@ -47,7 +47,6 @@ void Stde_DataTypeDef_Init(Stde_DataTypeDef *data)
     memset(data->Data, 0, sizeof(data->Data));
 }
 
-#define DR USART2->RDR
 
 /// @brief STDE串口协议处理函数
 uint8_t STDE_UART(USART_TypeDef* USARTx, Stde_DataTypeDef* DataTypeStruct)

@@ -14,25 +14,25 @@ extern GraphicsChar_Unit Graphics_Memory[20][120];
 
 void Draw_EVA() {
     // 绘制 "E"
-    Wirte_String(2, 2, 1, "######");
+    Wirte_String(0, 2, 1, "######");
+    Wirte_String(1, 2, 1, "##    ");
+    Wirte_String(2, 2, 1, "##### ");
     Wirte_String(3, 2, 1, "##    ");
-    Wirte_String(4, 2, 1, "##### ");
-    Wirte_String(5, 2, 1, "##    ");
-    Wirte_String(6, 2, 1, "######");
+    Wirte_String(4, 2, 1, "######");
 
     // 绘制 "V"
-    Wirte_String(2, 10, 1, "##   ##");
-    Wirte_String(3, 10, 1, "##   ##");
-    Wirte_String(4, 10, 1, " ## ## ");
-    Wirte_String(5, 10, 1, "  ###  ");
-    Wirte_String(6, 10, 1, "   #   ");
+    Wirte_String(0, 10, 1, "##   ##");
+    Wirte_String(1, 10, 1, "##   ##");
+    Wirte_String(2, 10, 1, " ## ## ");
+    Wirte_String(3, 10, 1, "  ###  ");
+    Wirte_String(4, 10, 1, "   #   ");
 
     // 绘制 "A"
-    Wirte_String(2, 18, 1, "  ###  ");
-    Wirte_String(3, 18, 1, " ## ## ");
+    Wirte_String(0, 18, 1, "  ###  ");
+    Wirte_String(1, 18, 1, " ## ## ");
+    Wirte_String(2, 18, 1, "##   ##");
+    Wirte_String(3, 18, 1, "#######");
     Wirte_String(4, 18, 1, "##   ##");
-    Wirte_String(5, 18, 1, "#######");
-    Wirte_String(6, 18, 1, "##   ##");
 }
 
 
@@ -60,21 +60,24 @@ int main() {
     Wirte_String(13, 1, 1,"|                                                                  |");
     Wirte_String(14, 1, 1,"|                                                                  |");
     Wirte_String(15, 1, 1,"|------------------------------------------------------------------|");
-   
+
     Wirte_String(9, 2, 2, "Time:    Conut:      Sec:    Min:"); // 显示数字
     refresh_Partscreen(0, 1, 1); // 刷新屏幕
 
     while (1) {
         static uint32_t i = 0;
-    start:
         Wirte_String(9, 17, 2, "%d", i); // 显示秒
         Wirte_String(9, 27, 2, "%d", srt.SysRunTimeSec); // 显示秒
         Wirte_String(9, 35, 2, "%d", srt.SysRunTimeMin); // 显示分钟
         Wirte_String(10, 2, 2, "OpenMV:%d", OpenMVData_Y); // 显示数字
         refresh_Partscreen(0, 1, 1); // 刷新屏幕
+        // if(!sleep_ms(1000, srt.SysRunTime)) {
+        //     continue;
+        // }
         i++;
     }
 }
+
 
 
 void SysTick_Handler(){
@@ -103,6 +106,7 @@ void TIM2_IRQHandler(void)
 	}				   
 	TIM2->SR&=~TIM_SR_UIF;	    
 }
+
 
 
 void USART1_IRQHandler(void)

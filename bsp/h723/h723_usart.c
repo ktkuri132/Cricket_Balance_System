@@ -5,7 +5,7 @@
 
 void H723_USART_Init(void* const Parameters) {
 
-    float APB2CLK = 135;  // APB2 时钟频率，根据实际情况设置 
+    float APB2CLK = 387;  // APB2 时钟频率，根据实际情况设置 
 
     USART_Parameters* USART_Parameter = (USART_Parameters*)Parameters;
 

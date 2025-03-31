@@ -157,13 +157,14 @@ static inline void NVIC_Init(void){
 }
 
 
+
 /**
     * @brief  非阻塞延迟函数
     * @param  nus: 延迟的微秒数
     * @retval None
 */
 static inline bool sleep_ms(uint32_t ms,uint64_t NowTime){
-    static uint8_t start_time = 0;
+    static uint64_t start_time = 0;
     if(!start_time){
         start_time = NowTime;
     }
@@ -175,5 +176,7 @@ static inline bool sleep_ms(uint32_t ms,uint64_t NowTime){
 }
 
 
-
 #endif
+
+
+
