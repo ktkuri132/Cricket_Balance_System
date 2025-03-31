@@ -15,12 +15,10 @@ PID pid_x;
     * @param max_output 最大输出值
 */
 void Control_Init() {
-    static uint8_t i = 0;
-    if (!i) {
-        PID_TypeStructInit(&pid_x, 300, 0, 0, 120);
-        pid_x.PID_Update = PID_forX;
-        i                = 1;
-    } 
+    
+    PID_TypeStructInit(&pid_x, 300, 0, 0, 120);
+    pid_x.PID_Update = PID_forX;
+       
 }
 
 void Control() {

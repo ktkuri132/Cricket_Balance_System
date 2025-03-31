@@ -46,10 +46,9 @@ int main() {
     LED_Init(port);
     USART2_Init(port);
     USART1_Init(port);
-    
     PWM_Init(port);
-    TIM2_INT_Init(5);	//10KhzÊ±ÖÓ
     Control_Init();
+    TIM2_INT_Init(5);	//10KhzÊ±ÖÓ
     printf(CLEAR_SCREEN);
     Draw_EVA();
     Wirte_String(7, 1, 3," ----------STM32H723ZGT6------System Data---------------------------");
@@ -64,12 +63,16 @@ int main() {
    
     Wirte_String(9, 2, 2, "Time:    Conut:      Sec:    Min:"); // 显示数字
     refresh_Partscreen(0, 1, 1); // 刷新屏幕
+
     while (1) {
-        
-        Wirte_String(10, 2, 2, "OpenMV:%d", OpenMVData_Y); // 显示数字
+        static uint32_t i = 0;
+    start:
+        Wirte_String(9, 17, 2, "%d", i); // 显示秒
         Wirte_String(9, 27, 2, "%d", srt.SysRunTimeSec); // 显示秒
         Wirte_String(9, 35, 2, "%d", srt.SysRunTimeMin); // 显示分钟
+        Wirte_String(10, 2, 2, "OpenMV:%d", OpenMVData_Y); // 显示数字
         refresh_Partscreen(0, 1, 1); // 刷新屏幕
+        i++;
     }
 }
 

@@ -8,6 +8,7 @@
 #include <stddef.h>
 #include "stm32h723xx.h"
 
+#include <stdbool.h>
 
 typedef  uint32_t u32;
 typedef  uint16_t u16;
@@ -155,19 +156,24 @@ static inline void NVIC_Init(void){
     NVIC_SetPriority(USART2_IRQn, 2);	//设置USART2中断优先级为2
 }
 
+
 /**
     * @brief  非阻塞延迟函数
     * @param  nus: 延迟的微秒数
     * @retval None
 */
-static inline void sleep_us(uint32_t nus){
-    static uint32_t tick = srt.SysRunTime; // 获取当前系统运行时间
+static inline bool sleep_ms(uint32_t ms,uint64_t NowTime){
+    static uint8_t start_time = 0;
+    if(!start_time){
+        start_time = NowTime;
+    }
+    if((NowTime - start_time) >= ms){
+        start_time = 0;
+        return true;
+    }
+    return false;
 }
 
-static inline void sleep_ms(uint32_t nms){
-    for (uint32_t i = 0; i < nms; i++) {
-        sleep_us(1000);
-    }
-}
+
 
 #endif

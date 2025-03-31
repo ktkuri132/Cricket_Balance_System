@@ -69,4 +69,5 @@ bsp/CMakeFiles/bsplib.dir/sysport.c.obj: \
  C:\Users\34575\Desktop\Cricket_Balance_System\h723_core\STM32H7xx_HAL_Driver\inc/stm32h7xx_hal_usart.h \
  C:\Users\34575\Desktop\Cricket_Balance_System\h723_core\STM32H7xx_HAL_Driver\inc/stm32h7xx_hal_usart_ex.h \
  C:\Users\34575\Desktop\Cricket_Balance_System\h723_core/stm32h723xx.h \
+ C:/PROGRA~2/ARMGNU~1/133167~1.3RE/lib/gcc/arm-none-eabi/13.3.1/include/stdbool.h \
  C:\Users\34575\Desktop\Cricket_Balance_System\h723_core/syscall.h
