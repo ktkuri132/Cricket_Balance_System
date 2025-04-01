@@ -16,7 +16,7 @@ PID pid_x;
 */
 void Control_Init() {
     
-    PID_TypeStructInit(&pid_x, 300, 0, 0, 120);
+    PID_TypeStructInit(&pid_x, 300, 0, 0, 109);
     pid_x.PID_Update = PID_forX;
        
 }
@@ -24,5 +24,5 @@ void Control_Init() {
 void Control() {
     pid_x.PID_Update(&pid_x);
     
-    Motor_x = pid_x.output + 2000;
+    Motor_x = pid_x.output + 2200;
 }

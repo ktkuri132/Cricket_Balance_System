@@ -44,9 +44,14 @@ int main() {
     Stde_DataTypeDef_Init(USART2_Data);
 
     LED_Init(port);
-    USART2_Init(port);
     USART1_Init(port);
+    test();
+    USART2_Init(port);
     PWM_Init(port);
+    Motor_x = 5000;
+    Motor_y = 5000;
+    // Motor_x = 2200;
+    // Motor_y = 1900;
     Control_Init();
     TIM2_INT_Init(5);	//10KhzÊ±ÖÓ
     printf(CLEAR_SCREEN);
@@ -62,6 +67,7 @@ int main() {
     Wirte_String(15, 1, 1,"|------------------------------------------------------------------|");
 
     Wirte_String(9, 2, 2, "Time:    Conut:      Sec:    Min:"); // 显示数字
+    Wirte_String(10, 2, 2, "OpenMV:     PidOut:"); // 显示数字
     refresh_Partscreen(0, 1, 1); // 刷新屏幕
 
     while (1) {
@@ -69,7 +75,8 @@ int main() {
         Wirte_String(9, 17, 2, "%d", i); // 显示秒
         Wirte_String(9, 27, 2, "%d", srt.SysRunTimeSec); // 显示秒
         Wirte_String(9, 35, 2, "%d", srt.SysRunTimeMin); // 显示分钟
-        Wirte_String(10, 2, 2, "OpenMV:%d", OpenMVData_Y); // 显示数字
+        Wirte_String(10, 9, 2, "%d", OpenMVData_Y); // 显示数字
+        Wirte_String(10, 21, 2, "%d", Motor_x); // 显示数字
         refresh_Partscreen(0, 1, 1); // 刷新屏幕
         // if(!sleep_ms(1000, srt.SysRunTime)) {
         //     continue;
@@ -102,20 +109,14 @@ void TIM2_IRQHandler(void)
 { 		  
 	if(TIM2->SR & TIM_SR_UIF)
 	{
-        Control();
+        // Control();
 	}				   
 	TIM2->SR&=~TIM_SR_UIF;	    
 }
 
 
 
-void USART1_IRQHandler(void)
-{
-    if(USART1->ISR & USART_ISR_RXNE_RXFNE){
-        
-    }
-    USART1->ICR |= USART_ICR_ORECF;
-}
+
 
 void USART2_IRQHandler(void)
 {

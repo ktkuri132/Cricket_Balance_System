@@ -5,7 +5,7 @@
 
 void H723_USART_Init(void* const Parameters) {
 
-    float APB2CLK = 387;  // APB2 时钟频率，根据实际情况设置 
+    uint16_t CLK = 387;  
 
     USART_Parameters* USART_Parameter = (USART_Parameters*)Parameters;
 
@@ -24,7 +24,7 @@ void H723_USART_Init(void* const Parameters) {
         USART_Parameter->GPIOx->OTYPER |= 0 << USART_Parameter->GPIO_Pin_Source[i];
     }
     uint32_t temp;
-    temp = (APB2CLK * 1000000 + (USART_Parameter->baudrate) / 2) / (USART_Parameter->baudrate);
+    temp = (CLK * 1000000 + (USART_Parameter->baudrate) / 2) / (USART_Parameter->baudrate);
 
     USART_Parameter->USARTx->BRR = temp;
     // 使能串口
@@ -36,7 +36,6 @@ void H723_USART_Init(void* const Parameters) {
     // 使能接收中断
     USART_Parameter->USARTx->CR1 |= USART_CR1_RXNEIE;
     USART_Parameter->USARTx->CR3 |= USART_CR3_OVRDIS;
-    // USART_Parameter->USARTx->CR3 |= USART_CR3_EIE;
     
     // 设置一个停止位
     USART_Parameter->USARTx->CR2 &= ~USART_CR2_STOP;

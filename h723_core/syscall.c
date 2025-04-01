@@ -95,7 +95,7 @@ void SystemClock_Config() {
     RCC_ClkInitStruct.SYSCLKDivider  = RCC_SYSCLK_DIV1;
     RCC_ClkInitStruct.AHBCLKDivider  = RCC_HCLK_DIV2;
     RCC_ClkInitStruct.APB3CLKDivider = RCC_APB3_DIV2;
-    RCC_ClkInitStruct.APB1CLKDivider = RCC_APB1_DIV2;
+    RCC_ClkInitStruct.APB1CLKDivider = RCC_APB1_DIV1;
     RCC_ClkInitStruct.APB2CLKDivider = RCC_APB2_DIV1;
     RCC_ClkInitStruct.APB4CLKDivider = RCC_APB4_DIV2;
 

@@ -1,146 +1,147 @@
 #include "Serial.h"
+
 #include <stdarg.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <string.h>
+
 #include "sysport.h"
 
 // 通用串口发送函数
-void usart_send_string(SYS_Port *port, uint8_t *data)
-{
-    
-}
-
-
-
+void usart_send_string(SYS_Port *port, uint8_t *data) {}
 
 #ifdef Basic_Serial
 
 #endif
 
-#ifdef ATOM_Serial       // 正点原子串口协议,用于兼容性交互
-
+#ifdef ATOM_Serial  // 正点原子串口协议,用于兼容性交互
 
 #endif
 
-#ifdef STDE_Serial       // st,d,..e 串口协议,用于常规通信
-
-
+#ifdef STDE_Serial  // st,d,..e 串口协议,用于常规通信
 
 // 初始化函数，模拟类的构造函数
-void Stde_DataTypeDef_Init(Stde_DataTypeDef *data)
-{
-    data->CMD_Callback = NULL;
-    data->DR_Eevet_Callback = NULL;
+void Stde_DataTypeDef_Init(Stde_DataTypeDef *data) {
+    data->CMD_Callback            = NULL;
+    data->DR_Eevet_Callback       = NULL;
     data->UART_DATA_TYPE_Callback = NULL;
-    data->c = 0;
-    data->UART_Strat = 0;
-    data->UART_End = 0;
-    data->Res_Data_type = 0;
-    data->UART_DATA_TYPE = 0;
-    data->Res_note = 0;
-    data->Res_len = 0;
-    data->UART_NOTE = 0;
-    data->UART_LEN = 0;
+    data->c                       = 0;
+    data->UART_Strat              = 0;
+    data->UART_End                = 0;
+    data->Res_Data_type           = 0;
+    data->UART_DATA_TYPE          = 0;
+    data->Res_note                = 0;
+    data->Res_len                 = 0;
+    data->UART_NOTE               = 0;
+    data->UART_LEN                = 0;
     memset(data->UART_NOTE_LEN, 0, sizeof(data->UART_NOTE_LEN));
     memset(data->USART_array, 0, sizeof(data->USART_array));
     memset(data->Data, 0, sizeof(data->Data));
 }
 
-
 /// @brief STDE串口协议处理函数
-uint8_t STDE_UART(USART_TypeDef* USARTx, Stde_DataTypeDef* DataTypeStruct)
-{
-    DataTypeStruct->c = USARTx->RDR;   //获取第一个字符
-    if(DataTypeStruct->c=='s')          //如果是开始字符
+uint8_t STDE_UART(USART_TypeDef *USARTx, Stde_DataTypeDef *DataTypeStruct) {
+    DataTypeStruct->c = USARTx->RDR;  // 获取第一个字符
+    if (DataTypeStruct->c == 's')     // 如果是开始字符
     {
-        DataTypeStruct->UART_Strat = 1;     //开始接收
-        DataTypeStruct->UART_End = 0;       //关闭结束标志
-        DataTypeStruct->Res_Data_type = 1;    //开始检测数据格式
-        DataTypeStruct->Res_len = 0;        //下标清零
-        DataTypeStruct->Res_note = 0;       //数据节点清零
+        DataTypeStruct->UART_Strat    = 1;  // 开始接收
+        DataTypeStruct->UART_End      = 0;  // 关闭结束标志
+        DataTypeStruct->Res_Data_type = 1;  // 开始检测数据格式
+        DataTypeStruct->Res_len       = 0;  // 下标清零
+        DataTypeStruct->Res_note      = 0;  // 数据节点清零
         return 0;
-    }
-    else if(DataTypeStruct->c=='e')     //如果是结束字符
+    } else if (DataTypeStruct->c == 'e')  // 如果是结束字符
     {
-        DataTypeStruct->UART_NOTE_LEN[DataTypeStruct->Res_note] = DataTypeStruct->Res_len;  //保存最后一次数据节点的长度
+        DataTypeStruct->UART_NOTE_LEN[DataTypeStruct->Res_note] =
+            DataTypeStruct->Res_len;  // 保存最后一次数据节点的长度
 
-        DataTypeStruct->UART_Strat = 0;     //重新开始
-        DataTypeStruct->UART_End = 1;       //打开结束标志
-        DataTypeStruct->UART_LEN = DataTypeStruct->Res_len;   //保存本次数据长度
-        DataTypeStruct->UART_NOTE = DataTypeStruct->Res_note+1;  //保存本次数据节点
+        DataTypeStruct->UART_Strat = 0;                             // 重新开始
+        DataTypeStruct->UART_End   = 1;                             // 打开结束标志
+        DataTypeStruct->UART_LEN   = DataTypeStruct->Res_len;       // 保存本次数据长度
+        DataTypeStruct->UART_NOTE  = DataTypeStruct->Res_note + 1;  // 保存本次数据节点
 
-        DataTypeStruct->Res_note = 0;       //数据节点清零
-        DataTypeStruct->Res_len=0;          //下标清零
-        memcpy(DataTypeStruct->Data,DataTypeStruct->USART_array,sizeof(DataTypeStruct->USART_array));   //将数据拷贝到Data数组
-        memset(DataTypeStruct->USART_array,0,sizeof(DataTypeStruct->USART_array));   //清空USART_array数组
+        DataTypeStruct->Res_note = 0;  // 数据节点清零
+        DataTypeStruct->Res_len  = 0;  // 下标清零
+        memcpy(DataTypeStruct->Data, DataTypeStruct->USART_array,
+               sizeof(DataTypeStruct->USART_array));  // 将数据拷贝到Data数组
+        memset(DataTypeStruct->USART_array, 0,
+               sizeof(DataTypeStruct->USART_array));  // 清空USART_array数组
 
         // 数据帧结束，产生回调事件
 
         return 0;
-    }
-    else if(DataTypeStruct->c==',')
-    {
-        DataTypeStruct->UART_NOTE_LEN[DataTypeStruct->Res_note] = DataTypeStruct->Res_len;  //保存本次数据节点的长度
-        DataTypeStruct->Res_note++;     //数据节点加1
-        DataTypeStruct->Res_len = 0;    //下标清零
-    }
-    else
-    {
-        if(DataTypeStruct->Res_Data_type)     //先检测数据格式
+    } else if (DataTypeStruct->c == ',') {
+        DataTypeStruct->UART_NOTE_LEN[DataTypeStruct->Res_note] =
+            DataTypeStruct->Res_len;  // 保存本次数据节点的长度
+        DataTypeStruct->Res_note++;   // 数据节点加1
+        DataTypeStruct->Res_len = 0;  // 下标清零
+    } else {
+        if (DataTypeStruct->Res_Data_type)  // 先检测数据格式
         {
-            switch (DataTypeStruct->c)
-            {
-                
+            switch (DataTypeStruct->c) {
                 // 检测数据格式
-                case '1':DataTypeStruct->UART_DATA_TYPE=1;break;
-                case '5':DataTypeStruct->UART_DATA_TYPE=5;break;
-                case '6':DataTypeStruct->UART_DATA_TYPE=6;break;
-                case '3':DataTypeStruct->UART_DATA_TYPE=3;break;
-                case '4':DataTypeStruct->UART_DATA_TYPE=4;break;
-                case '2':DataTypeStruct->UART_DATA_TYPE=2;break;
-                // 检测：命令数据格式
-                
-                case 'p':DataTypeStruct->UART_DATA_TYPE='p';
-                break;
+                case '1':
+                    DataTypeStruct->UART_DATA_TYPE = 1;
+                    break;
+                case '5':
+                    DataTypeStruct->UART_DATA_TYPE = 5;
+                    break;
+                case '6':
+                    DataTypeStruct->UART_DATA_TYPE = 6;
+                    break;
+                case '3':
+                    DataTypeStruct->UART_DATA_TYPE = 3;
+                    break;
+                case '4':
+                    DataTypeStruct->UART_DATA_TYPE = 4;
+                    break;
+                case '2':
+                    DataTypeStruct->UART_DATA_TYPE = 2;
+                    break;
+                    // 检测：命令数据格式
 
-                default:break;
-                    
+                case 'p':
+                    DataTypeStruct->UART_DATA_TYPE = 'p';
+                    break;
+
+                default:
+                    break;
             }
-            (DataTypeStruct->UART_DATA_TYPE_Callback != NULL) ? DataTypeStruct->UART_DATA_TYPE_Callback(DataTypeStruct) : 0;
-            DataTypeStruct->Res_Data_type=0;   //关闭数据格式检测
+            (DataTypeStruct->UART_DATA_TYPE_Callback != NULL)
+                ? DataTypeStruct->UART_DATA_TYPE_Callback(DataTypeStruct)
+                : 0;
+            DataTypeStruct->Res_Data_type = 0;  // 关闭数据格式检测
         }
 
-        if(DataTypeStruct->UART_Strat)      // 开始接收后，数组的第一个位置存储的是数据格式，读数据要从第二个位置开始
+        if (DataTypeStruct
+                ->UART_Strat)  // 开始接收后，数组的第一个位置存储的是数据格式，读数据要从第二个位置开始
         {
-            DataTypeStruct->USART_array[DataTypeStruct->Res_note][DataTypeStruct->Res_len] = DataTypeStruct->c;  //存储数据
-            DataTypeStruct->Res_len++;     //下标加1
+            DataTypeStruct->USART_array[DataTypeStruct->Res_note][DataTypeStruct->Res_len] =
+                DataTypeStruct->c;      // 存储数据
+            DataTypeStruct->Res_len++;  // 下标加1
         }
     }
 }
 
 /// @brief 处理串口数据针对于数字
-/// @param point_note 待处理的指定节点 
-uint16_t StdeUSART_Deal(Stde_DataTypeDef* DataTypeStruct,uint8_t point_note)
-{
-    //检查是否越界
-    if(point_note > DataTypeStruct->UART_NOTE)
-    {
+/// @param point_note 待处理的指定节点
+uint16_t StdeUSART_Deal(Stde_DataTypeDef *DataTypeStruct, uint8_t point_note) {
+    // 检查是否越界
+    if (point_note > DataTypeStruct->UART_NOTE) {
         return 0;
     }
 
     uint16_t sum = 0;
-    uint8_t len = DataTypeStruct->UART_NOTE_LEN[point_note];
-    
-    for (uint8_t i = 0; i < len; i++)
-    {
+    uint8_t len  = DataTypeStruct->UART_NOTE_LEN[point_note];
+
+    for (uint8_t i = 0; i < len; i++) {
         uint8_t temp_target = DataTypeStruct->Data[point_note][i];
         // 判断临时目标数据的ascll码值
-        if(!(temp_target >= '0' && temp_target <= '9'))     //如果不是数字字符
+        if (!(temp_target >= '0' && temp_target <= '9'))  // 如果不是数字字符
         {
-            return temp_target;         //直接返回
+            return temp_target;  // 直接返回
         }
-        
+
         sum = sum * 10 + (temp_target - '0');
     }
 
@@ -149,226 +150,264 @@ uint16_t StdeUSART_Deal(Stde_DataTypeDef* DataTypeStruct,uint8_t point_note)
 
 #endif
 
-#ifdef BIE_Serial        // 专用于模拟PC交互shell脚本协议
+#ifdef BIE_Serial  // 专用于模拟PC交互shell脚本协议
 
-Bie_ShellTypeDef * ShellTypeStruct;
 
-// 命令模式回调函数
-void CMD_Callback()
-{
-    //处理命令
-}
-
-// 数据接收完成回调函数
-void DR_Eevet_Callback()
-{
-    if(Shell_Deal(0,ShellTypeStruct)==NULL)
-    {
-        printf("\nroot@stm32:");
-    }
-    else 
-    {
-        printf("\n%s\nroot@stm32:",Shell_Deal(0,ShellTypeStruct));
-    }
-    
-    fflush(stdout);
-}
 
 // 串口1中断处理函数：检测数据格式，接收数据
-void BIE_UART(USART_TypeDef * USARTx,Bie_ShellTypeDef* ShellTypeStruct)
-{
-    //判断是否是接收中断
-    if (USARTx->ISR & USART_ISR_RXNE_RXFNE)
-    {
-        ShellTypeStruct->c = USARTx->RDR;   //获取第一个字符
+void BIE_UART(USART_TypeDef *USARTx, Bie_ShellTypeDef *ShellTypeStruct, EnvVar *env) {
+    // 判断是否是接收中断
+    if (USARTx->ISR & USART_ISR_RXNE_RXFNE) {
+        printf(RESET_ALL);
+        // 判断是否是接收中断
+        if (USARTx->ISR & USART_ISR_RXNE_RXFNE) {
+            char c = USARTx->RDR;  // 读取接收到的字符
 
-        if(ShellTypeStruct->c==0x0D)     //如果是回车
-        {
-            ShellTypeStruct->UART_NOTE_LEN[ShellTypeStruct->Res_note] = ShellTypeStruct->Res_len;  //保存最后一次数据节点的长度
-
-            ShellTypeStruct->UART_End = 1;       //打开结束标志
-            ShellTypeStruct->UART_LEN = ShellTypeStruct->Res_len;   //保存本次数据长度
-            ShellTypeStruct->UART_NOTE = ShellTypeStruct->Res_note+1;  //保存本次数据节点
-
-            ShellTypeStruct->Res_note = 0;       //数据节点清零
-            ShellTypeStruct->Res_len=0;          //下标清零
-            memcpy(ShellTypeStruct->Data,ShellTypeStruct->USART_array,sizeof(ShellTypeStruct->USART_array));   //将数据拷贝到Data数组
-            memset(ShellTypeStruct->USART_array,0,sizeof(ShellTypeStruct->USART_array));   //清空USART_array数组
-            ShellTypeStruct->Total_LEN=0;
-            // 产生一个接收完成的事件(可选)
-            DR_Eevet_Callback();
-
-            return;
-        }
-        else if(ShellTypeStruct->c==0x20)        // 检测到空格
-        {
-            ShellTypeStruct->USART_array[ShellTypeStruct->Res_note][ShellTypeStruct->Res_len] = ShellTypeStruct->c;  //存储数据
-
-            ShellTypeStruct->UART_NOTE_LEN[ShellTypeStruct->Res_note] = ShellTypeStruct->Res_len;  //保存本次数据节点的长度
-            ShellTypeStruct->Res_note++;     //数据节点加1
-            ShellTypeStruct->Res_len = 0;    //下标清零
-            ShellTypeStruct->Total_LEN++;
-            // 输入回显
-            USARTx->RDR = ShellTypeStruct->c;
-        }
-        else if(ShellTypeStruct->c==0x7F)  // 检测到backspace
-        {
-            if(ShellTypeStruct->Res_len!=0)      // 新的节点已经有字符了
-            {
-               ShellTypeStruct->USART_array[ShellTypeStruct->Res_note][ShellTypeStruct->Res_len-1] = 0;    // 上一次存储的字符换成0
-               ShellTypeStruct->Res_len--;       // 下次存储字符的位置回退
+            // 如果是回车键
+            if (c == '\r' || c == '\n') {
+                ShellTypeStruct->Data[ShellTypeStruct->UART_NOTE][ShellTypeStruct->Res_len] =
+                    '\0';                          // 添加字符串结束符
+                printf("\n");                      // 换行
+                Shell_Deal(ShellTypeStruct, env);  // 解析并执行命令
+                ShellTypeStruct->Res_len = 0;      // 重置输入长度
+                printf("stm32@root:");             // 显示提示符
+                fflush(stdout);
             }
-            else        // 这个新的节点还没有字符 回退键会将这个空格连带新产生的节点都删除
-            {
-                ShellTypeStruct->Res_note--;     // 节点的位置回退
-                ShellTypeStruct->Res_len = ShellTypeStruct->UART_NOTE_LEN[ShellTypeStruct->Res_note]; // 上一个节点的最后一个位置取出来
+            // 如果是退格键
+            else if (c == '\b' || c == 127) {
+                if (ShellTypeStruct->Res_len > 0) {
+                    ShellTypeStruct->Res_len--;  // 删除最后一个字符
+                    printf("\b \b");             // 在终端上删除字符
+                    fflush(stdout);
+                }
             }
-
-            if(ShellTypeStruct->Total_LEN>0)
-            {
-                // 回显删除字符
-                USARTx->RDR = 0x08;  // 发送Backspace
-                while (!(USARTx->ISR & USART_ISR_TXE_TXFNF));  // 等待发送完成
-                USARTx->RDR = ' ';   // 发送空格覆盖
-                while (!(USARTx->ISR & USART_ISR_TXE_TXFNF));  // 等待发送完成
-                USARTx->RDR = 0x08;  // 再发送Backspace
-                while (!(USARTx->ISR & USART_ISR_TXE_TXFNF));  // 等待发送完成
+            // 其他字符
+            else {
+                if (ShellTypeStruct->Res_len <
+                    sizeof(ShellTypeStruct->Data[ShellTypeStruct->UART_NOTE]) - 1) {
+                    ShellTypeStruct->Data[ShellTypeStruct->UART_NOTE][ShellTypeStruct->Res_len++] =
+                        c;            // 保存字符
+                    printf("%c", c);  // 实时显示字符
+                    fflush(stdout);
+                }
             }
-            ShellTypeStruct->Total_LEN--;
-            if(ShellTypeStruct->Total_LEN<0)
-            {
-                ShellTypeStruct->Total_LEN=0;
-            }
-        }
-        else
-        {
-            ShellTypeStruct->Total_LEN++;
-            ShellTypeStruct->USART_array[ShellTypeStruct->Res_note][ShellTypeStruct->Res_len] = ShellTypeStruct->c;  //存储数据
-            ShellTypeStruct->Res_len++;     //下标加1
-            // 输入回显
-            USARTx->RDR = ShellTypeStruct->c;
         }
     }
 }
 
 // 待添加的命令
-char* cmd[20] = 
-{
-    "hello","reboot","poweroff"
+char *syscmd[20] = {
+    "hello", 
+    "reboot", 
+    "poweroff", 
+    "help",
+    "exit",
+    // 参数命令
+    // 运行命令
+    "ls",
+    NULL  // 命令列表结束标志
 };
 
+extern uint8_t set_pid_arg(int32_t *arg_value);  // 设置PID参数函数声明
 
-/// @brief 处理串口发送的指令
-/// @param point_note 待处理的节点
-/// @return 字符串指针
-uint8_t Shell_Deal(uint8_t point_note,Bie_ShellTypeDef* ShellTypeStruct)
-{
-    //检查是否越界
-    if(point_note > ShellTypeStruct->UART_NOTE)
-    {
-        return 0;
-    }
+Cmd_PointerTypeDef Cmd;
 
-    uint8_t i;
-    for(i=0;strcmp(ShellTypeStruct->Data[point_note],cmd[i]);i++)
-    {
-        if(i==19)
-        {
-            return "command not found!";
+/**
+ * @brief 系统默认处理命令
+ * @param cmd 待处理的命令
+ * @return 0: 成功，-1: 失败
+ */
+int8_t Cmd_match(Bie_ShellTypeDef *ShellTypeStruct,char *cmd, void *arg) {
+    // 处理命令
+    if (strcmp(cmd, "hello") == 0) {
+        printf("Hello, World!\n");
+    } else if (strcmp(cmd, "reboot") == 0) {
+        printf("Rebooting...\n");
+        if (Cmd.reboot != NULL) {
+            Cmd.reboot(NULL);  // 调用重启函数
+        } else {
+            printf(FG_RED "reboot command not implemented.Cause is a NULL point\n" RESET_ALL);
         }
+    } else if (strcmp(cmd, "poweroff") == 0) {
+        printf("Powering off...\n");
+        if (Cmd.poweroff != NULL) {
+            Cmd.poweroff(NULL);  // 调用关机函数
+        } else {
+            printf(FG_RED "poweroff command not implemented.Cause is a NULL point\n" RESET_ALL);
+        }
+    } else if (strcmp(cmd, "help") == 0) {
+        printf("Available commands:\n");
+        for (int i = 0; syscmd[i] != NULL; i++) {
+            printf("- %s\n", syscmd[i]);
+        }
+    } else if (strcmp(cmd, "ls") == 0) {
+        if (Cmd.ls != NULL) {
+            Cmd.ls(NULL);  // 调用ls函数
+        } else {
+            printf(FG_RED "ls command not implemented.Cause is a NULL point\n" RESET_ALL);
+        }
+    } else if (strcmp(cmd, "clear") == 0) {
+        printf("Clearing screen...\n");
+        if (Cmd.clear != NULL) {
+            Cmd.clear(NULL);  // 调用清屏函数
+        } else {
+            printf(FG_RED "clear command not implemented.Cause is a NULL point\n" RESET_ALL);
+        }
+    } else if (strcmp(cmd, "exit") == 0) {
+        printf("Exiting...\n");
+        ShellTypeStruct->RunStae = 1;  // 设置运行状态为1，表示退出
+    } else {
+        return -1;  // 命令未找到
     }
-
-    return i;
+    return 0;  // 命令处理成功
 }
 
+/// @brief 处理串口发送的指令
+/// @param env_vars 环境变量列表
+/// @param ShellTypeStruct Shell协议结构体
+/// @return 字符串指针
+void Shell_Deal(Bie_ShellTypeDef *ShellTypeStruct, EnvVar *env_vars) {
+    char *input    = ShellTypeStruct->Data[ShellTypeStruct->UART_NOTE];
+    char *cmd_part = strtok(input, " ");  // 提取命令部分
+    void *arg_part = strtok(NULL, " ");   // 提取参数部分
 
+    // 遍历命令列表，匹配命令
+    for (int i = 0; i < 20; i++) {
+        if (syscmd[i] == NULL) break;  // 如果命令列表结束
+        if (strcmp(cmd_part, syscmd[i]) == 0) {
+            // 匹配到命令
+            printf("Executing command: %s\n", syscmd[i]);
+            if (Cmd_match(ShellTypeStruct,syscmd[i], arg_part) < 0) {
+                printf("Command not found: %s\n", syscmd[i]);
+            }
+            return;
+        }
+    }
+    // 如果未匹配到默认命令，检查环境变量
+    for (int i = 0; env_vars[i].name != NULL; i++) {
+        if (strcmp(cmd_part, env_vars[i].name) == 0) {
+            // 匹配到环境变量
+            printf("Executing environment variable command: %s\n", env_vars[i].name);
+            env_vars[i].RunStae = 1;  // 设置运行状态为1，表示执行命令
+            env_vars[i].arg = arg_part;  // 设置参数
+            return;
+        }
+    }
+    // 未匹配到命令
+    if (cmd_part != NULL) {
+        printf("Command not found: %s\n", cmd_part);
+    }
+}
 
-GraphicsChar_Unit Graphics_Memory[20][120]; // 显存区，存储字符和坐标信息
+/****************************串口模拟外接屏幕API**************************** */
+GraphicsChar_Unit Graphics_Memory[20][120];  // 显存区，存储字符和坐标信息
 
 /// @brief 写入显存区中的字符和坐标信息
-void Wirte_Char(uint8_t x, uint8_t y, char c, uint8_t color)
-{
+void Wirte_Char(uint8_t x, uint8_t y, char c, uint8_t color) {
     // 在显存区中存储字符和坐标信息
-    Graphics_Memory[x][y].c = c;
-    Graphics_Memory[x][y].sit_x = x;
-    Graphics_Memory[x][y].sit_y = y;
-    Graphics_Memory[x][y].color = color;
-    Graphics_Memory[x][y].fresh = 1; // 设置刷新标志位
-    Graphics_Memory[x][y].color_fresh = 1; // 设置颜色刷新标志位
-    Graphics_Memory[x][y].sit_fresh = 1; // 设置坐标刷新标志位
+    Graphics_Memory[x][y].c           = c;
+    Graphics_Memory[x][y].sit_x       = x;
+    Graphics_Memory[x][y].sit_y       = y;
+    Graphics_Memory[x][y].color       = color;
+    Graphics_Memory[x][y].fresh       = 1;  // 设置刷新标志位
+    Graphics_Memory[x][y].color_fresh = 1;  // 设置颜色刷新标志位
+    Graphics_Memory[x][y].sit_fresh   = 1;  // 设置坐标刷新标志位
 }
 
 /// @brief 读取显存区中的字符和坐标信息
-void Read_Char(uint8_t x, uint8_t y, char *c, uint8_t *color)
-{
+void Read_Char(uint8_t x, uint8_t y, char *c, uint8_t *color) {
     // 从显存区中读取字符和坐标信息
-    *c = Graphics_Memory[x][y].c;
+    *c     = Graphics_Memory[x][y].c;
     *color = Graphics_Memory[x][y].color;
 }
 
 /// @brief 清除显存区中的字符和坐标信息
-void Clear_Char(uint8_t x, uint8_t y)
-{
+void Clear_Char(uint8_t x, uint8_t y) {
     // 清除显存区中的字符和坐标信息
-    Graphics_Memory[x][y].c = 0;
-    Graphics_Memory[x][y].sit_x = 0;
-    Graphics_Memory[x][y].sit_y = 0;
-    Graphics_Memory[x][y].color = 0;
-    Graphics_Memory[x][y].fresh = 0; // 清除刷新标志位
-    Graphics_Memory[x][y].color_fresh = 0; // 清除颜色刷新标志位
-    Graphics_Memory[x][y].sit_fresh = 0; // 清除坐标刷新标志位
+    Graphics_Memory[x][y].c           = 0;
+    Graphics_Memory[x][y].sit_x       = 0;
+    Graphics_Memory[x][y].sit_y       = 0;
+    Graphics_Memory[x][y].color       = 0;
+    Graphics_Memory[x][y].fresh       = 1;  // 清除刷新标志位
+    Graphics_Memory[x][y].color_fresh = 1;  // 清除颜色刷新标志位
+    Graphics_Memory[x][y].sit_fresh   = 1;  // 清除坐标刷新标志位
     // 这里可以添加代码将字符从屏幕上清除，例如调用LCD或OLED的清除函数
 }
 
-void Clear_Screen()
-{
+void Clear_Screen() {
     // 清除显存区中的所有字符和坐标信息
-    for (uint8_t i = 0; i < 50; i++)
-    {
-        for (uint8_t j = 0; j < 50; j++)
-        {
+    for (uint8_t i = 0; i < 50; i++) {
+        for (uint8_t j = 0; j < 50; j++) {
             Clear_Char(i, j);
         }
     }
 }
 
-void __Wirte_String(uint8_t x, uint8_t y,  uint8_t color,char *str)
-{
+void __Wirte_String(uint8_t x, uint8_t y, uint8_t color, char *str) {
     // 在显存区中存储字符串和坐标信息
-    for (uint8_t i = 0; str[i] != '\0'; i++)
-    {
+    for (uint8_t i = 0; str[i] != '\0'; i++) {
         Wirte_Char(x, y + i, str[i], color);
     }
-} 
-
-void Wirte_String(uint8_t x, uint8_t y,  uint8_t color,char *str,...)
-{
-    char String[100];						//定义字符数组
-	va_list arg;							//定义可变参数列表数据类型的变量arg
-	va_start(arg, str);					//从format开始，接收参数列表到arg变量
-	vsprintf(String, str, arg);			//使用vsprintf打印格式化字符串和参数列表到字符数组中
-	va_end(arg);							//结束变量arg
-    __Wirte_String(x, y, color, String); // 调用Wirte_String函数将字符串写入显存区
 }
 
-void Read_String(uint8_t x, uint8_t y, char *str, uint8_t color)
-{
+void Wirte_String(uint8_t x, uint8_t y, uint8_t color, char *str, ...) {
+    char String[100];                     // 定义字符数组
+    va_list arg;                          // 定义可变参数列表数据类型的变量arg
+    va_start(arg, str);                   // 从format开始，接收参数列表到arg变量
+    vsprintf(String, str, arg);           // 使用vsprintf打印格式化字符串和参数列表到字符数组中
+    va_end(arg);                          // 结束变量arg
+    __Wirte_String(x, y, color, String);  // 调用Wirte_String函数将字符串写入显存区
+}
+
+/**
+ * @brief 显存整体上移一格函数
+ * @note 该函数将显存区中的字符和坐标信息整体上移指定的行数,并将最上行的字符清除
+ * @param  None
+ * @retval None
+ */
+void Graphics_UpMove() {
+    // 清除最上行的字符和坐标信息
+    for (uint8_t j = 0; j < 50; j++) {
+        Clear_Char(j, 120 - 1);
+    }
+    // 整体上移指定的行数
+    for (uint8_t j = 0; j <= 50; j++) {
+        for (uint8_t i = 0; i <= 120; i++) {
+            Graphics_Memory[j][i].c     = Graphics_Memory[j + 1][i].c;
+            Graphics_Memory[j][i].color = Graphics_Memory[j + 1][i].color;
+            Graphics_Memory[j][i].fresh = 1;  // 设置刷新标志位
+        }
+    }
+}
+
+/**
+ * @brief 交换显存区中的字符和坐标信息
+ * @param  None
+ * @retval None
+ */
+void Graphics_Swap(uint8_t Dst_x, uint8_t Dst_y, uint8_t Src_x, uint8_t Src_y) {
+    // 交换显存区中的字符和坐标信息
+    char temp_c                         = Graphics_Memory[Dst_x][Dst_y].c;
+    uint8_t temp_color                  = Graphics_Memory[Dst_x][Dst_y].color;
+    Graphics_Memory[Dst_x][Dst_y].c     = Graphics_Memory[Src_x][Src_y].c;
+    Graphics_Memory[Dst_x][Dst_y].color = Graphics_Memory[Src_x][Src_y].color;
+    Graphics_Memory[Src_x][Src_y].c     = temp_c;
+    Graphics_Memory[Src_x][Src_y].color = temp_color;
+    Graphics_Memory[Dst_x][Dst_y].fresh = 1;  // 设置刷新标志位
+}
+
+void Read_String(uint8_t x, uint8_t y, char *str, uint8_t color) {
     // 从显存区中读取字符串和坐标信息
-    for (uint8_t i = 0; i < 50; i++)
-    {
+    for (uint8_t i = 0; i < 50; i++) {
         Read_Char(x, y + i, &str[i], &color);
     }
 }
 
-void refresh_Allscreen()
-{
+void refresh_Allscreen() {
     // 刷新屏幕，将显存区中的字符和坐标信息显示到屏幕上
-    for (uint8_t i = 0; i < 50; i++)
-    {
-        for (uint8_t j = 0; j < 50; j++)
-        {
-            if (Graphics_Memory[i][j].c != 0)
-            {
+    for (uint8_t i = 0; i < 50; i++) {
+        for (uint8_t j = 0; j < 50; j++) {
+            if (Graphics_Memory[i][j].c != 0) {
                 // 显示字符
                 printf("%c", Graphics_Memory[i][j].c);
             }
@@ -380,58 +419,64 @@ void refresh_Allscreen()
 /// @param x 刷新显存的起始坐标x
 /// @param y 刷新显存的起始坐标y
 /// @param Mode 1: 覆盖显示 0: 不覆盖,追尾显示
-void refresh_Partscreen(uint8_t x, uint8_t y,uint8_t Mode)
-{
+void refresh_Partscreen(uint8_t x, uint8_t y, uint8_t Mode) {
     int i, j;
-    for (i = x; i < 20; i++)
-    {
-        for (j = y; j < 100; j++)
-        {
-            if (Graphics_Memory[i][j].fresh == 1) // 如果需要刷新
+    for (i = x; i < 20; i++) {
+        for (j = y; j < 100; j++) {
+            if (Graphics_Memory[i][j].fresh == 1)  // 如果需要刷新
             {
                 // 显示字符
-                if(Mode == 1)
-                {
+                if (Mode == 1) {
                     // 覆盖显示
-                    printf("\033[%d;%dH", Graphics_Memory[i][j].sit_x+1, Graphics_Memory[i][j].sit_y); // 设置光标位置
-                }
-                else if (Mode == 0)
-                {
+                    printf("\033[%d;%dH", Graphics_Memory[i][j].sit_x + 1,
+                           Graphics_Memory[i][j].sit_y);  // 设置光标位置
+                } else if (Mode == 0) {
                     // 追尾显示
-                    printf("\033[%d;%dH", i, j); // 设置光标位置
+                    printf("\033[%d;%dH", i, j);  // 设置光标位置
                 }
-                if(Graphics_Memory[i][j].color_fresh == 1) // 如果需要刷新颜色
+                if (Graphics_Memory[i][j].color_fresh == 1)  // 如果需要刷新颜色
                 {
                     // 设置颜色
-                    switch (Graphics_Memory[i][j].color)
-                    {
-                        case 0: printf("\033[0m"); break; // 默认颜色
-                        case 1: printf("\033[31m"); break; // 红色
-                        case 2: printf("\033[32m"); break; // 绿色
-                        case 3: printf("\033[33m"); break; // 黄色
-                        case 4: printf("\033[34m"); break; // 蓝色
-                        case 5: printf("\033[35m"); break; // 紫色
-                        case 6: printf("\033[36m"); break; // 青色
-                        default: printf("\033[0m"); break; // 默认颜色
+                    switch (Graphics_Memory[i][j].color) {
+                        case 0:
+                            printf("\033[0m");
+                            break;  // 默认颜色
+                        case 1:
+                            printf("\033[31m");
+                            break;  // 红色
+                        case 2:
+                            printf("\033[32m");
+                            break;  // 绿色
+                        case 3:
+                            printf("\033[33m");
+                            break;  // 黄色
+                        case 4:
+                            printf("\033[34m");
+                            break;  // 蓝色
+                        case 5:
+                            printf("\033[35m");
+                            break;  // 紫色
+                        case 6:
+                            printf("\033[36m");
+                            break;  // 青色
+                        default:
+                            printf("\033[0m");
+                            break;  // 默认颜色
                     }
                 }
-                printf("%c",Graphics_Memory[i][j].c); // 显示字符
-                Graphics_Memory[i][j].fresh = 0; // 清除刷新标志位 
-            } 
+                printf("%c", Graphics_Memory[i][j].c);  // 显示字符
+                Graphics_Memory[i][j].fresh = 0;        // 清除刷新标志位
+            }
         }
-        printf(CURSOR_RESTORE); // 设置光标位置到下一行
+        printf(CURSOR_RESTORE);  // 设置光标位置到下一行
     }
     printf(CURSOR_HOME);
-    printf(CURSOR_HIDE); // 显示光标
+    printf(CURSOR_HIDE);  // 隐藏光标
     fflush(stdout);
 }
 
 /***********************应用层***************************** */
 
-void loading_bar(){
-    
-}
-
-
+void loading_bar() {}
 
 #endif

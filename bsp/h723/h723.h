@@ -151,9 +151,9 @@ static inline void NVIC_Init(void){
     NVIC_EnableIRQ(USART1_IRQn);	//使能USART1中断通道
     NVIC_EnableIRQ(USART2_IRQn);	//使能USART2中断通道
 
-    NVIC_SetPriority(TIM2_IRQn, 1);	//设置TIM2中断优先级为0
+    NVIC_SetPriority(TIM2_IRQn, 2);	//设置TIM2中断优先级为0
     NVIC_SetPriority(USART1_IRQn, 2);	//设置USART1中断优先级为2
-    NVIC_SetPriority(USART2_IRQn, 2);	//设置USART2中断优先级为2
+    NVIC_SetPriority(USART2_IRQn, 1);	//设置USART2中断优先级为2
 }
 
 

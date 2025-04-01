@@ -20,14 +20,13 @@ void PWM_Init(SYS_Port *port){
     tim3_init.OCMode = 1;
     tim.bsp_tim_x_inti(&tim3_init);
     TIM3->CCR3 = 3500;
-
 }
 
 void TIM2_INT_Init(uint8_t ms){
     RCC->APB1LENR|=RCC_APB1LENR_TIM2EN;				 
 	while((RCC->APB1LENR&(1<<1))==0);	
  	TIM2->ARR=100 * ms - 1;  				
-	TIM2->PSC=2700-1;  				
+	TIM2->PSC=3870-1;  				
 	TIM2->DIER|=TIM_DIER_UIE;  					  
 	TIM2->CR1|=TIM_CR1_CEN;				
 }
