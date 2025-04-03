@@ -65,6 +65,7 @@ bsp/CMakeFiles/bsplib.dir/h723/h723_usart.c.obj: \
  C:/PROGRA~2/ARMGNU~1/133167~1.3RE/arm-none-eabi/include/stdio.h \
  C:/PROGRA~2/ARMGNU~1/133167~1.3RE/lib/gcc/arm-none-eabi/13.3.1/include/stdarg.h \
  C:/PROGRA~2/ARMGNU~1/133167~1.3RE/arm-none-eabi/include/sys/stdio.h \
+ C:\Users\34575\Desktop\Cricket_Balance_System\bsp/sysport.h \
  C:\Users\34575\Desktop\Cricket_Balance_System\bsp/h723/h723.h \
  C:\Users\34575\Desktop\Cricket_Balance_System\h723_core/syscall.h \
  C:\Users\34575\Desktop\Cricket_Balance_System\h723_core/stm32h723xx.h \

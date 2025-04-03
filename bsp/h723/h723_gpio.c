@@ -78,8 +78,18 @@ void H723_GPIO_Pin_Set(void* const Parameters,uint8_t status){
     
 }
 
+/**
+    * @brief  GPIO引脚读取函数
+    * @param  Parameters: GPIO引脚参数结构体指针
+    * @retval 引脚状态 (0: 低电平, 1: 高电平)
+*/
 void H723_GPIO_Pin_Get(void* const Parameters){
-    
+    GPIO_Init_Parameters *GPIO_Parameter = (GPIO_Init_Parameters*)Parameters;
+    if ((GPIO_Parameter->GPIOx->IDR & (1U << GPIO_Parameter->GPIO_Pin_x)) != 0) {
+        GPIO_Parameter->value = 1; // 高电平
+    } else {
+        GPIO_Parameter->value = 0; // 低电平
+    }  
 }
 
 uint32_t H723_GetGPIOPeriphClock(void* const Parameters){

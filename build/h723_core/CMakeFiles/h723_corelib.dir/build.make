@@ -1821,23 +1821,10 @@ h723_core/CMakeFiles/h723_corelib.dir/STM32H7xx_HAL_Driver/src/stm32h7xx_ll_util
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/h723_corelib.dir/STM32H7xx_HAL_Driver/src/stm32h7xx_ll_utils.c.s"
 	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build\h723_core && C:\PROGRA~2\ARMGNU~1\133167~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\34575\Desktop\Cricket_Balance_System\h723_core\STM32H7xx_HAL_Driver\src\stm32h7xx_ll_utils.c -o CMakeFiles\h723_corelib.dir\STM32H7xx_HAL_Driver\src\stm32h7xx_ll_utils.c.s
 
-h723_core/CMakeFiles/h723_corelib.dir/startup_stm32h723xx.s.obj: h723_core/CMakeFiles/h723_corelib.dir/flags.make
-h723_core/CMakeFiles/h723_corelib.dir/startup_stm32h723xx.s.obj: C:/Users/34575/Desktop/Cricket_Balance_System/h723_core/startup_stm32h723xx.s
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\34575\Desktop\Cricket_Balance_System\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_126) "Building ASM object h723_core/CMakeFiles/h723_corelib.dir/startup_stm32h723xx.s.obj"
-	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build\h723_core && C:\PROGRA~2\ARMGNU~1\133167~1.3RE\bin\AR19DD~1.EXE $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles\h723_corelib.dir\startup_stm32h723xx.s.obj -c C:\Users\34575\Desktop\Cricket_Balance_System\h723_core\startup_stm32h723xx.s
-
-h723_core/CMakeFiles/h723_corelib.dir/startup_stm32h723xx.s.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing ASM source to CMakeFiles/h723_corelib.dir/startup_stm32h723xx.s.i"
-	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build\h723_core && C:\PROGRA~2\ARMGNU~1\133167~1.3RE\bin\AR19DD~1.EXE $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -E C:\Users\34575\Desktop\Cricket_Balance_System\h723_core\startup_stm32h723xx.s > CMakeFiles\h723_corelib.dir\startup_stm32h723xx.s.i
-
-h723_core/CMakeFiles/h723_corelib.dir/startup_stm32h723xx.s.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling ASM source to assembly CMakeFiles/h723_corelib.dir/startup_stm32h723xx.s.s"
-	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build\h723_core && C:\PROGRA~2\ARMGNU~1\133167~1.3RE\bin\AR19DD~1.EXE $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -S C:\Users\34575\Desktop\Cricket_Balance_System\h723_core\startup_stm32h723xx.s -o CMakeFiles\h723_corelib.dir\startup_stm32h723xx.s.s
-
 h723_core/CMakeFiles/h723_corelib.dir/stm32h7xx_it.c.obj: h723_core/CMakeFiles/h723_corelib.dir/flags.make
 h723_core/CMakeFiles/h723_corelib.dir/stm32h7xx_it.c.obj: C:/Users/34575/Desktop/Cricket_Balance_System/h723_core/stm32h7xx_it.c
 h723_core/CMakeFiles/h723_corelib.dir/stm32h7xx_it.c.obj: h723_core/CMakeFiles/h723_corelib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\34575\Desktop\Cricket_Balance_System\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_127) "Building C object h723_core/CMakeFiles/h723_corelib.dir/stm32h7xx_it.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\34575\Desktop\Cricket_Balance_System\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_126) "Building C object h723_core/CMakeFiles/h723_corelib.dir/stm32h7xx_it.c.obj"
 	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build\h723_core && C:\PROGRA~2\ARMGNU~1\133167~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT h723_core/CMakeFiles/h723_corelib.dir/stm32h7xx_it.c.obj -MF CMakeFiles\h723_corelib.dir\stm32h7xx_it.c.obj.d -o CMakeFiles\h723_corelib.dir\stm32h7xx_it.c.obj -c C:\Users\34575\Desktop\Cricket_Balance_System\h723_core\stm32h7xx_it.c
 
 h723_core/CMakeFiles/h723_corelib.dir/stm32h7xx_it.c.i: cmake_force
@@ -1847,6 +1834,20 @@ h723_core/CMakeFiles/h723_corelib.dir/stm32h7xx_it.c.i: cmake_force
 h723_core/CMakeFiles/h723_corelib.dir/stm32h7xx_it.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/h723_corelib.dir/stm32h7xx_it.c.s"
 	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build\h723_core && C:\PROGRA~2\ARMGNU~1\133167~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\34575\Desktop\Cricket_Balance_System\h723_core\stm32h7xx_it.c -o CMakeFiles\h723_corelib.dir\stm32h7xx_it.c.s
+
+h723_core/CMakeFiles/h723_corelib.dir/stratup.c.obj: h723_core/CMakeFiles/h723_corelib.dir/flags.make
+h723_core/CMakeFiles/h723_corelib.dir/stratup.c.obj: C:/Users/34575/Desktop/Cricket_Balance_System/h723_core/stratup.c
+h723_core/CMakeFiles/h723_corelib.dir/stratup.c.obj: h723_core/CMakeFiles/h723_corelib.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\34575\Desktop\Cricket_Balance_System\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_127) "Building C object h723_core/CMakeFiles/h723_corelib.dir/stratup.c.obj"
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build\h723_core && C:\PROGRA~2\ARMGNU~1\133167~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT h723_core/CMakeFiles/h723_corelib.dir/stratup.c.obj -MF CMakeFiles\h723_corelib.dir\stratup.c.obj.d -o CMakeFiles\h723_corelib.dir\stratup.c.obj -c C:\Users\34575\Desktop\Cricket_Balance_System\h723_core\stratup.c
+
+h723_core/CMakeFiles/h723_corelib.dir/stratup.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/h723_corelib.dir/stratup.c.i"
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build\h723_core && C:\PROGRA~2\ARMGNU~1\133167~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\34575\Desktop\Cricket_Balance_System\h723_core\stratup.c > CMakeFiles\h723_corelib.dir\stratup.c.i
+
+h723_core/CMakeFiles/h723_corelib.dir/stratup.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/h723_corelib.dir/stratup.c.s"
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build\h723_core && C:\PROGRA~2\ARMGNU~1\133167~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\34575\Desktop\Cricket_Balance_System\h723_core\stratup.c -o CMakeFiles\h723_corelib.dir\stratup.c.s
 
 h723_core/CMakeFiles/h723_corelib.dir/syscall.c.obj: h723_core/CMakeFiles/h723_corelib.dir/flags.make
 h723_core/CMakeFiles/h723_corelib.dir/syscall.c.obj: C:/Users/34575/Desktop/Cricket_Balance_System/h723_core/syscall.c
@@ -2059,8 +2060,8 @@ h723_corelib_OBJECTS = \
 "CMakeFiles/h723_corelib.dir/STM32H7xx_HAL_Driver/src/stm32h7xx_ll_usart.c.obj" \
 "CMakeFiles/h723_corelib.dir/STM32H7xx_HAL_Driver/src/stm32h7xx_ll_usb.c.obj" \
 "CMakeFiles/h723_corelib.dir/STM32H7xx_HAL_Driver/src/stm32h7xx_ll_utils.c.obj" \
-"CMakeFiles/h723_corelib.dir/startup_stm32h723xx.s.obj" \
 "CMakeFiles/h723_corelib.dir/stm32h7xx_it.c.obj" \
+"CMakeFiles/h723_corelib.dir/stratup.c.obj" \
 "CMakeFiles/h723_corelib.dir/syscall.c.obj" \
 "CMakeFiles/h723_corelib.dir/system_stm32h7xx.c.obj" \
 "CMakeFiles/h723_corelib.dir/system_stm32h7xx_dualcore_boot_cm4_cm7.c.obj" \
@@ -2196,8 +2197,8 @@ h723_core/libh723_corelib.a: h723_core/CMakeFiles/h723_corelib.dir/STM32H7xx_HAL
 h723_core/libh723_corelib.a: h723_core/CMakeFiles/h723_corelib.dir/STM32H7xx_HAL_Driver/src/stm32h7xx_ll_usart.c.obj
 h723_core/libh723_corelib.a: h723_core/CMakeFiles/h723_corelib.dir/STM32H7xx_HAL_Driver/src/stm32h7xx_ll_usb.c.obj
 h723_core/libh723_corelib.a: h723_core/CMakeFiles/h723_corelib.dir/STM32H7xx_HAL_Driver/src/stm32h7xx_ll_utils.c.obj
-h723_core/libh723_corelib.a: h723_core/CMakeFiles/h723_corelib.dir/startup_stm32h723xx.s.obj
 h723_core/libh723_corelib.a: h723_core/CMakeFiles/h723_corelib.dir/stm32h7xx_it.c.obj
+h723_core/libh723_corelib.a: h723_core/CMakeFiles/h723_corelib.dir/stratup.c.obj
 h723_core/libh723_corelib.a: h723_core/CMakeFiles/h723_corelib.dir/syscall.c.obj
 h723_core/libh723_corelib.a: h723_core/CMakeFiles/h723_corelib.dir/system_stm32h7xx.c.obj
 h723_core/libh723_corelib.a: h723_core/CMakeFiles/h723_corelib.dir/system_stm32h7xx_dualcore_boot_cm4_cm7.c.obj

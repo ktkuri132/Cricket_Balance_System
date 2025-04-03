@@ -4,19 +4,6 @@ set(CMAKE_DEPENDS_IN_PROJECT_ONLY OFF)
 
 # The set of languages for which implicit dependencies are needed:
 set(CMAKE_DEPENDS_LANGUAGES
-  "ASM"
-  )
-# The set of files for implicit dependencies of each language:
-set(CMAKE_DEPENDS_CHECK_ASM
-  "C:/Users/34575/Desktop/Cricket_Balance_System/h723_core/startup_stm32h723xx.s" "C:/Users/34575/Desktop/Cricket_Balance_System/build/h723_core/CMakeFiles/h723_corelib.dir/startup_stm32h723xx.s.obj"
-  )
-set(CMAKE_ASM_COMPILER_ID "GNU")
-
-# The include file search paths:
-set(CMAKE_ASM_TARGET_INCLUDE_PATH
-  "C:/Users/34575/Desktop/Cricket_Balance_System/h723_core"
-  "C:/Users/34575/Desktop/Cricket_Balance_System/h723_core/STM32H7xx_HAL_Driver/inc"
-  "C:/Users/34575/Desktop/Cricket_Balance_System/h723_core/STM32H7xx_HAL_Driver/inc/Legacy"
   )
 
 # The set of dependency files which are needed:
@@ -147,6 +134,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/34575/Desktop/Cricket_Balance_System/h723_core/STM32H7xx_HAL_Driver/src/stm32h7xx_ll_usb.c" "h723_core/CMakeFiles/h723_corelib.dir/STM32H7xx_HAL_Driver/src/stm32h7xx_ll_usb.c.obj" "gcc" "h723_core/CMakeFiles/h723_corelib.dir/STM32H7xx_HAL_Driver/src/stm32h7xx_ll_usb.c.obj.d"
   "C:/Users/34575/Desktop/Cricket_Balance_System/h723_core/STM32H7xx_HAL_Driver/src/stm32h7xx_ll_utils.c" "h723_core/CMakeFiles/h723_corelib.dir/STM32H7xx_HAL_Driver/src/stm32h7xx_ll_utils.c.obj" "gcc" "h723_core/CMakeFiles/h723_corelib.dir/STM32H7xx_HAL_Driver/src/stm32h7xx_ll_utils.c.obj.d"
   "C:/Users/34575/Desktop/Cricket_Balance_System/h723_core/stm32h7xx_it.c" "h723_core/CMakeFiles/h723_corelib.dir/stm32h7xx_it.c.obj" "gcc" "h723_core/CMakeFiles/h723_corelib.dir/stm32h7xx_it.c.obj.d"
+  "C:/Users/34575/Desktop/Cricket_Balance_System/h723_core/stratup.c" "h723_core/CMakeFiles/h723_corelib.dir/stratup.c.obj" "gcc" "h723_core/CMakeFiles/h723_corelib.dir/stratup.c.obj.d"
   "C:/Users/34575/Desktop/Cricket_Balance_System/h723_core/syscall.c" "h723_core/CMakeFiles/h723_corelib.dir/syscall.c.obj" "gcc" "h723_core/CMakeFiles/h723_corelib.dir/syscall.c.obj.d"
   "C:/Users/34575/Desktop/Cricket_Balance_System/h723_core/system_stm32h7xx.c" "h723_core/CMakeFiles/h723_corelib.dir/system_stm32h7xx.c.obj" "gcc" "h723_core/CMakeFiles/h723_corelib.dir/system_stm32h7xx.c.obj.d"
   "C:/Users/34575/Desktop/Cricket_Balance_System/h723_core/system_stm32h7xx_dualcore_boot_cm4_cm7.c" "h723_core/CMakeFiles/h723_corelib.dir/system_stm32h7xx_dualcore_boot_cm4_cm7.c.obj" "gcc" "h723_core/CMakeFiles/h723_corelib.dir/system_stm32h7xx_dualcore_boot_cm4_cm7.c.obj.d"

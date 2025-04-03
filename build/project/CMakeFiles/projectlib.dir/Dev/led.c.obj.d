@@ -22,6 +22,7 @@ project/CMakeFiles/projectlib.dir/Dev/led.c.obj: \
  C:/PROGRA~2/ARMGNU~1/133167~1.3RE/arm-none-eabi/include/machine/_types.h \
  C:/PROGRA~2/ARMGNU~1/133167~1.3RE/arm-none-eabi/include/sys/lock.h \
  C:/PROGRA~2/ARMGNU~1/133167~1.3RE/arm-none-eabi/include/sys/stdio.h \
+ C:\Users\34575\Desktop\Cricket_Balance_System\bsp/sysport.h \
  C:\Users\34575\Desktop\Cricket_Balance_System\bsp/h723/h723.h \
  C:\Users\34575\Desktop\Cricket_Balance_System\h723_core/stm32h7xx.h \
  C:\Users\34575\Desktop\Cricket_Balance_System\h723_core/stm32h723xx.h \

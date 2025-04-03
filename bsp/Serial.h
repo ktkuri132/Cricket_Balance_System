@@ -111,7 +111,7 @@ typedef struct {
 
     uint8_t Res_len;   // 接收数据的下标
     uint8_t UART_NOTE;  // 本次数据节点
-    uint8_t Data[10][10];  // 数据长度酌情调整
+    uint8_t Data[20];  // 数据长度酌情调整
     uint8_t RunStae;  // 运行状态
 
 } Bie_ShellTypeDef;     // Shell协议结构体

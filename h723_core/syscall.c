@@ -34,6 +34,7 @@
 #include <time.h>
 #include "stm32h723xx.h"
 
+
 /* Variables */
 extern int __io_putchar(int ch) __attribute__((weak));
 extern int __io_getchar(void) __attribute__((weak));
@@ -116,7 +117,9 @@ void SysTick_Init(void) {
     /* 配置SysTick时钟源  使能SysTick中断   开始计时  */
     SysTick->CTRL |= SysTick_CTRL_CLKSOURCE_Msk | SysTick_CTRL_TICKINT_Msk | SysTick_CTRL_ENABLE_Msk;
 }
-        
+
+
+
 
 
 /**
@@ -142,7 +145,7 @@ void delay_us(uint32_t nus) {
 void delay_ms(uint32_t nms) {
     uint32_t i;
     for (i = 0; i < nms; i++) {
-        delay_us(100);
+        delay_us(1000);
     }
 }
 

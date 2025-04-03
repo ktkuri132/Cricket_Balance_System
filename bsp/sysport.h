@@ -4,6 +4,7 @@
 #include <stddef.h>
 #include <stdint.h>
 #include <stdio.h>
+#include "sysport.h"
 
 
 #define Port_Header "h723/h723.h"
@@ -20,7 +21,6 @@
 #error \
     "Syscall_Header is not defined,please define Syscall_Header,like this:#define Syscall_Header <syscall.h>"
 #endif
-
 
 #include Port_Header
 #include Syscall_Header
@@ -62,7 +62,7 @@ typedef struct {
     void (*bsp_gpio_init)(void *const Parameters);
     void (*bsp_gpio_af_set)(void *const Parameters);
     void (*bsp_gpio_pin_set)(void *const Parameters, uint8_t status);
-    uint8_t (*bsp_gpio_pin_get)(void *const Parameters);
+    void (*bsp_gpio_pin_get)(void *const Parameters);
     uint32_t (*GetGPIOPeriphClock)(void *const Parameters);
 } GPIO_Port;
 
@@ -155,6 +155,7 @@ typedef struct {
     uint32_t SysRunTimeBeat;  // 系统运行节拍
 } SystemRunTime_t;
 
+
 /**
  * @brief SYS_Port(系统接口)结构体
  * @note  该结构体用于存储系统接口的相关参数和函数指针
@@ -176,6 +177,8 @@ typedef struct {
     TIM_Port tim_port;
     void (*System_Init)(void);
     void (*SysTick_Init)(void);
+    void (*syspfunc)(void *const Parameters);
+    void *Parameters;
 } SYS_Port;
 
 SYS_Port *SysPort_Init();

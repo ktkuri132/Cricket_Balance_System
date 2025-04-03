@@ -76,6 +76,7 @@ typedef struct {
     uint32_t GPIO_Speed_x;
     uint32_t GPIO_OType_xx;
     uint32_t GPIO_AF_x;
+    uint8_t value;
 }GPIO_Init_Parameters;
 
 typedef struct{
@@ -136,6 +137,7 @@ void GPIO_AF_Set(GPIO_TypeDef* GPIOx,u8 BITx,u8 AFx);
 void H723_PeriphClockCmd(void* const Parameters);
 void H723_GPIO_Config(void* const Parameters);
 void H723_GPIO_Pin_Set(void* const Parameters,uint8_t status);
+void H723_GPIO_Pin_Get(void* const Parameters);
 void H723_GPIO_AF_Config(void* const Parameters);
 void H723_USART_Init(void* const Parameters);
 void H723_TIM_Init(void* const Parameters);
@@ -150,11 +152,14 @@ static inline void NVIC_Init(void){
     NVIC_EnableIRQ(TIM2_IRQn);
     NVIC_EnableIRQ(USART1_IRQn);	//使能USART1中断通道
     NVIC_EnableIRQ(USART2_IRQn);	//使能USART2中断通道
+    NVIC_EnableIRQ(PendSV_IRQn);
 
     NVIC_SetPriority(TIM2_IRQn, 2);	//设置TIM2中断优先级为0
-    NVIC_SetPriority(USART1_IRQn, 2);	//设置USART1中断优先级为2
+    NVIC_SetPriority(USART1_IRQn, 1);	//设置USART1中断优先级为2
     NVIC_SetPriority(USART2_IRQn, 1);	//设置USART2中断优先级为2
+    NVIC_SetPriority(PendSV_IRQn, 3);	//设置PendSV中断优先级为3
 }
+
 
 
 

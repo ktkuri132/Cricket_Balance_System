@@ -1,7 +1,5 @@
 project/CMakeFiles/projectlib.dir/Dev/test.c.obj: \
  C:\Users\34575\Desktop\Cricket_Balance_System\project\Dev\test.c \
- C:\Users\34575\Desktop\Cricket_Balance_System\bsp/sysport.h \
- C:/PROGRA~2/ARMGNU~1/133167~1.3RE/lib/gcc/arm-none-eabi/13.3.1/include/stddef.h \
  C:/PROGRA~2/ARMGNU~1/133167~1.3RE/lib/gcc/arm-none-eabi/13.3.1/include/stdint.h \
  C:/PROGRA~2/ARMGNU~1/133167~1.3RE/arm-none-eabi/include/stdint.h \
  C:/PROGRA~2/ARMGNU~1/133167~1.3RE/arm-none-eabi/include/machine/_default_types.h \
@@ -9,6 +7,8 @@ project/CMakeFiles/projectlib.dir/Dev/test.c.obj: \
  C:/PROGRA~2/ARMGNU~1/133167~1.3RE/arm-none-eabi/include/_newlib_version.h \
  C:/PROGRA~2/ARMGNU~1/133167~1.3RE/arm-none-eabi/include/sys/_intsup.h \
  C:/PROGRA~2/ARMGNU~1/133167~1.3RE/arm-none-eabi/include/sys/_stdint.h \
+ C:\Users\34575\Desktop\Cricket_Balance_System\bsp/sysport.h \
+ C:/PROGRA~2/ARMGNU~1/133167~1.3RE/lib/gcc/arm-none-eabi/13.3.1/include/stddef.h \
  C:/PROGRA~2/ARMGNU~1/133167~1.3RE/arm-none-eabi/include/stdio.h \
  C:/PROGRA~2/ARMGNU~1/133167~1.3RE/arm-none-eabi/include/_ansi.h \
  C:/PROGRA~2/ARMGNU~1/133167~1.3RE/arm-none-eabi/include/newlib.h \
@@ -22,6 +22,7 @@ project/CMakeFiles/projectlib.dir/Dev/test.c.obj: \
  C:/PROGRA~2/ARMGNU~1/133167~1.3RE/arm-none-eabi/include/machine/_types.h \
  C:/PROGRA~2/ARMGNU~1/133167~1.3RE/arm-none-eabi/include/sys/lock.h \
  C:/PROGRA~2/ARMGNU~1/133167~1.3RE/arm-none-eabi/include/sys/stdio.h \
+ C:\Users\34575\Desktop\Cricket_Balance_System\bsp/sysport.h \
  C:\Users\34575\Desktop\Cricket_Balance_System\bsp/h723/h723.h \
  C:\Users\34575\Desktop\Cricket_Balance_System\h723_core/stm32h7xx.h \
  C:\Users\34575\Desktop\Cricket_Balance_System\h723_core/stm32h723xx.h \
@@ -75,4 +76,5 @@ project/CMakeFiles/projectlib.dir/Dev/test.c.obj: \
  C:/PROGRA~2/ARMGNU~1/133167~1.3RE/arm-none-eabi/include/string.h \
  C:/PROGRA~2/ARMGNU~1/133167~1.3RE/arm-none-eabi/include/sys/_locale.h \
  C:/PROGRA~2/ARMGNU~1/133167~1.3RE/arm-none-eabi/include/strings.h \
- C:/PROGRA~2/ARMGNU~1/133167~1.3RE/arm-none-eabi/include/sys/string.h
+ C:/PROGRA~2/ARMGNU~1/133167~1.3RE/arm-none-eabi/include/sys/string.h \
+ C:\Users\34575\Desktop\Cricket_Balance_System\h723_core/stm32h7xx_it.h

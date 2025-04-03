@@ -201,29 +201,29 @@ Control/tool.c.s:
 	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Control/tool.c.s
 .PHONY : Control/tool.c.s
 
-Dev/bsp.obj: Dev/bsp.c.obj
-.PHONY : Dev/bsp.obj
+Dev/env.obj: Dev/env.c.obj
+.PHONY : Dev/env.obj
 
 # target to build an object file
-Dev/bsp.c.obj:
-	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Dev/bsp.c.obj
-.PHONY : Dev/bsp.c.obj
+Dev/env.c.obj:
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Dev/env.c.obj
+.PHONY : Dev/env.c.obj
 
-Dev/bsp.i: Dev/bsp.c.i
-.PHONY : Dev/bsp.i
+Dev/env.i: Dev/env.c.i
+.PHONY : Dev/env.i
 
 # target to preprocess a source file
-Dev/bsp.c.i:
-	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Dev/bsp.c.i
-.PHONY : Dev/bsp.c.i
+Dev/env.c.i:
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Dev/env.c.i
+.PHONY : Dev/env.c.i
 
-Dev/bsp.s: Dev/bsp.c.s
-.PHONY : Dev/bsp.s
+Dev/env.s: Dev/env.c.s
+.PHONY : Dev/env.s
 
 # target to generate assembly for a file
-Dev/bsp.c.s:
-	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Dev/bsp.c.s
-.PHONY : Dev/bsp.c.s
+Dev/env.c.s:
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Dev/env.c.s
+.PHONY : Dev/env.c.s
 
 Dev/led.obj: Dev/led.c.obj
 .PHONY : Dev/led.obj
@@ -339,9 +339,9 @@ help:
 	@echo ... Control/tool.obj
 	@echo ... Control/tool.i
 	@echo ... Control/tool.s
-	@echo ... Dev/bsp.obj
-	@echo ... Dev/bsp.i
-	@echo ... Dev/bsp.s
+	@echo ... Dev/env.obj
+	@echo ... Dev/env.i
+	@echo ... Dev/env.s
 	@echo ... Dev/led.obj
 	@echo ... Dev/led.i
 	@echo ... Dev/led.s

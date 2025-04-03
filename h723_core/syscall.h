@@ -7,6 +7,7 @@ extern "C" {
 
 #include <stm32h7xx.h>
 
+void Initialize_RAM_D1(void);
 void SysTick_Init(void);
 void SystemClock_Config();
 void delay_us(uint32_t nus);

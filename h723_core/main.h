@@ -36,7 +36,7 @@ extern "C" {
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
-
+int main();
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/

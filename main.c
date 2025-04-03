@@ -9,43 +9,39 @@
 SYS_Port *port;
 
 Stde_DataTypeDef *USART2_Data;
-
+Bie_ShellTypeDef* USART1_Data;
 extern GraphicsChar_Unit Graphics_Memory[20][120];
 
-void Draw_EVA() {
-    // 绘制 "E"
-    Wirte_String(0, 2, 1, "######");
-    Wirte_String(1, 2, 1, "##    ");
-    Wirte_String(2, 2, 1, "##### ");
-    Wirte_String(3, 2, 1, "##    ");
-    Wirte_String(4, 2, 1, "######");
 
-    // 绘制 "V"
-    Wirte_String(0, 10, 1, "##   ##");
-    Wirte_String(1, 10, 1, "##   ##");
-    Wirte_String(2, 10, 1, " ## ## ");
-    Wirte_String(3, 10, 1, "  ###  ");
-    Wirte_String(4, 10, 1, "   #   ");
-
-    // 绘制 "A"
-    Wirte_String(0, 18, 1, "  ###  ");
-    Wirte_String(1, 18, 1, " ## ## ");
-    Wirte_String(2, 18, 1, "##   ##");
-    Wirte_String(3, 18, 1, "#######");
-    Wirte_String(4, 18, 1, "##   ##");
-}
-
+EnvVar  MyEnv[] = {
+    {
+        .name = "led",
+        .callback = led,
+    },
+    {
+        .name = "show",
+        .callback = DisPlay_SystemData,
+    },
+    {
+        .name = "kp", 
+        .callback = set_pid_arg,
+    },
+    {
+        .name = NULL,
+        .callback = NULL
+    }
+};
 
 int main() {
+
     port = SysPort_Init();
 	port->System_Init();
     syscall.NVIC_Configuration();
     port->SysTick_Init(); 
+    Sys_cmd_Init();
     Stde_DataTypeDef_Init(USART2_Data);
-
     LED_Init(port);
     USART1_Init(port);
-    test();
     USART2_Init(port);
     PWM_Init(port);
     Motor_x = 5000;
@@ -54,34 +50,13 @@ int main() {
     // Motor_y = 1900;
     Control_Init();
     TIM2_INT_Init(5);	//10KhzÊ±ÖÓ
-    printf(CLEAR_SCREEN);
-    Draw_EVA();
-    Wirte_String(7, 1, 3," ----------STM32H723ZGT6------System Data---------------------------");
-    Wirte_String(8, 1, 1,"|------------------------------------------------------------------|");
-    Wirte_String(9, 1, 1,"|                                                                  |");
-    Wirte_String(10, 1, 1,"|                                                                  |");
-    Wirte_String(11, 1, 1,"|                                                                  |");
-    Wirte_String(12, 1, 1,"|                                                                  |");
-    Wirte_String(13, 1, 1,"|                                                                  |");
-    Wirte_String(14, 1, 1,"|                                                                  |");
-    Wirte_String(15, 1, 1,"|------------------------------------------------------------------|");
-
-    Wirte_String(9, 2, 2, "Time:    Conut:      Sec:    Min:"); // 显示数字
-    Wirte_String(10, 2, 2, "OpenMV:     PidOut:"); // 显示数字
-    refresh_Partscreen(0, 1, 1); // 刷新屏幕
-
+    printf(CURSOR_SHOW);
     while (1) {
-        static uint32_t i = 0;
-        Wirte_String(9, 17, 2, "%d", i); // 显示秒
-        Wirte_String(9, 27, 2, "%d", srt.SysRunTimeSec); // 显示秒
-        Wirte_String(9, 35, 2, "%d", srt.SysRunTimeMin); // 显示分钟
-        Wirte_String(10, 9, 2, "%d", OpenMVData_Y); // 显示数字
-        Wirte_String(10, 21, 2, "%d", Motor_x); // 显示数字
-        refresh_Partscreen(0, 1, 1); // 刷新屏幕
-        // if(!sleep_ms(1000, srt.SysRunTime)) {
-        //     continue;
-        // }
-        i++;
+        if(port->syspfunc != NULL) {
+            port->syspfunc(port->Parameters);  // 执行系统函数
+            port->syspfunc = NULL;
+            printf(CURSOR_SHOW);
+        }
     }
 }
 
@@ -105,6 +80,7 @@ void SysTick_Handler(){
     srt.SysRunTime++;
 }
 
+
 void TIM2_IRQHandler(void)
 { 		  
 	if(TIM2->SR & TIM_SR_UIF)
@@ -114,9 +90,13 @@ void TIM2_IRQHandler(void)
 	TIM2->SR&=~TIM_SR_UIF;	    
 }
 
-
-
-
+void USART1_IRQHandler(void)
+{
+    if(USART1->ISR & USART_ISR_RXNE_RXFNE){
+        BIE_UART(USART1,USART1_Data,MyEnv);
+    }
+    USART1->ICR |= USART_ICR_ORECF;
+}
 
 void USART2_IRQHandler(void)
 {

@@ -3129,14 +3129,6 @@ STM32H7xx_HAL_Driver/src/stm32h7xx_ll_utils.c.s:
 	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f h723_core\CMakeFiles\h723_corelib.dir\build.make h723_core/CMakeFiles/h723_corelib.dir/STM32H7xx_HAL_Driver/src/stm32h7xx_ll_utils.c.s
 .PHONY : STM32H7xx_HAL_Driver/src/stm32h7xx_ll_utils.c.s
 
-startup_stm32h723xx.obj: startup_stm32h723xx.s.obj
-.PHONY : startup_stm32h723xx.obj
-
-# target to build an object file
-startup_stm32h723xx.s.obj:
-	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f h723_core\CMakeFiles\h723_corelib.dir\build.make h723_core/CMakeFiles/h723_corelib.dir/startup_stm32h723xx.s.obj
-.PHONY : startup_stm32h723xx.s.obj
-
 stm32h7xx_it.obj: stm32h7xx_it.c.obj
 .PHONY : stm32h7xx_it.obj
 
@@ -3160,6 +3152,30 @@ stm32h7xx_it.s: stm32h7xx_it.c.s
 stm32h7xx_it.c.s:
 	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f h723_core\CMakeFiles\h723_corelib.dir\build.make h723_core/CMakeFiles/h723_corelib.dir/stm32h7xx_it.c.s
 .PHONY : stm32h7xx_it.c.s
+
+stratup.obj: stratup.c.obj
+.PHONY : stratup.obj
+
+# target to build an object file
+stratup.c.obj:
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f h723_core\CMakeFiles\h723_corelib.dir\build.make h723_core/CMakeFiles/h723_corelib.dir/stratup.c.obj
+.PHONY : stratup.c.obj
+
+stratup.i: stratup.c.i
+.PHONY : stratup.i
+
+# target to preprocess a source file
+stratup.c.i:
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f h723_core\CMakeFiles\h723_corelib.dir\build.make h723_core/CMakeFiles/h723_corelib.dir/stratup.c.i
+.PHONY : stratup.c.i
+
+stratup.s: stratup.c.s
+.PHONY : stratup.s
+
+# target to generate assembly for a file
+stratup.c.s:
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f h723_core\CMakeFiles\h723_corelib.dir\build.make h723_core/CMakeFiles/h723_corelib.dir/stratup.c.s
+.PHONY : stratup.c.s
 
 syscall.obj: syscall.c.obj
 .PHONY : syscall.obj
@@ -3689,10 +3705,12 @@ help:
 	@echo ... STM32H7xx_HAL_Driver/src/stm32h7xx_ll_utils.obj
 	@echo ... STM32H7xx_HAL_Driver/src/stm32h7xx_ll_utils.i
 	@echo ... STM32H7xx_HAL_Driver/src/stm32h7xx_ll_utils.s
-	@echo ... startup_stm32h723xx.obj
 	@echo ... stm32h7xx_it.obj
 	@echo ... stm32h7xx_it.i
 	@echo ... stm32h7xx_it.s
+	@echo ... stratup.obj
+	@echo ... stratup.i
+	@echo ... stratup.s
 	@echo ... syscall.obj
 	@echo ... syscall.i
 	@echo ... syscall.s

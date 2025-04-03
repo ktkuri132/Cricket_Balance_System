@@ -261,7 +261,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "project/Dev/bsp.c",
+			"path" : "project/Dev/env.c",
 			"sourceGroupIndex" : 0
 		},
 		{

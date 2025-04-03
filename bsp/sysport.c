@@ -1,7 +1,7 @@
 #include <errno.h>
 #include "sysport.h"
 #include <stdint.h>
-
+#include <Serial.h>
 #define USART
 #define TIM
 
@@ -27,7 +27,7 @@ SYS_Port*  SysPort_Init() {
             .bsp_gpio_init = H723_GPIO_Config,
             .bsp_gpio_af_set = H723_GPIO_AF_Config,
             .bsp_gpio_pin_set = H723_GPIO_Pin_Set,
-           .bsp_gpio_pin_get = NULL,
+           .bsp_gpio_pin_get = H723_GPIO_Pin_Get,
             .GetGPIOPeriphClock = NULL,
         },
         #ifdef I2C
@@ -39,7 +39,7 @@ SYS_Port*  SysPort_Init() {
            .Soft_IIC_Ack = NULL,
         }
         #endif
-        #ifdef USART
+        #ifdef USART    
         .usart_port = {
             .bsp_usart_x_inti = H723_USART_Init,
         },
@@ -54,6 +54,33 @@ SYS_Port*  SysPort_Init() {
     return &sys_port;
 }
 
+/*  系统接口声明    */
+extern SYS_Port *port;
+/* 项目环境变量声明  */
+extern EnvVar MyEnv[];
+
+
+/// 任务切换函数
+/// @param userEnv: 用户环境变量数组
+void Task_Switch(EnvVar *userEnv) {
+    // 假如环境变量过长可采取其他的查找算法:如二分查找等
+    // 这里采用线性查找
+    int i;
+    for (i = 0; userEnv[i].name != NULL; i++) {
+        if(userEnv[i].RunStae){
+            // 执行命令
+            port->syspfunc = userEnv[i].callback;  // 设置系统函数指针
+            port->Parameters = userEnv[i].arg;  // 设置参数
+            userEnv[i].RunStae = 0;  // 重置运行状态
+            break;  // 跳出循环，避免重复执行
+        }
+    }
+    i = 0;  // 重置循环变量
+}
+
+void PendSV_Handler(){
+    Task_Switch(MyEnv); // 执行任务切换
+}
 
 /**
  *

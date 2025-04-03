@@ -249,9 +249,10 @@ file(REMOVE_RECURSE
   "CMakeFiles/h723_corelib.dir/STM32H7xx_HAL_Driver/src/stm32h7xx_ll_usb.c.obj.d"
   "CMakeFiles/h723_corelib.dir/STM32H7xx_HAL_Driver/src/stm32h7xx_ll_utils.c.obj"
   "CMakeFiles/h723_corelib.dir/STM32H7xx_HAL_Driver/src/stm32h7xx_ll_utils.c.obj.d"
-  "CMakeFiles/h723_corelib.dir/startup_stm32h723xx.s.obj"
   "CMakeFiles/h723_corelib.dir/stm32h7xx_it.c.obj"
   "CMakeFiles/h723_corelib.dir/stm32h7xx_it.c.obj.d"
+  "CMakeFiles/h723_corelib.dir/stratup.c.obj"
+  "CMakeFiles/h723_corelib.dir/stratup.c.obj.d"
   "CMakeFiles/h723_corelib.dir/syscall.c.obj"
   "CMakeFiles/h723_corelib.dir/syscall.c.obj.d"
   "CMakeFiles/h723_corelib.dir/system_stm32h7xx.c.obj"
@@ -269,6 +270,6 @@ file(REMOVE_RECURSE
 )
 
 # Per-language clean rules from dependency scanning.
-foreach(lang ASM C)
+foreach(lang C)
   include(CMakeFiles/h723_corelib.dir/cmake_clean_${lang}.cmake OPTIONAL)
 endforeach()

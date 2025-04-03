@@ -7,7 +7,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/STM32H7xx_HAL_Driver/inc/Legacy)
 get_filename_component(DIR_NAME ${CMAKE_CURRENT_SOURCE_DIR} NAME)
 # 添加源文件
 file(GLOB_RECURSE ${DIR_NAME}_Source 
-    ${CMAKE_CURRENT_SOURCE_DIR}/*.s
+    # ${CMAKE_CURRENT_SOURCE_DIR}/*.s
     ${CMAKE_CURRENT_SOURCE_DIR}/*.c
     ${CMAKE_CURRENT_SOURCE_DIR}/STM32H7xx_HAL_Driver/src/*.c
 )

@@ -757,15 +757,15 @@
 },
 {
   "directory": "C:/Users/34575/Desktop/Cricket_Balance_System/build/h723_core",
-  "command": "C:\\PROGRA~2\\ARMGNU~1\\133167~1.3RE\\bin\\AR19DD~1.EXE  -IC:\\Users\\34575\\Desktop\\Cricket_Balance_System\\h723_core -IC:\\Users\\34575\\Desktop\\Cricket_Balance_System\\h723_core\\STM32H7xx_HAL_Driver\\inc -IC:\\Users\\34575\\Desktop\\Cricket_Balance_System\\h723_core\\STM32H7xx_HAL_Driver\\inc\\Legacy -g -mfloat-abi=hard -mfpu=fpv5-d16 -mcpu=cortex-m7 -mthumb -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -x assembler-with-cpp -Og -g -o CMakeFiles\\h723_corelib.dir\\startup_stm32h723xx.s.obj -c C:\\Users\\34575\\Desktop\\Cricket_Balance_System\\h723_core\\startup_stm32h723xx.s",
-  "file": "C:/Users/34575/Desktop/Cricket_Balance_System/h723_core/startup_stm32h723xx.s",
-  "output": "h723_core/CMakeFiles/h723_corelib.dir/startup_stm32h723xx.s.obj"
-},
-{
-  "directory": "C:/Users/34575/Desktop/Cricket_Balance_System/build/h723_core",
   "command": "C:\\PROGRA~2\\ARMGNU~1\\133167~1.3RE\\bin\\AR19DD~1.EXE  -IC:\\Users\\34575\\Desktop\\Cricket_Balance_System\\h723_core -IC:\\Users\\34575\\Desktop\\Cricket_Balance_System\\h723_core\\STM32H7xx_HAL_Driver\\inc -IC:\\Users\\34575\\Desktop\\Cricket_Balance_System\\h723_core\\STM32H7xx_HAL_Driver\\inc\\Legacy -g -std=gnu11 -mfloat-abi=hard -mfpu=fpv5-d16 -mcpu=cortex-m7 -mthumb -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Og -g -o CMakeFiles\\h723_corelib.dir\\stm32h7xx_it.c.obj -c C:\\Users\\34575\\Desktop\\Cricket_Balance_System\\h723_core\\stm32h7xx_it.c",
   "file": "C:/Users/34575/Desktop/Cricket_Balance_System/h723_core/stm32h7xx_it.c",
   "output": "h723_core/CMakeFiles/h723_corelib.dir/stm32h7xx_it.c.obj"
+},
+{
+  "directory": "C:/Users/34575/Desktop/Cricket_Balance_System/build/h723_core",
+  "command": "C:\\PROGRA~2\\ARMGNU~1\\133167~1.3RE\\bin\\AR19DD~1.EXE  -IC:\\Users\\34575\\Desktop\\Cricket_Balance_System\\h723_core -IC:\\Users\\34575\\Desktop\\Cricket_Balance_System\\h723_core\\STM32H7xx_HAL_Driver\\inc -IC:\\Users\\34575\\Desktop\\Cricket_Balance_System\\h723_core\\STM32H7xx_HAL_Driver\\inc\\Legacy -g -std=gnu11 -mfloat-abi=hard -mfpu=fpv5-d16 -mcpu=cortex-m7 -mthumb -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Og -g -o CMakeFiles\\h723_corelib.dir\\stratup.c.obj -c C:\\Users\\34575\\Desktop\\Cricket_Balance_System\\h723_core\\stratup.c",
+  "file": "C:/Users/34575/Desktop/Cricket_Balance_System/h723_core/stratup.c",
+  "output": "h723_core/CMakeFiles/h723_corelib.dir/stratup.c.obj"
 },
 {
   "directory": "C:/Users/34575/Desktop/Cricket_Balance_System/build/h723_core",
@@ -883,9 +883,9 @@
 },
 {
   "directory": "C:/Users/34575/Desktop/Cricket_Balance_System/build/project",
-  "command": "C:\\PROGRA~2\\ARMGNU~1\\133167~1.3RE\\bin\\AR19DD~1.EXE  -IC:\\Users\\34575\\Desktop\\Cricket_Balance_System\\h723_core -IC:\\Users\\34575\\Desktop\\Cricket_Balance_System\\h723_core\\STM32H7xx_HAL_Driver\\inc -IC:\\Users\\34575\\Desktop\\Cricket_Balance_System\\bsp -IC:\\Users\\34575\\Desktop\\Cricket_Balance_System\\include -IC:\\Users\\34575\\Desktop\\Cricket_Balance_System\\project -IC:\\Users\\34575\\Desktop\\Cricket_Balance_System -g -std=gnu11 -mfloat-abi=hard -mfpu=fpv5-d16 -mcpu=cortex-m7 -mthumb -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Og -g -o CMakeFiles\\projectlib.dir\\Dev\\bsp.c.obj -c C:\\Users\\34575\\Desktop\\Cricket_Balance_System\\project\\Dev\\bsp.c",
-  "file": "C:/Users/34575/Desktop/Cricket_Balance_System/project/Dev/bsp.c",
-  "output": "project/CMakeFiles/projectlib.dir/Dev/bsp.c.obj"
+  "command": "C:\\PROGRA~2\\ARMGNU~1\\133167~1.3RE\\bin\\AR19DD~1.EXE  -IC:\\Users\\34575\\Desktop\\Cricket_Balance_System\\h723_core -IC:\\Users\\34575\\Desktop\\Cricket_Balance_System\\h723_core\\STM32H7xx_HAL_Driver\\inc -IC:\\Users\\34575\\Desktop\\Cricket_Balance_System\\bsp -IC:\\Users\\34575\\Desktop\\Cricket_Balance_System\\include -IC:\\Users\\34575\\Desktop\\Cricket_Balance_System\\project -IC:\\Users\\34575\\Desktop\\Cricket_Balance_System -g -std=gnu11 -mfloat-abi=hard -mfpu=fpv5-d16 -mcpu=cortex-m7 -mthumb -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Og -g -o CMakeFiles\\projectlib.dir\\Dev\\env.c.obj -c C:\\Users\\34575\\Desktop\\Cricket_Balance_System\\project\\Dev\\env.c",
+  "file": "C:/Users/34575/Desktop/Cricket_Balance_System/project/Dev/env.c",
+  "output": "project/CMakeFiles/projectlib.dir/Dev/env.c.obj"
 },
 {
   "directory": "C:/Users/34575/Desktop/Cricket_Balance_System/build/project",

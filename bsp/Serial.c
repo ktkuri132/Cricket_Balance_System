@@ -165,7 +165,7 @@ void BIE_UART(USART_TypeDef *USARTx, Bie_ShellTypeDef *ShellTypeStruct, EnvVar *
 
             // 如果是回车键
             if (c == '\r' || c == '\n') {
-                ShellTypeStruct->Data[ShellTypeStruct->UART_NOTE][ShellTypeStruct->Res_len] =
+                ShellTypeStruct->Data[ShellTypeStruct->Res_len] =
                     '\0';                          // 添加字符串结束符
                 printf("\n");                      // 换行
                 Shell_Deal(ShellTypeStruct, env);  // 解析并执行命令
@@ -183,9 +183,8 @@ void BIE_UART(USART_TypeDef *USARTx, Bie_ShellTypeDef *ShellTypeStruct, EnvVar *
             }
             // 其他字符
             else {
-                if (ShellTypeStruct->Res_len <
-                    sizeof(ShellTypeStruct->Data[ShellTypeStruct->UART_NOTE]) - 1) {
-                    ShellTypeStruct->Data[ShellTypeStruct->UART_NOTE][ShellTypeStruct->Res_len++] =
+                if (ShellTypeStruct->Res_len < 19) {
+                    ShellTypeStruct->Data[ShellTypeStruct->Res_len++] =
                         c;            // 保存字符
                     printf("%c", c);  // 实时显示字符
                     fflush(stdout);
@@ -198,7 +197,7 @@ void BIE_UART(USART_TypeDef *USARTx, Bie_ShellTypeDef *ShellTypeStruct, EnvVar *
 // 待添加的命令
 char *syscmd[20] = {
     "hello", 
-    "reboot", 
+    "reset", 
     "poweroff", 
     "help",
     "exit",
@@ -211,6 +210,8 @@ char *syscmd[20] = {
 extern uint8_t set_pid_arg(int32_t *arg_value);  // 设置PID参数函数声明
 
 Cmd_PointerTypeDef Cmd;
+
+extern void Sys_cmd_Init();  // 系统命令初始化函数声明
 
 /**
  * @brief 系统默认处理命令
@@ -256,6 +257,7 @@ int8_t Cmd_match(Bie_ShellTypeDef *ShellTypeStruct,char *cmd, void *arg) {
     } else if (strcmp(cmd, "exit") == 0) {
         printf("Exiting...\n");
         ShellTypeStruct->RunStae = 1;  // 设置运行状态为1，表示退出
+        printf(CLEAR_SCREEN);
     } else {
         return -1;  // 命令未找到
     }
@@ -267,7 +269,7 @@ int8_t Cmd_match(Bie_ShellTypeDef *ShellTypeStruct,char *cmd, void *arg) {
 /// @param ShellTypeStruct Shell协议结构体
 /// @return 字符串指针
 void Shell_Deal(Bie_ShellTypeDef *ShellTypeStruct, EnvVar *env_vars) {
-    char *input    = ShellTypeStruct->Data[ShellTypeStruct->UART_NOTE];
+    char *input    = ShellTypeStruct->Data;
     char *cmd_part = strtok(input, " ");  // 提取命令部分
     void *arg_part = strtok(NULL, " ");   // 提取参数部分
 
@@ -278,7 +280,7 @@ void Shell_Deal(Bie_ShellTypeDef *ShellTypeStruct, EnvVar *env_vars) {
             // 匹配到命令
             printf("Executing command: %s\n", syscmd[i]);
             if (Cmd_match(ShellTypeStruct,syscmd[i], arg_part) < 0) {
-                printf("Command not found: %s\n", syscmd[i]);
+                printf(FG_RED"Command not found: %s\n"RESET_ALL, syscmd[i]);
             }
             return;
         }
@@ -290,17 +292,18 @@ void Shell_Deal(Bie_ShellTypeDef *ShellTypeStruct, EnvVar *env_vars) {
             printf("Executing environment variable command: %s\n", env_vars[i].name);
             env_vars[i].RunStae = 1;  // 设置运行状态为1，表示执行命令
             env_vars[i].arg = arg_part;  // 设置参数
+            SCB->ICSR |= SCB_ICSR_PENDSVSET_Msk; // 触发 PendSV 中断
             return;
         }
     }
     // 未匹配到命令
     if (cmd_part != NULL) {
-        printf("Command not found: %s\n", cmd_part);
+        printf(FG_RED"Command not found: %s\n"RESET_ALL, cmd_part);
     }
 }
 
 /****************************串口模拟外接屏幕API**************************** */
-GraphicsChar_Unit Graphics_Memory[20][120];  // 显存区，存储字符和坐标信息
+GraphicsChar_Unit Graphics_Memory[20][120] __attribute__((section(".ram_d1_data"))) ;  // 显存区，存储字符和坐标信息
 
 /// @brief 写入显存区中的字符和坐标信息
 void Wirte_Char(uint8_t x, uint8_t y, char c, uint8_t color) {
