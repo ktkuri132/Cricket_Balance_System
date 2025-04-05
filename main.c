@@ -24,7 +24,15 @@ EnvVar  MyEnv[] = {
     },
     {
         .name = "kp", 
-        .callback = set_pid_arg,
+        .callback = __kp,
+    },
+    {
+        .name = "kd",
+        .callback = __kd,
+    },
+    {
+        .name = "ki",
+        .callback = __ki,
     },
     {
         .name = NULL,

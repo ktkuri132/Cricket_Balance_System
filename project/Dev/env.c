@@ -1,3 +1,5 @@
+#include <stdint.h>
+#include <string.h>
 #include <sysport.h>
 #include "Serial.h"
 #include <pid.h>
@@ -16,6 +18,41 @@ void __ls(void *const Parameters) {
     } 
 }
 
+void __kp(void *const Parameters) {
+    if (Parameters == NULL) {
+        printf("Invalid argument for set_kp command\n");
+        return;
+    } 
+    char *arg_str = (char*)Parameters;  // 将参数值转换为字符
+    char *endptr;
+    int32_t arg_value = strtol(arg_str, &endptr, 10);  // 将字符串转换为整数
+    pid_x.Kp = arg_value;  // 设置PID参数
+    printf("Setting PID parameters: %d\n", arg_value);
+}
+
+void __kd(void *const Parameters) {
+    if (Parameters == NULL) {
+        printf("Invalid argument for set_kd command\n");
+        return;
+    } 
+    char *arg_str = (char*)Parameters;  // 将参数值转换为字符
+    char *endptr;
+    int32_t arg_value = strtol(arg_str, &endptr, 10);  // 将字符串转换为整数
+    pid_x.Kd = arg_value;  // 设置PID参数
+    printf("Setting PID parameters: %d\n", arg_value);
+}
+
+void __ki(void *const Parameters) {
+    if (Parameters == NULL) {
+        printf("Invalid argument for set_ki command\n");
+        return;
+    } 
+    char *arg_str = (char*)Parameters;  // 将参数值转换为字符
+    char *endptr;
+    int32_t arg_value = strtol(arg_str, &endptr, 10);  // 将字符串转换为整数
+    pid_x.Ki = arg_value;  // 设置PID参数
+    printf("Setting PID parameters: %d\n", arg_value);
+}
 
 void Sys_cmd_Init()
 {
@@ -78,12 +115,6 @@ void DisPlay_SystemData(void *const Parameters) {
 }
 
 
-void set_pid_arg(void *const Parameters) {
-    int32_t *arg_value = (int32_t *)Parameters;  // 获取参数值
-    // 设置PID参数的函数实现
-    // 这里可以根据需要进行参数设置
-    printf("Setting PID parameters: %d\n", *arg_value);
-}
 
 
 /**

@@ -243,7 +243,7 @@ int8_t Cmd_match(Bie_ShellTypeDef *ShellTypeStruct,char *cmd, void *arg) {
         }
     } else if (strcmp(cmd, "ls") == 0) {
         if (Cmd.ls != NULL) {
-            Cmd.ls(NULL);  // 调用ls函数
+            Cmd.ls(arg);  // 调用ls函数
         } else {
             printf(FG_RED "ls command not implemented.Cause is a NULL point\n" RESET_ALL);
         }

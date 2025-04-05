@@ -18,5 +18,8 @@ void Sys_cmd_Init();
 void led(void *const arg);
 
 void DisPlay_SystemData(void *const Parameters);
-void set_pid_arg(void *const Parameters);
+void __kp(void *const Parameters);
+void __kd(void *const Parameters);
+void __ki(void *const Parameters);
+
 #endif
