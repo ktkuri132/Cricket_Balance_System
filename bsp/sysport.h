@@ -157,15 +157,19 @@ typedef struct {
 
 
 /**
- * @brief SYS_Port(系统接口)结构体
- * @note  该结构体用于存储系统接口的相关参数和函数指针
- * @param  SysRunTime: 系统运行时间
- * @param  syscall_port: SYSCALL接口结构体
- * @param  rcc_periph_port: RCC接口结构体
- * @param  gpio_port: GPIO接口结构体
- * @param  i2c_port: I2C接口结构体
- * @param  usart_port: USART接口结构体
- * @param  tim_port: TIM接口结构体
+    * @brief SYS_Port(系统接口)结构体
+    * @note  该结构体用于存储系统接口的相关参数和函数指针
+    * @param  SysRunTime: 系统运行时间
+    * @param  syscall_port: SYSCALL接口结构体
+    * @param  rcc_periph_port: RCC接口结构体
+    * @param  gpio_port: GPIO接口结构体
+    * @param  i2c_port: I2C接口结构体
+    * @param  usart_port: USART接口结构体
+    * @param  tim_port: TIM接口结构体
+    * @param  System_Init: 系统初始化函数指针
+    * @param  SysTick_Init: SysTick初始化函数指针
+    * @param  syspfunc: 系统函数指针
+    * @param  Parameters: 系统函数指针参数
  */
 typedef struct {
     SystemRunTime_t SRT;
