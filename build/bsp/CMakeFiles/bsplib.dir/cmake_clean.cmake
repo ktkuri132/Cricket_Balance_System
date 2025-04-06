@@ -13,6 +13,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/bsplib.dir/f407/f407_usart.c.obj.d"
   "CMakeFiles/bsplib.dir/h723/h723_gpio.c.obj"
   "CMakeFiles/bsplib.dir/h723/h723_gpio.c.obj.d"
+  "CMakeFiles/bsplib.dir/h723/h723_spi.c.obj"
+  "CMakeFiles/bsplib.dir/h723/h723_spi.c.obj.d"
   "CMakeFiles/bsplib.dir/h723/h723_tim.c.obj"
   "CMakeFiles/bsplib.dir/h723/h723_tim.c.obj.d"
   "CMakeFiles/bsplib.dir/h723/h723_usart.c.obj"

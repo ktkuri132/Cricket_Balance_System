@@ -46,8 +46,8 @@ int main() {
 	port->System_Init();
     syscall.NVIC_Configuration();
     port->SysTick_Init(); 
-    Sys_cmd_Init();
     Stde_DataTypeDef_Init(USART2_Data);
+    Sys_cmd_Init();
     LED_Init(port);
     USART1_Init(port);
     USART2_Init(port);
@@ -57,7 +57,7 @@ int main() {
     // Motor_x = 2200;
     // Motor_y = 1900;
     Control_Init();
-    TIM2_INT_Init(5);	//10KhzÊ±ÖÓ
+    TIM2_INT_Init(5);	
     printf(CURSOR_SHOW);
     while (1) {
         if(port->syspfunc != NULL) {

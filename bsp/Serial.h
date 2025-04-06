@@ -127,12 +127,11 @@ void Shell_Deal(Bie_ShellTypeDef *ShellTypeStruct,EnvVar *env_vars);
 void BIE_UART(USART_TypeDef *USARTx, Bie_ShellTypeDef *ShellTypeStruct,EnvVar *env);
 
 typedef struct {
-    void (*ls)(void *const Parameters);  // ls命令回调函数
-    void (*reboot)(void *const Parameters);  // reboot命令回调函数
-    void (*poweroff)(void *const Parameters);  // poweroff命令回调函数
-    void (*help)(void *const Parameters);  // help命令回调函数
-    void (*kp)(void *const Parameters);  // kp命令回调函数
-    void (*clear)(void *const Parameters);  // clear命令回调函数
+    func ls;  // ls命令回调函数
+    func reset;  // reboot命令回调函数
+    func poweroff;  // poweroff命令回调函数
+    func help;  // help命令回调函数
+    func clear;  // clear命令回调函数
 }Cmd_PointerTypeDef;    // 系统默认配置命令指针结构体
 
 

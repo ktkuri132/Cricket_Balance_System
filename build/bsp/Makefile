@@ -297,6 +297,30 @@ h723/h723_gpio.c.s:
 	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/h723/h723_gpio.c.s
 .PHONY : h723/h723_gpio.c.s
 
+h723/h723_spi.obj: h723/h723_spi.c.obj
+.PHONY : h723/h723_spi.obj
+
+# target to build an object file
+h723/h723_spi.c.obj:
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/h723/h723_spi.c.obj
+.PHONY : h723/h723_spi.c.obj
+
+h723/h723_spi.i: h723/h723_spi.c.i
+.PHONY : h723/h723_spi.i
+
+# target to preprocess a source file
+h723/h723_spi.c.i:
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/h723/h723_spi.c.i
+.PHONY : h723/h723_spi.c.i
+
+h723/h723_spi.s: h723/h723_spi.c.s
+.PHONY : h723/h723_spi.s
+
+# target to generate assembly for a file
+h723/h723_spi.c.s:
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/h723/h723_spi.c.s
+.PHONY : h723/h723_spi.c.s
+
 h723/h723_tim.obj: h723/h723_tim.c.obj
 .PHONY : h723/h723_tim.obj
 
@@ -399,6 +423,9 @@ help:
 	@echo ... h723/h723_gpio.obj
 	@echo ... h723/h723_gpio.i
 	@echo ... h723/h723_gpio.s
+	@echo ... h723/h723_spi.obj
+	@echo ... h723/h723_spi.i
+	@echo ... h723/h723_spi.s
 	@echo ... h723/h723_tim.obj
 	@echo ... h723/h723_tim.i
 	@echo ... h723/h723_tim.s

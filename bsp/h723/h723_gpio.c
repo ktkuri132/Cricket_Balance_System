@@ -33,7 +33,7 @@ void GPIO_AF_Set(GPIO_TypeDef* GPIOx,u8 BITx,u8 AFx)
 	GPIOx->AFR[BITx>>3]|=(u32)AFx<<((BITx&0X07)*4);
 } 
 
-void H723_GPIO_Config(void* const Parameters)
+void __H723_GPIO_Config(void* const Parameters)
 {
     GPIO_Init_Parameters *GPIO_Parameter = (GPIO_Init_Parameters*)Parameters;   
     // 清除并设置 MODER 寄存器的相应位
@@ -53,6 +53,28 @@ void H723_GPIO_Config(void* const Parameters)
     GPIO_Parameter->GPIOx->OTYPER |= (GPIO_Parameter->GPIO_OType_xx << GPIO_Parameter->GPIO_Pin_x); // 设置输出类型位
     // GPIO_Set(GPIO_Parameter->GPIOx, GPIO_Parameter->GPIO_Pin_x, GPIO_Parameter->GPIO_Mode_x, GPIO_Parameter->GPIO_OType_xx, GPIO_Parameter->GPIO_Speed_x, GPIO_Parameter->GPIO_PuPd_x);
 
+}
+
+
+void H723_GPIO_Config(void* const Parameters)
+{
+    GPIO_Init_Parameters *GPIO_Parameter = (GPIO_Init_Parameters*)Parameters;   
+    for (int i = 0; i < 16; i++) {
+        if (GPIO_Parameter->GPIO_Pin_Source[i]) {
+            GPIO_Parameter->GPIOx->MODER &= ~(3 << (2 * i));
+            GPIO_Parameter->GPIOx->MODER |= 2 << (2 * i);
+            GPIO_Parameter->GPIOx->OSPEEDR &= ~(3 << (2 * i));
+            GPIO_Parameter->GPIOx->OSPEEDR |= 3 << (2 * i);
+            GPIO_Parameter->GPIOx->PUPDR &= ~(3 << (2 * i));
+            GPIO_Parameter->GPIOx->PUPDR |= 1 << (2 * i);
+            GPIO_Parameter->GPIOx->AFR[i / 8] &=
+                ~(0x0F << (4 * (i % 8)));
+                GPIO_Parameter->GPIOx->AFR[i / 8] |=
+                GPIO_Parameter->GPIO_AF_x << (4 * (i % 8));
+                GPIO_Parameter->GPIOx->OTYPER &= ~(1 << i);
+                GPIO_Parameter->GPIOx->OTYPER |= 0 << i;
+        }
+    }
 }
 
 void H723_GPIO_AF_Config(void* const Parameters){

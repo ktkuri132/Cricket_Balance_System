@@ -45,7 +45,7 @@
 #define usart sys_port->usart_port     /* USART指针  */
 #define tim sys_port->tim_port         /* TIM指针  */
 
-typedef void (*BaseFPPort)(void *const Parameters);
+typedef void (*func)(void *const Parameters);
 
 /**
  * @brief GPIO接口结构体
@@ -59,10 +59,10 @@ typedef void (*BaseFPPort)(void *const Parameters);
 typedef struct {
     // GPIO_Init_Parameters *gpio_init_parameters;
     // GPIO_Pin_Parameters *gpio_pin_parameters;
-    void (*bsp_gpio_init)(void *const Parameters);
-    void (*bsp_gpio_af_set)(void *const Parameters);
+    func bsp_gpio_init;
+    func bsp_gpio_af_set;
     void (*bsp_gpio_pin_set)(void *const Parameters, uint8_t status);
-    void (*bsp_gpio_pin_get)(void *const Parameters);
+    func bsp_gpio_pin_get;
     uint32_t (*GetGPIOPeriphClock)(void *const Parameters);
 } GPIO_Port;
 
@@ -79,9 +79,9 @@ typedef struct {
  * @param  Soft_IIC_NAck: I2C不应答函数指针
  */
 typedef struct {
-    void (*Soft_IIC_Init)(void *const Parameters);
-    void (*Soft_IIC_Start)(void *const Parameters);
-    void (*Soft_IIC_Stop)(void *const Parameters);
+    func Soft_IIC_Init;
+    func Soft_IIC_Start;
+    func Soft_IIC_Stop;
     void (*Soft_IIC_Send_Byte)(uint8_t txd);
     uint8_t (*Soft_IIC_Receive_Byte)(unsigned char ack);
     uint8_t (*Soft_IIC_Wait_Ack)(void);
@@ -93,6 +93,13 @@ typedef struct {
     uint8_t (*Soft_IIC_Read_Byte)(uint8_t addr, uint8_t reg);
 } I2C_Port;
 
+typedef struct {
+    // SPI_Parameters *spi_parameters;
+    func bsp_spi_x_inti;
+    func bsp_spi_x_send;
+    func bsp_spi_x_receive;
+} SPI_Port;
+
 /**
  * @brief USART接口结构体
  * @note  该结构体用于存储USART接口的相关参数和函数指针
@@ -101,8 +108,8 @@ typedef struct {
  */
 typedef struct {
     // USART_Parameters *usart_parameters;
-    void (*bsp_usart_x_inti)(void *const Parameters);
-    void (*bsp_usart_x_send)(void *const Parameters);
+    func bsp_usart_x_inti;
+    func bsp_usart_x_send;
 } USART_Port;
 
 /**
@@ -114,8 +121,8 @@ typedef struct {
  */
 typedef struct {
     // TIM_Parameters *tim_parameters;
-    void (*bsp_tim_x_inti)(void *const Parameters);
-    void (*bsp_tim_x_start)(void *const Parameters);
+    func bsp_tim_x_inti;
+    func bsp_tim_x_start;
 } TIM_Port;
 
 /**
@@ -137,7 +144,7 @@ typedef struct {
  * @param  bsp_rcc_periph_clock: RCC外设时钟函数指针
  */
 typedef struct {
-    void (*bsp_rcc_periph_clock)(void *const Parameters);
+    func bsp_rcc_periph_clock;
 } RCC_PeriphClock_Port;
 
 /**
@@ -181,7 +188,7 @@ typedef struct {
     TIM_Port tim_port;
     void (*System_Init)(void);
     void (*SysTick_Init)(void);
-    void (*syspfunc)(void *const Parameters);
+    func syspfunc;
     void *Parameters;
 } SYS_Port;
 

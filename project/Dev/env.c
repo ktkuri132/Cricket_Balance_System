@@ -18,6 +18,15 @@ void __ls(void *const Parameters) {
     } 
 }
 
+void __clear(void *const Parameters){
+    printf(CLEAR_SCREEN);
+    printf(CURSOR_HOME);
+}
+
+void __reset(void *const Parameters) {
+    NVIC_SystemReset();  // 重启系统
+}
+
 void __kp(void *const Parameters) {
     if (Parameters == NULL) {
         printf("Invalid argument for set_kp command\n");
@@ -57,15 +66,14 @@ void __ki(void *const Parameters) {
 void Sys_cmd_Init()
 {
     Cmd.ls = __ls;
-    Cmd.reboot = NULL;
+    Cmd.reset = __reset;
     Cmd.poweroff = NULL;
-    Cmd.kp = NULL;
-    Cmd.clear = NULL;
+    Cmd.clear = __clear;
 }
 
 
 void DisPlay_SystemData(void *const Parameters) {
-
+    EnvVar *env_vars = (EnvVar *)Parameters;  // 将参数转换为环境变量结构体指针
     printf(CLEAR_SCREEN);
     // 绘制 "E"
     Wirte_String(0, 2, 1, "######");
@@ -100,13 +108,13 @@ void DisPlay_SystemData(void *const Parameters) {
     Wirte_String(9, 2, 2, "Time:    Conut:      Sec:    Min:"); // 显示数字
     Wirte_String(10, 2, 2, "OpenMV:     PidOut:"); // 显示数字
     refresh_Partscreen(0, 1, 1); // 刷新屏幕
-    while(!USART1_Data->RunStae){
+    while(!USART1_Data->RunStae) {
         static uint32_t i = 0;
         Wirte_String(9, 17, 2, "%d", i); // 显示秒
         Wirte_String(9, 27, 2, "%d", srt.SysRunTimeSec); // 显示秒
         Wirte_String(9, 35, 2, "%d", srt.SysRunTimeMin); // 显示分钟
-        // Wirte_String(10, 9, 2, "%d", OpenMVData_Y); // 显示数字
-        // Wirte_String(10, 21, 2, "%d", Motor_x); // 显示数字
+        Wirte_String(10, 9, 2, "%d", OpenMVData_Y); // 显示数字
+        Wirte_String(10, 21, 2, "%d", Motor_x); // 显示数字
         refresh_Partscreen(0, 1, 1); // 刷新屏幕
         i++;
     }

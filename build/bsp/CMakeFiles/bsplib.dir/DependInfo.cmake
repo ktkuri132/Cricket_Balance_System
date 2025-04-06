@@ -15,6 +15,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/34575/Desktop/Cricket_Balance_System/bsp/f407/f407_time.c" "bsp/CMakeFiles/bsplib.dir/f407/f407_time.c.obj" "gcc" "bsp/CMakeFiles/bsplib.dir/f407/f407_time.c.obj.d"
   "C:/Users/34575/Desktop/Cricket_Balance_System/bsp/f407/f407_usart.c" "bsp/CMakeFiles/bsplib.dir/f407/f407_usart.c.obj" "gcc" "bsp/CMakeFiles/bsplib.dir/f407/f407_usart.c.obj.d"
   "C:/Users/34575/Desktop/Cricket_Balance_System/bsp/h723/h723_gpio.c" "bsp/CMakeFiles/bsplib.dir/h723/h723_gpio.c.obj" "gcc" "bsp/CMakeFiles/bsplib.dir/h723/h723_gpio.c.obj.d"
+  "C:/Users/34575/Desktop/Cricket_Balance_System/bsp/h723/h723_spi.c" "bsp/CMakeFiles/bsplib.dir/h723/h723_spi.c.obj" "gcc" "bsp/CMakeFiles/bsplib.dir/h723/h723_spi.c.obj.d"
   "C:/Users/34575/Desktop/Cricket_Balance_System/bsp/h723/h723_tim.c" "bsp/CMakeFiles/bsplib.dir/h723/h723_tim.c.obj" "gcc" "bsp/CMakeFiles/bsplib.dir/h723/h723_tim.c.obj.d"
   "C:/Users/34575/Desktop/Cricket_Balance_System/bsp/h723/h723_usart.c" "bsp/CMakeFiles/bsplib.dir/h723/h723_usart.c.obj" "gcc" "bsp/CMakeFiles/bsplib.dir/h723/h723_usart.c.obj.d"
   "C:/Users/34575/Desktop/Cricket_Balance_System/bsp/sysport.c" "bsp/CMakeFiles/bsplib.dir/sysport.c.obj" "gcc" "bsp/CMakeFiles/bsplib.dir/sysport.c.obj.d"

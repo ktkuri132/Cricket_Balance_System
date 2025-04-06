@@ -113,8 +113,7 @@ uint8_t STDE_UART(USART_TypeDef *USARTx, Stde_DataTypeDef *DataTypeStruct) {
             DataTypeStruct->Res_Data_type = 0;  // 关闭数据格式检测
         }
 
-        if (DataTypeStruct
-                ->UART_Strat)  // 开始接收后，数组的第一个位置存储的是数据格式，读数据要从第二个位置开始
+        if (DataTypeStruct->UART_Strat)  // 开始接收后，数组的第一个位置存储的是数据格式，读数据要从第二个位置开始
         {
             DataTypeStruct->USART_array[DataTypeStruct->Res_note][DataTypeStruct->Res_len] =
                 DataTypeStruct->c;      // 存储数据
@@ -201,13 +200,13 @@ char *syscmd[20] = {
     "poweroff", 
     "help",
     "exit",
+    "clear",
     // 参数命令
     // 运行命令
     "ls",
     NULL  // 命令列表结束标志
 };
 
-extern uint8_t set_pid_arg(int32_t *arg_value);  // 设置PID参数函数声明
 
 Cmd_PointerTypeDef Cmd;
 
@@ -222,12 +221,12 @@ int8_t Cmd_match(Bie_ShellTypeDef *ShellTypeStruct,char *cmd, void *arg) {
     // 处理命令
     if (strcmp(cmd, "hello") == 0) {
         printf("Hello, World!\n");
-    } else if (strcmp(cmd, "reboot") == 0) {
+    } else if (strcmp(cmd, "reset") == 0) {
         printf("Rebooting...\n");
-        if (Cmd.reboot != NULL) {
-            Cmd.reboot(NULL);  // 调用重启函数
+        if (Cmd.reset != NULL) {
+            Cmd.reset(NULL);  // 调用重启函数
         } else {
-            printf(FG_RED "reboot command not implemented.Cause is a NULL point\n" RESET_ALL);
+            printf(FG_RED "reset command not implemented.Cause is a NULL point\n" RESET_ALL);
         }
     } else if (strcmp(cmd, "poweroff") == 0) {
         printf("Powering off...\n");

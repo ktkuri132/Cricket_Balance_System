@@ -169,10 +169,24 @@ bsp/CMakeFiles/bsplib.dir/h723/h723_gpio.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/bsplib.dir/h723/h723_gpio.c.s"
 	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build\bsp && C:\PROGRA~2\ARMGNU~1\133167~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\34575\Desktop\Cricket_Balance_System\bsp\h723\h723_gpio.c -o CMakeFiles\bsplib.dir\h723\h723_gpio.c.s
 
+bsp/CMakeFiles/bsplib.dir/h723/h723_spi.c.obj: bsp/CMakeFiles/bsplib.dir/flags.make
+bsp/CMakeFiles/bsplib.dir/h723/h723_spi.c.obj: C:/Users/34575/Desktop/Cricket_Balance_System/bsp/h723/h723_spi.c
+bsp/CMakeFiles/bsplib.dir/h723/h723_spi.c.obj: bsp/CMakeFiles/bsplib.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\34575\Desktop\Cricket_Balance_System\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object bsp/CMakeFiles/bsplib.dir/h723/h723_spi.c.obj"
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build\bsp && C:\PROGRA~2\ARMGNU~1\133167~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT bsp/CMakeFiles/bsplib.dir/h723/h723_spi.c.obj -MF CMakeFiles\bsplib.dir\h723\h723_spi.c.obj.d -o CMakeFiles\bsplib.dir\h723\h723_spi.c.obj -c C:\Users\34575\Desktop\Cricket_Balance_System\bsp\h723\h723_spi.c
+
+bsp/CMakeFiles/bsplib.dir/h723/h723_spi.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/bsplib.dir/h723/h723_spi.c.i"
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build\bsp && C:\PROGRA~2\ARMGNU~1\133167~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\34575\Desktop\Cricket_Balance_System\bsp\h723\h723_spi.c > CMakeFiles\bsplib.dir\h723\h723_spi.c.i
+
+bsp/CMakeFiles/bsplib.dir/h723/h723_spi.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/bsplib.dir/h723/h723_spi.c.s"
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build\bsp && C:\PROGRA~2\ARMGNU~1\133167~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\34575\Desktop\Cricket_Balance_System\bsp\h723\h723_spi.c -o CMakeFiles\bsplib.dir\h723\h723_spi.c.s
+
 bsp/CMakeFiles/bsplib.dir/h723/h723_tim.c.obj: bsp/CMakeFiles/bsplib.dir/flags.make
 bsp/CMakeFiles/bsplib.dir/h723/h723_tim.c.obj: C:/Users/34575/Desktop/Cricket_Balance_System/bsp/h723/h723_tim.c
 bsp/CMakeFiles/bsplib.dir/h723/h723_tim.c.obj: bsp/CMakeFiles/bsplib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\34575\Desktop\Cricket_Balance_System\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object bsp/CMakeFiles/bsplib.dir/h723/h723_tim.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\34575\Desktop\Cricket_Balance_System\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object bsp/CMakeFiles/bsplib.dir/h723/h723_tim.c.obj"
 	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build\bsp && C:\PROGRA~2\ARMGNU~1\133167~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT bsp/CMakeFiles/bsplib.dir/h723/h723_tim.c.obj -MF CMakeFiles\bsplib.dir\h723\h723_tim.c.obj.d -o CMakeFiles\bsplib.dir\h723\h723_tim.c.obj -c C:\Users\34575\Desktop\Cricket_Balance_System\bsp\h723\h723_tim.c
 
 bsp/CMakeFiles/bsplib.dir/h723/h723_tim.c.i: cmake_force
@@ -186,7 +200,7 @@ bsp/CMakeFiles/bsplib.dir/h723/h723_tim.c.s: cmake_force
 bsp/CMakeFiles/bsplib.dir/h723/h723_usart.c.obj: bsp/CMakeFiles/bsplib.dir/flags.make
 bsp/CMakeFiles/bsplib.dir/h723/h723_usart.c.obj: C:/Users/34575/Desktop/Cricket_Balance_System/bsp/h723/h723_usart.c
 bsp/CMakeFiles/bsplib.dir/h723/h723_usart.c.obj: bsp/CMakeFiles/bsplib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\34575\Desktop\Cricket_Balance_System\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object bsp/CMakeFiles/bsplib.dir/h723/h723_usart.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\34575\Desktop\Cricket_Balance_System\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object bsp/CMakeFiles/bsplib.dir/h723/h723_usart.c.obj"
 	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build\bsp && C:\PROGRA~2\ARMGNU~1\133167~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT bsp/CMakeFiles/bsplib.dir/h723/h723_usart.c.obj -MF CMakeFiles\bsplib.dir\h723\h723_usart.c.obj.d -o CMakeFiles\bsplib.dir\h723\h723_usart.c.obj -c C:\Users\34575\Desktop\Cricket_Balance_System\bsp\h723\h723_usart.c
 
 bsp/CMakeFiles/bsplib.dir/h723/h723_usart.c.i: cmake_force
@@ -200,7 +214,7 @@ bsp/CMakeFiles/bsplib.dir/h723/h723_usart.c.s: cmake_force
 bsp/CMakeFiles/bsplib.dir/sysport.c.obj: bsp/CMakeFiles/bsplib.dir/flags.make
 bsp/CMakeFiles/bsplib.dir/sysport.c.obj: C:/Users/34575/Desktop/Cricket_Balance_System/bsp/sysport.c
 bsp/CMakeFiles/bsplib.dir/sysport.c.obj: bsp/CMakeFiles/bsplib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\34575\Desktop\Cricket_Balance_System\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object bsp/CMakeFiles/bsplib.dir/sysport.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\34575\Desktop\Cricket_Balance_System\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object bsp/CMakeFiles/bsplib.dir/sysport.c.obj"
 	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build\bsp && C:\PROGRA~2\ARMGNU~1\133167~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT bsp/CMakeFiles/bsplib.dir/sysport.c.obj -MF CMakeFiles\bsplib.dir\sysport.c.obj.d -o CMakeFiles\bsplib.dir\sysport.c.obj -c C:\Users\34575\Desktop\Cricket_Balance_System\bsp\sysport.c
 
 bsp/CMakeFiles/bsplib.dir/sysport.c.i: cmake_force
@@ -220,6 +234,7 @@ bsplib_OBJECTS = \
 "CMakeFiles/bsplib.dir/f407/f407_time.c.obj" \
 "CMakeFiles/bsplib.dir/f407/f407_usart.c.obj" \
 "CMakeFiles/bsplib.dir/h723/h723_gpio.c.obj" \
+"CMakeFiles/bsplib.dir/h723/h723_spi.c.obj" \
 "CMakeFiles/bsplib.dir/h723/h723_tim.c.obj" \
 "CMakeFiles/bsplib.dir/h723/h723_usart.c.obj" \
 "CMakeFiles/bsplib.dir/sysport.c.obj"
@@ -234,12 +249,13 @@ bsp/libbsplib.a: bsp/CMakeFiles/bsplib.dir/f407/f407_rcc.c.obj
 bsp/libbsplib.a: bsp/CMakeFiles/bsplib.dir/f407/f407_time.c.obj
 bsp/libbsplib.a: bsp/CMakeFiles/bsplib.dir/f407/f407_usart.c.obj
 bsp/libbsplib.a: bsp/CMakeFiles/bsplib.dir/h723/h723_gpio.c.obj
+bsp/libbsplib.a: bsp/CMakeFiles/bsplib.dir/h723/h723_spi.c.obj
 bsp/libbsplib.a: bsp/CMakeFiles/bsplib.dir/h723/h723_tim.c.obj
 bsp/libbsplib.a: bsp/CMakeFiles/bsplib.dir/h723/h723_usart.c.obj
 bsp/libbsplib.a: bsp/CMakeFiles/bsplib.dir/sysport.c.obj
 bsp/libbsplib.a: bsp/CMakeFiles/bsplib.dir/build.make
 bsp/libbsplib.a: bsp/CMakeFiles/bsplib.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\34575\Desktop\Cricket_Balance_System\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking C static library libbsplib.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\34575\Desktop\Cricket_Balance_System\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking C static library libbsplib.a"
 	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build\bsp && $(CMAKE_COMMAND) -P CMakeFiles\bsplib.dir\cmake_clean_target.cmake
 	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build\bsp && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\bsplib.dir\link.txt --verbose=$(VERBOSE)
 

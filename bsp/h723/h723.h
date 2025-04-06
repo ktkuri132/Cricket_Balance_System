@@ -22,9 +22,8 @@ typedef enum{
 }GPIO_AF;
 
 typedef enum{
-    PIN0,PIN1,PIN2,PIN3,PIN4,PIN5,PIN6,PIN7,
-    PIN8,PIN9,PIN10,PIN11,PIN12,PIN13,PIN14,PIN15
-
+    Pin0,Pin1,Pin2,Pin3,Pin4,Pin5,Pin6,Pin7,
+    Pin8,Pin9,Pin10,Pin11,Pin12,Pin13,Pin14,Pin15
 }GPIO_Pin;
 
 typedef enum{
@@ -70,7 +69,7 @@ typedef enum{
 typedef struct {
     GPIO_TypeDef *GPIOx;
     uint32_t GPIO_Pin_x;
-    uint8_t GPIO_Pin_Source_x;
+    uint8_t GPIO_Pin_Source[16];
     uint32_t GPIO_Mode_x;
     uint32_t GPIO_PuPd_x;
     uint32_t GPIO_Speed_x;
@@ -101,6 +100,20 @@ typedef struct{
     uint8_t DR;
 }USART_Parameters;
 
+typedef struct {
+    SPI_TypeDef *SPIx;
+    GPIO_TypeDef *GPIOx;
+    uint32_t SPI_BaudRatePrescaler;
+    uint32_t SPI_Mode;
+    uint32_t SPI_Direction;
+    uint32_t SPI_DataSize;
+    uint32_t SPI_CPOL;
+    uint32_t SPI_CPHA;
+    uint32_t SPI_NSS;
+    uint32_t SPI_FirstBit;
+    uint16_t GPIO_Pin_Source[16];
+    uint32_t GPIO_AF;
+}SPI_Parameters;
 
 typedef struct{
     TIM_TypeDef* TIMx;
@@ -156,8 +169,8 @@ static inline void NVIC_Init(void){
 
     NVIC_SetPriority(TIM2_IRQn, 2);	//设置TIM2中断优先级为0
     NVIC_SetPriority(USART1_IRQn, 1);	//设置USART1中断优先级为2
-    NVIC_SetPriority(USART2_IRQn, 1);	//设置USART2中断优先级为2
-    NVIC_SetPriority(PendSV_IRQn, 3);	//设置PendSV中断优先级为3
+    NVIC_SetPriority(USART2_IRQn, 3);	//设置USART2中断优先级为2
+    NVIC_SetPriority(PendSV_IRQn, 2);	//设置PendSV中断优先级为3
 }
 
 
