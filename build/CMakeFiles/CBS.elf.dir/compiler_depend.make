@@ -34,6 +34,7 @@ CMakeFiles/CBS.elf.dir/main.c.obj: C:/Users/34575/Desktop/Cricket_Balance_System
   C:/Users/34575/Desktop/Cricket_Balance_System/bsp/Serial.h \
   C:/Users/34575/Desktop/Cricket_Balance_System/bsp/Serial.h \
   C:/Users/34575/Desktop/Cricket_Balance_System/bsp/h723/h723.h \
+  C:/Users/34575/Desktop/Cricket_Balance_System/bsp/shell.h \
   C:/Users/34575/Desktop/Cricket_Balance_System/bsp/sysport.h \
   C:/Users/34575/Desktop/Cricket_Balance_System/h723_core/cmsis_compiler.h \
   C:/Users/34575/Desktop/Cricket_Balance_System/h723_core/cmsis_gcc.h \
@@ -137,6 +138,8 @@ C:/Program\ Files\ (x86)/Arm\ GNU\ Toolchain\ arm-none-eabi/13.3\ rel1/arm-none-
 C:/Users/34575/Desktop/Cricket_Balance_System/h723_core/stm32h723xx.h:
 
 C:/Program\ Files\ (x86)/Arm\ GNU\ Toolchain\ arm-none-eabi/13.3\ rel1/arm-none-eabi/include/sys/cdefs.h:
+
+C:/Users/34575/Desktop/Cricket_Balance_System/bsp/shell.h:
 
 C:/Program\ Files\ (x86)/Arm\ GNU\ Toolchain\ arm-none-eabi/13.3\ rel1/arm-none-eabi/include/sys/features.h:
 

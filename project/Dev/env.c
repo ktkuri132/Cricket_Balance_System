@@ -2,7 +2,7 @@
 #include <stdint.h>
 #include <string.h>
 #include <sysport.h>
-
+#include <shell.h>
 #include "Serial.h"
 
 
@@ -15,8 +15,8 @@ extern PID pid_y;
 extern PID pid_xs;
 extern PID pid_ys;
 
-void __ls(void *const Parameters) {
-    if (strcmp(Parameters, "pid") == 0) {
+void __ls(int argc, void *argv[]) {
+    if (strcmp(argv[1], "pid") == 0) {
         printf("xkp: %d xkd: %d xki: %d\n", pid_x.Kp, pid_x.Kd, pid_x.Ki);
         printf("ykp: %d ykd: %d yki: %d\n", pid_y.Kp, pid_y.Kd, pid_y.Ki);
         printf("xskp: %d xskd: %d xski: %d\n", pid_xs.Kp, pid_xs.Kd, pid_xs.Ki);
@@ -24,158 +24,76 @@ void __ls(void *const Parameters) {
     }
 }
 
-void __clear(void *const Parameters) {
+void __clear(int argc, void *argv[]) {
     printf(CLEAR_SCREEN);
     printf(CURSOR_HOME);
 }
 
-void __reset(void *const Parameters) {
+void __reset(int argc, void *argv[]) {
     NVIC_SystemReset();  // 重启系统
 }
 
-void __xkp(void *const Parameters) {
-    if (Parameters == NULL) {
-        printf("Invalid argument for set_kp command\n");
+void __pid(int argc,void *argv[]){
+    if (argv == NULL) {
+        printf("Invalid argument for pid command\n");
         return;
     }
-    char *arg_str = (char *)Parameters;  // 将参数值转换为字符
+    if(argc < 1) {
+        printf("Invalid argument for pid command\n");
+        return;
+    } else if(argc >3){
+        printf("Too mach argument to pid command\n");
+        return;
+    }
     char *endptr;
-    int32_t arg_value = strtol(arg_str, &endptr, 10);  // 将字符串转换为整数
-    pid_x.Kp          = arg_value;                     // 设置PID参数
+    int32_t arg_value = strtol(argv[3], &endptr, 10);  // 将字符串转换为整数
+
+    if(!strcmp(argv[1],"x")){
+        if(strcmp(argv[2], "kp") == 0) {
+            pid_x.Kp = arg_value;  // 设置PID参数
+        } else if(strcmp(argv[1], "kd") == 0) {
+            pid_x.Kd = arg_value;
+        } else if(strcmp(argv[1], "ki") == 0) {
+            pid_x.Ki = arg_value;
+        } else {
+            printf("Invalid argument for pid command\n");
+        }
+    } else if(!strcmp(argv[1], "y")){
+        if(strcmp(argv[2], "kp") == 0) {
+            pid_y.Kp = arg_value;  // 设置PID参数
+        } else if(strcmp(argv[1], "kd") == 0) {
+            pid_y.Kd = arg_value;
+        } else if(strcmp(argv[1], "ki") == 0) {
+            pid_y.Ki = arg_value;
+        } else {
+            printf("Invalid argument for pid command\n");
+        }
+    } else if(!strcmp(argv[1], "xs")){
+        if(strcmp(argv[2], "kp") == 0) {
+            pid_xs.Kp = arg_value;  // 设置PID参数
+        } else if(strcmp(argv[1], "kd") == 0) {
+            pid_xs.Kd = arg_value;
+        } else if(strcmp(argv[1], "ki") == 0) {
+            pid_xs.Ki = arg_value;
+        } else {
+            printf("Invalid argument for pid command\n");
+        }
+    } else if(!strcmp(argv[1], "ys")){
+        if(strcmp(argv[2], "kp") == 0) {
+            pid_ys.Kp = arg_value;  // 设置PID参数
+        } else if(strcmp(argv[1], "kd") == 0) {
+            pid_ys.Kd = arg_value;
+        } else if(strcmp(argv[1], "ki") == 0) {
+            pid_ys.Ki = arg_value;
+        } else {
+            printf("Invalid argument for pid command\n");
+        }
+    }
+    
     printf("Setting PID parameters: %d\n", arg_value);
 }
 
-void __xkd(void *const Parameters) {
-    if (Parameters == NULL) {
-        printf("Invalid argument for set_kd command\n");
-        return;
-    }
-    char *arg_str = (char *)Parameters;  // 将参数值转换为字符
-    char *endptr;
-    int32_t arg_value = strtol(arg_str, &endptr, 10);  // 将字符串转换为整数
-    pid_x.Kd          = arg_value;                     // 设置PID参数
-    printf("Setting PID parameters: %d\n", arg_value);
-}
 
-void __xki(void *const Parameters) {
-    if (Parameters == NULL) {
-        printf("Invalid argument for set_ki command\n");
-        return;
-    }
-    char *arg_str = (char *)Parameters;  // 将参数值转换为字符
-    char *endptr;
-    int32_t arg_value = strtol(arg_str, &endptr, 10);  // 将字符串转换为整数
-    pid_x.Ki          = arg_value;                     // 设置PID参数
-    printf("Setting PID parameters: %d\n", arg_value);
-}
-
-void __ykp(void *const Parameters) {
-    if (Parameters == NULL) {
-        printf("Invalid argument for set_kp command\n");
-        return;
-    }
-    char *arg_str = (char *)Parameters;  // 将参数值转换为字符
-    char *endptr;
-    int32_t arg_value = strtol(arg_str, &endptr, 10);  // 将字符串转换为整数
-    pid_y.Kp          = arg_value;                     // 设置PID参数
-    printf("Setting PID parameters: %d\n", arg_value);
-}
-
-void __ykd(void *const Parameters) {
-    if (Parameters == NULL) {
-        printf("Invalid argument for set_kd command\n");
-        return;
-    }
-    char *arg_str = (char *)Parameters;  // 将参数值转换为字符
-    char *endptr;
-    int32_t arg_value = strtol(arg_str, &endptr, 10);  // 将字符串转换为整数
-    pid_y.Kd          = arg_value;                     // 设置PID参数
-    printf("Setting PID parameters: %d\n", arg_value);
-}
-
-void __yki(void *const Parameters) {
-    if (Parameters == NULL) {
-        printf("Invalid argument for set_ki command\n");
-        return;
-    }
-    char *arg_str = (char *)Parameters;  // 将参数值转换为字符
-    char *endptr;
-    int32_t arg_value = strtol(arg_str, &endptr, 10);  // 将字符串转换为整数
-    pid_y.Ki          = arg_value;                     // 设置PID参数
-    printf("Setting PID parameters: %d\n", arg_value);
-}
-
-void __xskp(void *const Parameters) {
-    if (Parameters == NULL) {
-        printf("Invalid argument for set_kp command\n");
-        return;
-    }
-    char *arg_str = (char *)Parameters;  // 将参数值转换为字符
-    char *endptr;
-    int32_t arg_value = strtol(arg_str, &endptr, 10);  // 将字符串转换为整数
-    pid_xs.Kp         = arg_value;                     // 设置PID参数
-    printf("Setting PID parameters: %d\n", arg_value);
-}
-
-void __xskd(void *const Parameters) {
-    if (Parameters == NULL) {
-        printf("Invalid argument for set_kd command\n");
-        return;
-    }
-    char *arg_str = (char *)Parameters;  // 将参数值转换为字符
-    char *endptr;
-    int32_t arg_value = strtol(arg_str, &endptr, 10);  // 将字符串转换为整数
-    pid_xs.Kd         = arg_value;                     // 设置PID参数
-    printf("Setting PID parameters: %d\n", arg_value);
-}
-
-void __xski(void *const Parameters) {
-    if (Parameters == NULL) {
-        printf("Invalid argument for set_ki command\n");
-        return;
-    }
-    char *arg_str = (char *)Parameters;  // 将参数值转换为字符
-    char *endptr;
-    int32_t arg_value = strtol(arg_str, &endptr, 10);  // 将字符串转换为整数
-    pid_xs.Ki         = arg_value;                     // 设置PID参数
-    printf("Setting PID parameters: %d\n", arg_value);
-}
-
-void __yskp(void *const Parameters) {
-    if (Parameters == NULL) {
-        printf("Invalid argument for set_kp command\n");
-        return;
-    }
-    char *arg_str = (char *)Parameters;  // 将参数值转换为字符
-    char *endptr;
-    int32_t arg_value = strtol(arg_str, &endptr, 10);  // 将字符串转换为整数
-    pid_ys.Kp         = arg_value;                     // 设置PID参数
-    printf("Setting PID parameters: %d\n", arg_value);
-}
-
-void __yskd(void *const Parameters) {
-    if (Parameters == NULL) {
-        printf("Invalid argument for set_kd command\n");
-        return;
-    }
-    char *arg_str = (char *)Parameters;  // 将参数值转换为字符
-    char *endptr;
-    int32_t arg_value = strtol(arg_str, &endptr, 10);  // 将字符串转换为整数
-    pid_ys.Kd         = arg_value;                     // 设置PID参数
-    printf("Setting PID parameters: %d\n", arg_value);
-}
-
-void __yski(void *const Parameters) {
-    if (Parameters == NULL) {
-        printf("Invalid argument for set_ki command\n");
-        return;
-    }
-    char *arg_str = (char *)Parameters;  // 将参数值转换为字符
-    char *endptr;
-    int32_t arg_value = strtol(arg_str, &endptr, 10);  // 将字符串转换为整数
-    pid_ys.Ki         = arg_value;                     // 设置PID参数
-    printf("Setting PID parameters: %d\n", arg_value);
-}
 
 void Sys_cmd_Init() {
     Cmd.ls       = __ls;
@@ -184,8 +102,7 @@ void Sys_cmd_Init() {
     Cmd.clear    = __clear;
 }
 
-void DisPlay_SystemData(void *const Parameters) {
-    EnvVar *env_vars = (EnvVar *)Parameters;  // 将参数转换为环境变量结构体指针
+void DisPlay_SystemData(int argc,void *argv[]) {
     printf(CLEAR_SCREEN);
     // 绘制 "E"
     Wirte_String(0, 2, 1, "######");
@@ -246,13 +163,13 @@ void LED_Flip(SYS_Port *port) {
     printf(CLEAR_SCREEN);
 }
 
-void led(void *const arg) {
+void __led(int argc,void * argv[]) {
     // 处理LED命令
-    if (strcmp(arg, "on") == 0) {
+    if (strcmp(argv[1], "on") == 0) {
         LED_ON(port);  // 打开LED
-    } else if (strcmp(arg, "off") == 0) {
+    } else if (strcmp(argv[1], "off") == 0) {
         LED_OFF(port);  // 关闭LED
-    } else if (strcmp(arg, "flip") == 0) {
+    } else if (strcmp(argv[1], "flip") == 0) {
         LED_Flip(port);  // 翻转LED状态
     } else {
         printf("Invalid argument for led command\n");

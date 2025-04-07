@@ -46,7 +46,7 @@
 #define tim sys_port->tim_port         /* TIM指针  */
 
 typedef void (*func)(void *const Parameters);
-
+typedef void (*Bfunc)(int argc, void *argv[]);
 /**
  * @brief GPIO接口结构体
  * @note  该结构体用于存储GPIO接口的相关参数和函数指针

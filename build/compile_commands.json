@@ -865,6 +865,12 @@
 },
 {
   "directory": "C:/Users/34575/Desktop/Cricket_Balance_System/build/bsp",
+  "command": "C:\\PROGRA~2\\ARMGNU~1\\133167~1.3RE\\bin\\AR19DD~1.EXE  -IC:\\Users\\34575\\Desktop\\Cricket_Balance_System\\bsp -IC:\\Users\\34575\\Desktop\\Cricket_Balance_System\\bsp\\h723 -IC:\\Users\\34575\\Desktop\\Cricket_Balance_System\\h723_core -IC:\\Users\\34575\\Desktop\\Cricket_Balance_System\\h723_core\\STM32H7xx_HAL_Driver\\inc -IC:\\Users\\34575\\Desktop\\Cricket_Balance_System\\bsp\\gpio -g -std=gnu11 -mfloat-abi=hard -mfpu=fpv5-d16 -mcpu=cortex-m7 -mthumb -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Og -g -o CMakeFiles\\bsplib.dir\\shell.c.obj -c C:\\Users\\34575\\Desktop\\Cricket_Balance_System\\bsp\\shell.c",
+  "file": "C:/Users/34575/Desktop/Cricket_Balance_System/bsp/shell.c",
+  "output": "bsp/CMakeFiles/bsplib.dir/shell.c.obj"
+},
+{
+  "directory": "C:/Users/34575/Desktop/Cricket_Balance_System/build/bsp",
   "command": "C:\\PROGRA~2\\ARMGNU~1\\133167~1.3RE\\bin\\AR19DD~1.EXE  -IC:\\Users\\34575\\Desktop\\Cricket_Balance_System\\bsp -IC:\\Users\\34575\\Desktop\\Cricket_Balance_System\\bsp\\h723 -IC:\\Users\\34575\\Desktop\\Cricket_Balance_System\\h723_core -IC:\\Users\\34575\\Desktop\\Cricket_Balance_System\\h723_core\\STM32H7xx_HAL_Driver\\inc -IC:\\Users\\34575\\Desktop\\Cricket_Balance_System\\bsp\\gpio -g -std=gnu11 -mfloat-abi=hard -mfpu=fpv5-d16 -mcpu=cortex-m7 -mthumb -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Og -g -o CMakeFiles\\bsplib.dir\\sysport.c.obj -c C:\\Users\\34575\\Desktop\\Cricket_Balance_System\\bsp\\sysport.c",
   "file": "C:/Users/34575/Desktop/Cricket_Balance_System/bsp/sysport.c",
   "output": "bsp/CMakeFiles/bsplib.dir/sysport.c.obj"

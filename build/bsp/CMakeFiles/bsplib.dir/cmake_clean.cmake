@@ -19,6 +19,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/bsplib.dir/h723/h723_tim.c.obj.d"
   "CMakeFiles/bsplib.dir/h723/h723_usart.c.obj"
   "CMakeFiles/bsplib.dir/h723/h723_usart.c.obj.d"
+  "CMakeFiles/bsplib.dir/shell.c.obj"
+  "CMakeFiles/bsplib.dir/shell.c.obj.d"
   "CMakeFiles/bsplib.dir/sysport.c.obj"
   "CMakeFiles/bsplib.dir/sysport.c.obj.d"
   "libbsplib.a"

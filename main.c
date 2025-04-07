@@ -5,6 +5,7 @@
 #include <sysport.h>
 
 #include "bsp/Serial.h"
+#include "bsp/shell.h"
 #include "bsp/h723/h723.h"
 #include "stm32h7xx_it.h"
 
@@ -17,61 +18,20 @@ extern GraphicsChar_Unit Graphics_Memory[20][120];
 EnvVar MyEnv[] = {
     {
         .name     = "led",
-        .callback = led,
+        .callback = __led,
     },
     {
         .name     = "show",
         .callback = DisPlay_SystemData,
     },
     {
-        .name     = "xkp",
-        .callback = __xkp,
+        .name     = "pid",
+        .callback = __pid,
     },
     {
-        .name     = "xkd",
-        .callback = __xkd,
-    },
-    {
-        .name     = "xki",
-        .callback = __xki,
-    },
-    {
-        .name     = "ykp",
-        .callback = __ykp,
-    },
-    {
-        .name     = "ykd",
-        .callback = __ykd,
-    },
-    {
-        .name     = "yki",
-        .callback = __yki,
-    },
-    {
-        .name     = "xskp",
-        .callback = __xskp,
-    },
-    {
-        .name     = "xskd",
-        .callback = __xskd,
-    },
-    {
-        .name     = "xski",
-        .callback = __xski,
-    },
-    {
-        .name     = "yskp",
-        .callback = __yskp,
-    },
-    {
-        .name     = "yskd",
-        .callback = __yskd,
-    },
-    {
-        .name     = "yski",
-        .callback = __yski,
-    },
-    {.name = NULL, .callback = NULL}
+        .name = NULL, 
+        .callback = NULL
+    }
 };
 
 int main() {

@@ -2,6 +2,7 @@
 #include "sysport.h"
 #include <stdint.h>
 #include <Serial.h>
+#include <shell.h>
 #define USART
 #define TIM
 

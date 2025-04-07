@@ -369,6 +369,30 @@ h723/h723_usart.c.s:
 	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/h723/h723_usart.c.s
 .PHONY : h723/h723_usart.c.s
 
+shell.obj: shell.c.obj
+.PHONY : shell.obj
+
+# target to build an object file
+shell.c.obj:
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/shell.c.obj
+.PHONY : shell.c.obj
+
+shell.i: shell.c.i
+.PHONY : shell.i
+
+# target to preprocess a source file
+shell.c.i:
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/shell.c.i
+.PHONY : shell.c.i
+
+shell.s: shell.c.s
+.PHONY : shell.s
+
+# target to generate assembly for a file
+shell.c.s:
+	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f bsp\CMakeFiles\bsplib.dir\build.make bsp/CMakeFiles/bsplib.dir/shell.c.s
+.PHONY : shell.c.s
+
 sysport.obj: sysport.c.obj
 .PHONY : sysport.obj
 
@@ -432,6 +456,9 @@ help:
 	@echo ... h723/h723_usart.obj
 	@echo ... h723/h723_usart.i
 	@echo ... h723/h723_usart.s
+	@echo ... shell.obj
+	@echo ... shell.i
+	@echo ... shell.s
 	@echo ... sysport.obj
 	@echo ... sysport.i
 	@echo ... sysport.s

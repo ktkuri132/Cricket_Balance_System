@@ -106,31 +106,7 @@ uint16_t StdeUSART_Deal(Stde_DataTypeDef *DataTypeStruct, uint8_t point_note);
 
 #ifdef BIE_Serial  // 专用于串口命令行终端交互协议
 
-typedef struct {
-    uint8_t c;
-    uint8_t Res_len;   // 接收数据的下标
-    uint8_t UART_NOTE;  // 本次数据节点
-    uint8_t RunStae;  // 运行状态   --> 这里出现了一个bug,下面的Data数组访问越界,导致RunStae的值被覆盖了
-    uint8_t Data[20];  // 数据长度酌情调整
-} Bie_ShellTypeDef;     // Shell协议结构体
 
-typedef struct {
-    char *name;  // 命令名称
-    uint8_t RunStae;  // 运行状态
-    void *arg;  // 命令参数
-    void (*callback)(void *const Parameters);  // 命令回调函数
-} EnvVar;   // 环境变量结构体
-
-void Shell_Deal(Bie_ShellTypeDef *ShellTypeStruct,EnvVar *env_vars);
-void BIE_UART(USART_TypeDef *USARTx, Bie_ShellTypeDef *ShellTypeStruct,EnvVar *env);
-
-typedef struct {
-    func ls;  // ls命令回调函数
-    func reset;  // reboot命令回调函数
-    func poweroff;  // poweroff命令回调函数
-    func help;  // help命令回调函数
-    func clear;  // clear命令回调函数
-}Cmd_PointerTypeDef;    // 系统默认配置命令指针结构体
 
 
 typedef struct {

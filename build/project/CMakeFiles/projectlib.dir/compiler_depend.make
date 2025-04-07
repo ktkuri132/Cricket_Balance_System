@@ -273,6 +273,7 @@ project/CMakeFiles/projectlib.dir/Dev/env.c.obj: C:/Users/34575/Desktop/Cricket_
   C:/Users/34575/Desktop/Cricket_Balance_System/bsp/Serial.h \
   C:/Users/34575/Desktop/Cricket_Balance_System/bsp/Serial.h \
   C:/Users/34575/Desktop/Cricket_Balance_System/bsp/h723/h723.h \
+  C:/Users/34575/Desktop/Cricket_Balance_System/bsp/shell.h \
   C:/Users/34575/Desktop/Cricket_Balance_System/bsp/sysport.h \
   C:/Users/34575/Desktop/Cricket_Balance_System/h723_core/cmsis_compiler.h \
   C:/Users/34575/Desktop/Cricket_Balance_System/h723_core/cmsis_gcc.h \
@@ -769,6 +770,8 @@ C:/Users/34575/Desktop/Cricket_Balance_System/project/Project.h:
 C:/Users/34575/Desktop/Cricket_Balance_System/project/Control/pid.c:
 
 C:/Users/34575/Desktop/Cricket_Balance_System/project/Control/tool.c:
+
+C:/Users/34575/Desktop/Cricket_Balance_System/bsp/shell.h:
 
 C:/Users/34575/Desktop/Cricket_Balance_System/project/Dev/led.c:
 

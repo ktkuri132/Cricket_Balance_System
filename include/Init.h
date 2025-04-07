@@ -17,17 +17,7 @@ void TIM2_INT_Init(uint8_t ms);
 void Sys_cmd_Init();
 void led(void *const arg);
 
-void DisPlay_SystemData(void *const Parameters);
-void __xkp(void *const Parameters);
-void __xkd(void *const Parameters);
-void __xki(void *const Parameters);
-void __ykp(void *const Parameters);
-void __ykd(void *const Parameters);
-void __yki(void *const Parameters);
-void __xskp(void *const Parameters);
-void __xskd(void *const Parameters);
-void __xski(void *const Parameters);
-void __yskp(void *const Parameters);
-void __yskd(void *const Parameters);
-void __yski(void *const Parameters);
+void DisPlay_SystemData(int argc,void *argv[]);
+void __led(int argc,void * argv[]);
+void __pid(int argc,void *argv[]);
 #endif
