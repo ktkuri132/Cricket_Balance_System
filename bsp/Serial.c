@@ -293,8 +293,6 @@ void Shell_Deal(Bie_ShellTypeDef *ShellTypeStruct, EnvVar *env_vars) {
             printf("Executing environment variable command: %s\n", env_vars[i].name);
             env_vars[i].RunStae = 1;  // 设置运行状态为1，表示执行命令
             env_vars[i].arg = arg_part;  // 设置参数
-            // port->syspfunc = env_vars[i].callback;  // 设置回调函数
-            // port->Parameters = env_vars[i].arg;  // 设置参数
             SCB->ICSR |= SCB_ICSR_PENDSVSET_Msk; // 触发 PendSV 中断
             return;
         }

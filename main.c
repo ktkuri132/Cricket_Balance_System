@@ -1,63 +1,84 @@
 
+#include <Init.h>
+#include <control.h>
 #include <stdint.h>
 #include <sysport.h>
-#include <Init.h>
-#include "bsp/h723/h723.h"
+
 #include "bsp/Serial.h"
+#include "bsp/h723/h723.h"
 #include "stm32h7xx_it.h"
-#include <control.h>
+
 SYS_Port *port;
 
 Stde_DataTypeDef *USART2_Data;
-Bie_ShellTypeDef* USART1_Data;
+Bie_ShellTypeDef *USART1_Data;
 extern GraphicsChar_Unit Graphics_Memory[20][120];
 
-
-EnvVar  MyEnv[] = {
+EnvVar MyEnv[] = {
     {
-        .name = "led",
+        .name     = "led",
         .callback = led,
     },
     {
-        .name = "show",
+        .name     = "show",
         .callback = DisPlay_SystemData,
     },
     {
-        .name = "xkp", 
+        .name     = "xkp",
         .callback = __xkp,
     },
     {
-        .name = "xkd",
+        .name     = "xkd",
         .callback = __xkd,
     },
     {
-        .name = "xki",
+        .name     = "xki",
         .callback = __xki,
     },
     {
-        .name = "ykp", 
+        .name     = "ykp",
         .callback = __ykp,
     },
     {
-        .name = "ykd",
+        .name     = "ykd",
         .callback = __ykd,
     },
     {
-        .name = "yki",
+        .name     = "yki",
         .callback = __yki,
     },
     {
-        .name = NULL,
-        .callback = NULL
-    }
+        .name     = "xskp",
+        .callback = __xskp,
+    },
+    {
+        .name     = "xskd",
+        .callback = __xskd,
+    },
+    {
+        .name     = "xski",
+        .callback = __xski,
+    },
+    {
+        .name     = "yskp",
+        .callback = __yskp,
+    },
+    {
+        .name     = "yskd",
+        .callback = __yskd,
+    },
+    {
+        .name     = "yski",
+        .callback = __yski,
+    },
+    {.name = NULL, .callback = NULL}
 };
 
 int main() {
-
     port = SysPort_Init();
-	port->System_Init();
+    port->System_Init();
     syscall.NVIC_Configuration();
-    port->SysTick_Init(); 
+    port->SysTick_Init();
     Stde_DataTypeDef_Init(USART2_Data);
     Sys_cmd_Init();
     LED_Init(port);
@@ -72,7 +93,7 @@ int main() {
     TIM2_INT_Init(5);
     printf(CURSOR_SHOW);
     while (1) {
-        if(port->syspfunc != NULL) {
+        if (port->syspfunc != NULL) {
             port->syspfunc(port->Parameters);  // 执行系统函数
             port->syspfunc = NULL;
             printf(CURSOR_SHOW);
@@ -80,49 +101,41 @@ int main() {
     }
 }
 
-
-
-void SysTick_Handler(){
+void SysTick_Handler() {
     static uint64_t TempRunTime = 0;
     TempRunTime++;
-    if(TempRunTime >= 10) { 
+    if (TempRunTime >= 10) {
         TempRunTime = 0;
-        srt.SysRunTimeBeat++;   // 10ms为一个系统节拍
+        srt.SysRunTimeBeat++;  // 10ms为一个系统节拍
     }
-    if(srt.SysRunTimeBeat >= 100) { 
+    if (srt.SysRunTimeBeat >= 100) {
         srt.SysRunTimeBeat = 0;
         srt.SysRunTimeSec++;
     }
-    if(srt.SysRunTimeSec == 60){
+    if (srt.SysRunTimeSec == 60) {
         srt.SysRunTimeSec = 0;
         srt.SysRunTimeMin++;
     }
     srt.SysRunTime++;
 }
 
-
-void TIM2_IRQHandler(void)
-{ 		  
-	if(TIM2->SR & TIM_SR_UIF)
-	{
+void TIM2_IRQHandler(void) {
+    if (TIM2->SR & TIM_SR_UIF) {
         Control();
-	}				   
-	TIM2->SR&=~TIM_SR_UIF;	    
+    }
+    TIM2->SR &= ~TIM_SR_UIF;
 }
 
-void USART1_IRQHandler(void)
-{
-    if(USART1->ISR & USART_ISR_RXNE_RXFNE){
-        BIE_UART(USART1,USART1_Data,MyEnv);
+void USART1_IRQHandler(void) {
+    if (USART1->ISR & USART_ISR_RXNE_RXFNE) {
+        BIE_UART(USART1, USART1_Data, MyEnv);
     }
     USART1->ICR |= USART_ICR_ORECF;
 }
 
-void USART2_IRQHandler(void)
-{
-	if(USART2->ISR & USART_ISR_RXNE_RXFNE){
-        STDE_UART(USART2,USART2_Data);
+void USART2_IRQHandler(void) {
+    if (USART2->ISR & USART_ISR_RXNE_RXFNE) {
+        STDE_UART(USART2, USART2_Data);
     }
     USART2->ICR |= USART_ICR_ORECF;
 }
-

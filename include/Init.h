@@ -24,4 +24,10 @@ void __xki(void *const Parameters);
 void __ykp(void *const Parameters);
 void __ykd(void *const Parameters);
 void __yki(void *const Parameters);
+void __xskp(void *const Parameters);
+void __xskd(void *const Parameters);
+void __xski(void *const Parameters);
+void __yskp(void *const Parameters);
+void __yskd(void *const Parameters);
+void __yski(void *const Parameters);
 #endif

@@ -21,7 +21,7 @@ void PID_TypeStructInit(PID *pid,int16_t kp,int16_t kd,int16_t ki,int16_t target
     pid->Ki = ki;
 }
 
-void PID_forX_speed(PID *pid,int32_t speed)
+void PID_for_speed(PID *pid,int32_t speed)
 {
     pid->current = speed;
 
@@ -55,8 +55,6 @@ void PID_forX_speed(PID *pid,int32_t speed)
 /// @brief PID 对于直线的专用控制函数
 void PID_forX(PID *pid,PID *pid2)
 {
-    PID_forX_speed(pid2,0);
-
     pid->current = OpenMVData_X;
 
     pid->error = pid->target-pid->current;
@@ -83,6 +81,10 @@ void PID_forX(PID *pid,PID *pid2)
     {
         pid->output = -pid->min_output;
     }
+
+    PID_for_speed(pid2,Get_Blobs_Speed(X,pid->current));
+    pid->output += pid2->output;
+
     pid->last_error = pid->error;
 }
 
@@ -116,6 +118,10 @@ void PID_forY(PID *pid,PID *pid2)
     {
         pid->output = -pid->min_output;
     }
+
+    PID_for_speed(pid2,Get_Blobs_Speed(Y,pid->current));
+    pid->output += pid2->output;
+
     pid->last_error = pid->error;
 }
 
