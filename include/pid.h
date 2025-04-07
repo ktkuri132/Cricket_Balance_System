@@ -1,17 +1,22 @@
 #ifndef __PID__H
 #define __PID__H
 
-
 #include <Project.h>
+
 #include "pid.h"
 
-#define MAX_PWM 4000
-#define MIN_PWM 1000
 
-typedef struct PID_TypeDef
-{
+#define XMAX_PWM 4500
+#define XMIN_PWM 1300
+#define XMid_PWM 3200
+
+#define YMAX_PWM 4300
+#define YMIN_PWM 1000
+#define YMid_PWM 2700
+
+typedef struct PID_TypeDef {
     /* function  */
-    void (*PID_Update)(struct PID_TypeDef *pid);
+    void (*PID_Update)(struct PID_TypeDef *pid1, struct PID_TypeDef *pid2);
     // void (*PID_Update2)(struct PID_TypeDef *pid);
     // void (*PID_Update3)(struct PID_TypeDef *pid);
     /* data */
@@ -31,12 +36,12 @@ typedef struct PID_TypeDef
     int32_t Kp;
     int32_t Ki;
     int32_t Kd;
-    
-}PID;
 
+} PID;
 
-void PID_TypeStructInit(PID *pid,int16_t kp,int16_t kd,int16_t ki,int16_t target);
-void PID_forX(PID *pid);
-
+void PID_TypeStructInit(PID *pid, int16_t kp, int16_t kd, int16_t ki, int16_t target,
+                        int16_t max_output, int16_t min_output);
+void PID_forX(PID *pid,PID *pid2);
+void PID_forY(PID *pid,PID *pid2);
 
 #endif

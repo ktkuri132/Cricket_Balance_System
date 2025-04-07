@@ -23,16 +23,28 @@ EnvVar  MyEnv[] = {
         .callback = DisPlay_SystemData,
     },
     {
-        .name = "kp", 
-        .callback = __kp,
+        .name = "xkp", 
+        .callback = __xkp,
     },
     {
-        .name = "kd",
-        .callback = __kd,
+        .name = "xkd",
+        .callback = __xkd,
     },
     {
-        .name = "ki",
-        .callback = __ki,
+        .name = "xki",
+        .callback = __xki,
+    },
+    {
+        .name = "ykp", 
+        .callback = __ykp,
+    },
+    {
+        .name = "ykd",
+        .callback = __ykd,
+    },
+    {
+        .name = "yki",
+        .callback = __yki,
     },
     {
         .name = NULL,
@@ -52,12 +64,12 @@ int main() {
     USART1_Init(port);
     USART2_Init(port);
     PWM_Init(port);
-    Motor_x = 5000;
-    Motor_y = 5000;
+    Motor_x = 2700;
+    Motor_y = 3200;
     // Motor_x = 2200;
     // Motor_y = 1900;
     Control_Init();
-    TIM2_INT_Init(5);	
+    TIM2_INT_Init(5);
     printf(CURSOR_SHOW);
     while (1) {
         if(port->syspfunc != NULL) {
@@ -93,7 +105,7 @@ void TIM2_IRQHandler(void)
 { 		  
 	if(TIM2->SR & TIM_SR_UIF)
 	{
-        // Control();
+        Control();
 	}				   
 	TIM2->SR&=~TIM_SR_UIF;	    
 }
@@ -111,6 +123,6 @@ void USART2_IRQHandler(void)
 	if(USART2->ISR & USART_ISR_RXNE_RXFNE){
         STDE_UART(USART2,USART2_Data);
     }
-    USART2->ISR|=USART_ICR_ORECF;
+    USART2->ICR |= USART_ICR_ORECF;
 }
 

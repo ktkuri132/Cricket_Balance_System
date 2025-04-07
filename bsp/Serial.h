@@ -108,12 +108,10 @@ uint16_t StdeUSART_Deal(Stde_DataTypeDef *DataTypeStruct, uint8_t point_note);
 
 typedef struct {
     uint8_t c;
-
     uint8_t Res_len;   // 接收数据的下标
     uint8_t UART_NOTE;  // 本次数据节点
+    uint8_t RunStae;  // 运行状态   --> 这里出现了一个bug,下面的Data数组访问越界,导致RunStae的值被覆盖了
     uint8_t Data[20];  // 数据长度酌情调整
-    uint8_t RunStae;  // 运行状态
-
 } Bie_ShellTypeDef;     // Shell协议结构体
 
 typedef struct {

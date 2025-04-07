@@ -107,9 +107,9 @@ uint8_t STDE_UART(USART_TypeDef *USARTx, Stde_DataTypeDef *DataTypeStruct) {
                 default:
                     break;
             }
-            (DataTypeStruct->UART_DATA_TYPE_Callback != NULL)
-                ? DataTypeStruct->UART_DATA_TYPE_Callback(DataTypeStruct)
-                : 0;
+            // (DataTypeStruct->UART_DATA_TYPE_Callback != NULL)
+            //     ? DataTypeStruct->UART_DATA_TYPE_Callback(DataTypeStruct)
+            //     : 0;
             DataTypeStruct->Res_Data_type = 0;  // 关闭数据格式检测
         }
 
@@ -263,6 +263,8 @@ int8_t Cmd_match(Bie_ShellTypeDef *ShellTypeStruct,char *cmd, void *arg) {
     return 0;  // 命令处理成功
 }
 
+extern SYS_Port *port;  // 声明全局变量
+
 /// @brief 处理串口发送的指令
 /// @param env_vars 环境变量列表
 /// @param ShellTypeStruct Shell协议结构体
@@ -291,6 +293,8 @@ void Shell_Deal(Bie_ShellTypeDef *ShellTypeStruct, EnvVar *env_vars) {
             printf("Executing environment variable command: %s\n", env_vars[i].name);
             env_vars[i].RunStae = 1;  // 设置运行状态为1，表示执行命令
             env_vars[i].arg = arg_part;  // 设置参数
+            // port->syspfunc = env_vars[i].callback;  // 设置回调函数
+            // port->Parameters = env_vars[i].arg;  // 设置参数
             SCB->ICSR |= SCB_ICSR_PENDSVSET_Msk; // 触发 PendSV 中断
             return;
         }

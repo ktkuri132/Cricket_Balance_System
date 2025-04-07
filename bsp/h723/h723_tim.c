@@ -19,9 +19,6 @@
 
 void H723_TIM_Init(void* const Parameters) {
     TIM_Parameters* TIM_Parameter = (TIM_Parameters*)Parameters;
-    RCC->AHB4ENR |= TIM_Parameter->RCC_GPIOBusPeriph;
-    RCC->APB1LENR |= TIM_Parameter->RCC_TIMBusPeriph;
-
     for (int i = 0; i < 16; i++) {
         if (TIM_Parameter->GPIO_Pin_Source[i]) {
             TIM_Parameter->GPIOx->MODER &= ~(3 << (2 * i));

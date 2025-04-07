@@ -5,16 +5,16 @@
 
 void PWM_Init(SYS_Port *port){
     TIM_Parameters tim3_init;
+    RCC->AHB4ENR |= RCC_AHB4ENR_GPIOBEN;
+    RCC->APB1LENR |= RCC_APB1LENR_TIM3EN;
     
     tim3_init.TIMx = TIM3;
     tim3_init.GPIOx = GPIOB;
     tim3_init.GPIO_Pin_Source[Pin0] = ENABLE;
     tim3_init.GPIO_Pin_Source[Pin1] = ENABLE;
     tim3_init.GPIO_AF = 2;
-    tim3_init.RCC_TIMBusPeriph = RCC_APB1LENR_TIM3EN;
-    tim3_init.RCC_GPIOBusPeriph = RCC_AHB4ENR_GPIOBEN;
     tim3_init.ARR = 6000-1;
-    tim3_init.PSC = 135-1;
+    tim3_init.PSC = 197-1;
     tim3_init.Channel[Channel_4] = ENABLE;
     tim3_init.Channel[Channel_3] = ENABLE;
     tim3_init.OCMode = 1;

@@ -9,12 +9,13 @@ extern Bie_ShellTypeDef* USART1_Data;
 extern SYS_Port *port;
 extern Cmd_PointerTypeDef Cmd;
 extern PID pid_x;
-
+extern PID pid_y;
 
 
 void __ls(void *const Parameters) {
     if(strcmp(Parameters,"pid") == 0) {
-        printf("kp: %d kd: %d ki: %d\n", pid_x.Kp, pid_x.Kd, pid_x.Ki);
+        printf("xkp: %d xkd: %d xki: %d\n", pid_x.Kp, pid_x.Kd, pid_x.Ki);
+        printf("ykp: %d ykd: %d yki: %d\n", pid_y.Kp, pid_y.Kd, pid_y.Ki);
     } 
 }
 
@@ -27,7 +28,7 @@ void __reset(void *const Parameters) {
     NVIC_SystemReset();  // 重启系统
 }
 
-void __kp(void *const Parameters) {
+void __xkp(void *const Parameters) {
     if (Parameters == NULL) {
         printf("Invalid argument for set_kp command\n");
         return;
@@ -39,7 +40,7 @@ void __kp(void *const Parameters) {
     printf("Setting PID parameters: %d\n", arg_value);
 }
 
-void __kd(void *const Parameters) {
+void __xkd(void *const Parameters) {
     if (Parameters == NULL) {
         printf("Invalid argument for set_kd command\n");
         return;
@@ -51,7 +52,7 @@ void __kd(void *const Parameters) {
     printf("Setting PID parameters: %d\n", arg_value);
 }
 
-void __ki(void *const Parameters) {
+void __xki(void *const Parameters) {
     if (Parameters == NULL) {
         printf("Invalid argument for set_ki command\n");
         return;
@@ -62,6 +63,44 @@ void __ki(void *const Parameters) {
     pid_x.Ki = arg_value;  // 设置PID参数
     printf("Setting PID parameters: %d\n", arg_value);
 }
+
+void __ykp(void *const Parameters) {
+    if (Parameters == NULL) {
+        printf("Invalid argument for set_kp command\n");
+        return;
+    } 
+    char *arg_str = (char*)Parameters;  // 将参数值转换为字符
+    char *endptr;
+    int32_t arg_value = strtol(arg_str, &endptr, 10);  // 将字符串转换为整数
+    pid_y.Kp = arg_value;  // 设置PID参数
+    printf("Setting PID parameters: %d\n", arg_value);
+}
+
+void __ykd(void *const Parameters) {
+    if (Parameters == NULL) {
+        printf("Invalid argument for set_kd command\n");
+        return;
+    } 
+    char *arg_str = (char*)Parameters;  // 将参数值转换为字符
+    char *endptr;
+    int32_t arg_value = strtol(arg_str, &endptr, 10);  // 将字符串转换为整数
+    pid_y.Kd = arg_value;  // 设置PID参数
+    printf("Setting PID parameters: %d\n", arg_value);
+}
+
+void __yki(void *const Parameters) {
+    if (Parameters == NULL) {
+        printf("Invalid argument for set_ki command\n");
+        return;
+    } 
+    char *arg_str = (char*)Parameters;  // 将参数值转换为字符
+    char *endptr;
+    int32_t arg_value = strtol(arg_str, &endptr, 10);  // 将字符串转换为整数
+    pid_y.Ki = arg_value;  // 设置PID参数
+    printf("Setting PID parameters: %d\n", arg_value);
+}
+
+
 
 void Sys_cmd_Init()
 {
@@ -106,17 +145,14 @@ void DisPlay_SystemData(void *const Parameters) {
     Wirte_String(15, 1, 1,"|------------------------------------------------------------------|");
 
     Wirte_String(9, 2, 2, "Time:    Conut:      Sec:    Min:"); // 显示数字
-    Wirte_String(10, 2, 2, "OpenMV:     PidOut:"); // 显示数字
+    Wirte_String(10, 2, 2, "OpenMV_y:     PidOut:"); // 显示数字
     refresh_Partscreen(0, 1, 1); // 刷新屏幕
     while(!USART1_Data->RunStae) {
-        static uint32_t i = 0;
-        Wirte_String(9, 17, 2, "%d", i); // 显示秒
         Wirte_String(9, 27, 2, "%d", srt.SysRunTimeSec); // 显示秒
         Wirte_String(9, 35, 2, "%d", srt.SysRunTimeMin); // 显示分钟
-        Wirte_String(10, 9, 2, "%d", OpenMVData_Y); // 显示数字
-        Wirte_String(10, 21, 2, "%d", Motor_x); // 显示数字
+        Wirte_String(10, 11, 2, "%d", OpenMVData_Y); // 显示数字
+        Wirte_String(10, 23, 2, "%d", Motor_x); // 显示数字
         refresh_Partscreen(0, 1, 1); // 刷新屏幕
-        i++;
     }
     USART1_Data->RunStae = 0; // 退出显示
     printf(CLEAR_SCREEN);

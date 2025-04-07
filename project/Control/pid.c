@@ -9,10 +9,10 @@
  */
 
 
-void PID_TypeStructInit(PID *pid,int16_t kp,int16_t kd,int16_t ki,int16_t target)
+void PID_TypeStructInit(PID *pid,int16_t kp,int16_t kd,int16_t ki,int16_t target,int16_t max_output,int16_t min_output)
 {
-    pid->max_output = 2000;
-    pid->min_output = -1000;
+    pid->max_output = max_output;
+    pid->min_output = min_output;
     pid->max_integral = 2000;
     pid->integral = 120;
     pid->target = target;
@@ -21,14 +21,11 @@ void PID_TypeStructInit(PID *pid,int16_t kp,int16_t kd,int16_t ki,int16_t target
     pid->Ki = ki;
 }
 
-
-/// @brief PID 对于直线的专用控制函数
-void PID_forX(PID *pid)
+void PID_forX_speed(PID *pid,int32_t speed)
 {
+    pid->current = speed;
 
-    pid->current = OpenMVData_Y;
-
-    pid->error = pid->current-pid->target;
+    pid->error = 0-pid->current;
     pid->integral += pid->error;
     // 积分限幅
     if (pid->integral > pid->max_integral)
@@ -48,9 +45,76 @@ void PID_forX(PID *pid)
     {
         pid->output = pid->max_output;
     }
-    else if (pid->output < pid->min_output)
+    else if (pid->output < -pid->min_output)
     {
-        pid->output = pid->min_output;
+        pid->output = -pid->min_output;
+    }
+    pid->last_error = pid->error;
+}
+
+/// @brief PID 对于直线的专用控制函数
+void PID_forX(PID *pid,PID *pid2)
+{
+    PID_forX_speed(pid2,0);
+
+    pid->current = OpenMVData_X;
+
+    pid->error = pid->target-pid->current;
+    pid->integral += pid->error;
+    // 积分限幅
+    if (pid->integral > pid->max_integral)
+    {
+        pid->integral = pid->max_integral;
+    }
+    else if (pid->integral < -pid->max_integral)
+    {
+        pid->integral = -pid->max_integral;
+    }
+
+    pid->derivative = pid->error - pid->last_error;
+
+    pid->output = pid->Kp * pid->error + pid->Ki * pid->integral + pid->Kd * pid->derivative;
+    // 输出限幅
+    if (pid->output > pid->max_output)
+    {
+        pid->output = pid->max_output;
+    }
+    else if (pid->output < -pid->min_output)
+    {
+        pid->output = -pid->min_output;
+    }
+    pid->last_error = pid->error;
+}
+
+/// @brief PID 对于直线的专用控制函数
+void PID_forY(PID *pid,PID *pid2)
+{
+
+    pid->current = OpenMVData_Y;
+
+    pid->error = pid->target-pid->current;
+    pid->integral += pid->error;
+    // 积分限幅
+    if (pid->integral > pid->max_integral)
+    {
+        pid->integral = pid->max_integral;
+    }
+    else if (pid->integral < -pid->max_integral)
+    {
+        pid->integral = -pid->max_integral;
+    }
+
+    pid->derivative = pid->error - pid->last_error;
+
+    pid->output = pid->Kp * pid->error + pid->Ki * pid->integral + pid->Kd * pid->derivative;
+    // 输出限幅
+    if (pid->output > pid->max_output)
+    {
+        pid->output = pid->max_output;
+    }
+    else if (pid->output < -pid->min_output)
+    {
+        pid->output = -pid->min_output;
     }
     pid->last_error = pid->error;
 }

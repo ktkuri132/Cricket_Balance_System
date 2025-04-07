@@ -18,8 +18,10 @@ void Sys_cmd_Init();
 void led(void *const arg);
 
 void DisPlay_SystemData(void *const Parameters);
-void __kp(void *const Parameters);
-void __kd(void *const Parameters);
-void __ki(void *const Parameters);
-
+void __xkp(void *const Parameters);
+void __xkd(void *const Parameters);
+void __xki(void *const Parameters);
+void __ykp(void *const Parameters);
+void __ykd(void *const Parameters);
+void __yki(void *const Parameters);
 #endif
