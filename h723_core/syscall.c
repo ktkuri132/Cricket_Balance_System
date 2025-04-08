@@ -77,7 +77,7 @@ void SystemClock_Config() {
     RCC_OscInitStruct.PLL.PLLState   = RCC_PLL_ON;
     RCC_OscInitStruct.PLL.PLLSource  = RCC_PLLSOURCE_HSE;
     RCC_OscInitStruct.PLL.PLLM       = 5;
-    RCC_OscInitStruct.PLL.PLLN       = 310;
+    RCC_OscInitStruct.PLL.PLLN       = 216;
     RCC_OscInitStruct.PLL.PLLP       = 2;
     RCC_OscInitStruct.PLL.PLLQ       = 2;
     RCC_OscInitStruct.PLL.PLLR       = 1;

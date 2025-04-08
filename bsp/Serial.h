@@ -130,6 +130,8 @@ void Read_String(uint8_t x, uint8_t y, char *str, uint8_t color);
 void refresh_Allscreen();
 void refresh_Partscreen(uint8_t x, uint8_t y, uint8_t Mode);
 
+void loading_bar(uint8_t x,uint8_t y,uint8_t color,int sta,int end,int curr);
+
 #endif
 
 #endif

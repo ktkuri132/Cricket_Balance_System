@@ -20,4 +20,5 @@ void led(void *const arg);
 void DisPlay_SystemData(int argc,void *argv[]);
 void __led(int argc,void * argv[]);
 void __pid(int argc,void *argv[]);
+void __refe(int argc,void *argv[]);
 #endif

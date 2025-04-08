@@ -94,7 +94,7 @@ void PID_forY(PID *pid,PID *pid2)
 
     pid->current = OpenMVData_Y;
 
-    pid->error = pid->target-pid->current;
+    pid->error = pid->current-pid->target;
     pid->integral += pid->error;
     // 积分限幅
     if (pid->integral > pid->max_integral)

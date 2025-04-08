@@ -5,15 +5,6 @@
 
 #include "pid.h"
 
-
-#define XMAX_PWM 4500
-#define XMIN_PWM 1300
-#define XMid_PWM 3200
-
-#define YMAX_PWM 4300
-#define YMIN_PWM 1000
-#define YMid_PWM 2700
-
 typedef struct PID_TypeDef {
     /* function  */
     void (*PID_Update)(struct PID_TypeDef *pid1, struct PID_TypeDef *pid2);

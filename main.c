@@ -2,6 +2,7 @@
 #include <Init.h>
 #include <control.h>
 #include <stdint.h>
+#include <string.h>
 #include <sysport.h>
 
 #include "bsp/Serial.h"
@@ -11,8 +12,8 @@
 
 SYS_Port *port;
 
-Stde_DataTypeDef *USART2_Data;
-Bie_ShellTypeDef *USART1_Data;
+Stde_DataTypeDef USART2_Data;
+Bie_ShellTypeDef USART1_Data;
 extern GraphicsChar_Unit Graphics_Memory[20][120];
 
 EnvVar MyEnv[] = {
@@ -29,17 +30,22 @@ EnvVar MyEnv[] = {
         .callback = __pid,
     },
     {
+        .name     = "refe",
+        .callback = __refe,
+    },
+    {
         .name = NULL, 
         .callback = NULL
     }
 };
 
 int main() {
+    
     port = SysPort_Init();
     port->System_Init();
     syscall.NVIC_Configuration();
     port->SysTick_Init();
-    Stde_DataTypeDef_Init(USART2_Data);
+    Stde_DataTypeDef_Init(&USART2_Data);
     Sys_cmd_Init();
     LED_Init(port);
     USART1_Init(port);
@@ -53,9 +59,9 @@ int main() {
     TIM2_INT_Init(5);
     printf(CURSOR_SHOW);
     while (1) {
-        if (port->syspfunc != NULL) {
-            port->syspfunc(port->Parameters);  // 执行系统函数
-            port->syspfunc = NULL;
+        if (sfp.syspfunc != NULL) {
+            sfp.syspfunc(sfp.argc,sfp.Parameters);  // 执行系统函数
+            sfp.syspfunc = NULL;
             printf(CURSOR_SHOW);
         }
     }
@@ -88,14 +94,17 @@ void TIM2_IRQHandler(void) {
 
 void USART1_IRQHandler(void) {
     if (USART1->ISR & USART_ISR_RXNE_RXFNE) {
-        BIE_UART(USART1, USART1_Data, MyEnv);
+        BIE_UART(USART1, &USART1_Data, MyEnv);
     }
     USART1->ICR |= USART_ICR_ORECF;
 }
 
 void USART2_IRQHandler(void) {
     if (USART2->ISR & USART_ISR_RXNE_RXFNE) {
-        STDE_UART(USART2, USART2_Data);
+        STDE_UART(USART2, &USART2_Data);
     }
     USART2->ICR |= USART_ICR_ORECF;
 }
+
+
+

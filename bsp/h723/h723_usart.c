@@ -5,7 +5,7 @@
 
 void H723_USART_Init(void* const Parameters) {
 
-    uint16_t CLK = 387;  
+    uint16_t CLK = 270;  
 
     USART_Parameters* USART_Parameter = (USART_Parameters*)Parameters;
 

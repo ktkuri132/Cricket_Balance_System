@@ -14,7 +14,7 @@ void PWM_Init(SYS_Port *port){
     tim3_init.GPIO_Pin_Source[Pin1] = ENABLE;
     tim3_init.GPIO_AF = 2;
     tim3_init.ARR = 6000-1;
-    tim3_init.PSC = 197-1;
+    tim3_init.PSC = 135-1;
     tim3_init.Channel[Channel_4] = ENABLE;
     tim3_init.Channel[Channel_3] = ENABLE;
     tim3_init.OCMode = 1;
@@ -26,7 +26,7 @@ void TIM2_INT_Init(uint8_t ms){
     RCC->APB1LENR|=RCC_APB1LENR_TIM2EN;				 
 	while((RCC->APB1LENR&(1<<1))==0);	
  	TIM2->ARR=100 * ms - 1;  				
-	TIM2->PSC=3870-1;  				
+	TIM2->PSC=2700-1;  				
 	TIM2->DIER|=TIM_DIER_UIE;  					  
 	TIM2->CR1|=TIM_CR1_CEN;				
 }

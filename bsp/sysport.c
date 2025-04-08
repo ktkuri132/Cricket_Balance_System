@@ -70,8 +70,9 @@ void Task_Switch(EnvVar *userEnv) {
     for (i = 0; userEnv[i].name != NULL; i++) {
         if(userEnv[i].RunStae){
             // 执行命令
-            port->syspfunc = userEnv[i].callback;  // 设置系统函数指针
-            port->Parameters = userEnv[i].arg;  // 设置参数
+            sfp.syspfunc = userEnv[i].callback;  // 设置系统函数指针
+            sfp.argc = userEnv[i].argc;  // 设置参数个数
+            sfp.Parameters = userEnv[i].arg;  // 设置参数
             userEnv[i].RunStae = 0;  // 重置运行状态
             return;  // 跳出循环，避免重复执行
         }

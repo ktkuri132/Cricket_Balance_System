@@ -332,7 +332,30 @@ void refresh_Partscreen(uint8_t x, uint8_t y, uint8_t Mode) {
 }
 
 /***********************应用层***************************** */
+/**
+    @brief 进度条函数
+    @param refe 参考值
+    @param curr 当前值
+*/
+void loading_bar(uint8_t x,uint8_t y,uint8_t color,int sta,int end,int curr) {
+    // 计算进度百分比
+    int percentage = (curr * 100) / (end-sta);
+    int bar_length = 20;  // 进度条长度
+    int filled_length = (percentage * bar_length) / 100;
 
-void loading_bar() {}
+    // 绘制进度条
+    char bar[bar_length + 1];
+    for (int i = 0; i < bar_length; i++) {
+        if (i < filled_length) {
+            bar[i] = '#';  // 已完成部分
+        } else {
+            bar[i] = '-';  // 未完成部分
+        }
+    }
+    bar[bar_length] = '\0';  // 添加字符串结束符
+
+    // 显示进度条
+    Wirte_String(x, y, color, "[%s] %d%%", bar, percentage);  // 使用绿色显示
+}
 
 #endif

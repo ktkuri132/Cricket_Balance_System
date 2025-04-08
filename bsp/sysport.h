@@ -38,6 +38,7 @@
 
 /* 定义系统指针  */
 #define srt sys_port->SRT              /* 系统时钟指针  */
+#define sfp sys_port->SFP              /* 系统函数指针  */
 #define syscall sys_port->syscall_port /* 系统调用指针  */
 #define gpio sys_port->gpio_port       /* gpio指针  */
 #define rcc sys_port->rcc_periph_port  /* 外设时钟指针  */
@@ -162,6 +163,18 @@ typedef struct {
     uint32_t SysRunTimeBeat;  // 系统运行节拍
 } SystemRunTime_t;
 
+/**
+    * @brief Sysfpoint(系统函数指针)结构体
+    * @note  该结构体用于存储系统函数指针和参数
+    * @param  syspfunc: 系统函数指针
+    * @param  Parameters: 系统函数指针参数
+    * @param  argc: 参数个数
+*/
+typedef struct {
+    void (*syspfunc)(int argc, void *argv[]);  // 系统函数指针
+    void **Parameters;
+    int argc;
+} Sysfpoint;
 
 /**
     * @brief SYS_Port(系统接口)结构体
@@ -180,6 +193,7 @@ typedef struct {
  */
 typedef struct {
     SystemRunTime_t SRT;
+    Sysfpoint SFP;
     SYSCALL_Port syscall_port;
     RCC_PeriphClock_Port rcc_periph_port;
     GPIO_Port gpio_port;
@@ -188,8 +202,6 @@ typedef struct {
     TIM_Port tim_port;
     void (*System_Init)(void);
     void (*SysTick_Init)(void);
-    func syspfunc;
-    void *Parameters;
 } SYS_Port;
 
 SYS_Port *SysPort_Init();

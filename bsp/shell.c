@@ -22,6 +22,7 @@ void BIE_UART(USART_TypeDef *USARTx, Bie_ShellTypeDef *ShellTypeStruct, EnvVar *
                 printf("\n");                      // 换行
                 Shell_Deal(ShellTypeStruct, env);  // 解析并执行命令
                 ShellTypeStruct->Res_len = 0;      // 重置输入长度
+                // memset(ShellTypeStruct->Data, 0, sizeof(ShellTypeStruct->Data));  // 清空输入数据
                 printf("stm32@root:");             // 显示提示符
                 fflush(stdout);
             }
@@ -39,6 +40,7 @@ void BIE_UART(USART_TypeDef *USARTx, Bie_ShellTypeDef *ShellTypeStruct, EnvVar *
                     ShellTypeStruct->Data[ShellTypeStruct->Res_len++] =
                         c;            // 保存字符
                     printf("%c", c);  // 实时显示字符
+             
                     fflush(stdout);
                 }
             }
@@ -54,8 +56,7 @@ char *syscmd[20] = {
     "help",
     "exit",
     "clear",
-    // 参数命令
-    // 运行命令
+    "test",
     "ls",
     NULL  // 命令列表结束标志
 };
@@ -109,6 +110,12 @@ int8_t Cmd_match(Bie_ShellTypeDef *ShellTypeStruct,char *cmd, int argc,void **ar
         printf("Exiting...\n");
         ShellTypeStruct->RunStae = 1;  // 设置运行状态为1，表示退出
         printf(CLEAR_SCREEN);
+    } else if(strcmp(cmd,"test") == 0) {
+        if(Cmd.test != NULL){
+            Cmd.test(argc,argv);  // 调用test函数
+        } else {
+            printf(FG_RED "test command not implemented.Cause is a NULL point\n" RESET_ALL);
+        }
     } else {
         return -1;  // 命令未找到
     }
@@ -125,7 +132,7 @@ extern SYS_Port *port;  // 声明全局变量
 /// @param ShellTypeStruct Shell协议结构体
 /// @return 字符串指针
 void Shell_Deal(Bie_ShellTypeDef *ShellTypeStruct, EnvVar *env_vars) {
-    char *input    = ShellTypeStruct->Data;
+    char *input    = (char*)(ShellTypeStruct->Data);
     char *args[MAX_ARGS];
     int arg_count = 0;
 
@@ -138,19 +145,18 @@ void Shell_Deal(Bie_ShellTypeDef *ShellTypeStruct, EnvVar *env_vars) {
     }
 
     if (arg_count == 0) {
-        printf("No command entered.\n");
         return;
     }
 
     char *cmd_part = args[0];  // 提取命令部分
-    char **arg_part = (arg_count>1) ? &args[1] : NULL;  // 提取参数部分
+    void *arg_part = (arg_count>1) ? (void*)&args[1] : NULL;  // 提取参数部分
     // 遍历命令列表，匹配命令
     for (int i = 0; i < 20; i++) {
         if (syscmd[i] == NULL) break;  // 如果命令列表结束
         if (strcmp(cmd_part, syscmd[i]) == 0) {
             // 匹配到命令
             printf("Executing command: %s\n", syscmd[i]);
-            if (Cmd_match(ShellTypeStruct,syscmd[i],arg_count, (void**)arg_part) < 0) {
+            if (Cmd_match(ShellTypeStruct,syscmd[i],arg_count, arg_part) < 0) {
                 printf(FG_RED"Command not found: %s\n"RESET_ALL, syscmd[i]);
             }
             return;
