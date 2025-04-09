@@ -2,8 +2,11 @@
 #define __PID__H
 
 #include <Project.h>
+#include <math.h>
+#include <stdint.h>
 
 #include "pid.h"
+
 
 typedef struct PID_TypeDef {
     /* function  */
@@ -25,14 +28,16 @@ typedef struct PID_TypeDef {
     int32_t max_output;
     int32_t min_output;
     int32_t Kp;
-    int32_t Ki;
+    float Ki;
     int32_t Kd;
 
 } PID;
 
-void PID_TypeStructInit(PID *pid, int16_t kp, int16_t kd, int16_t ki, int16_t target,
-                        int16_t max_output, int16_t min_output);
+void PID_TypeStructInit(PID *pid,int32_t kp,int32_t kd,float ki,
+    int32_t target,int32_t max_output,int32_t min_output,int32_t max_integral);
 void PID_forX(PID *pid,PID *pid2);
 void PID_forY(PID *pid,PID *pid2);
 
 #endif
+
+

@@ -10,7 +10,7 @@ PID pid_xs;
 PID pid_ys;
 
 int32_t PWM_Refe[6] = {
-    4500, 1300, 3300, 4300, 1000, 2850
+    4500, 1300, 3380, 5000, 1400, 2680
 };
 
 /**
@@ -23,15 +23,19 @@ int32_t PWM_Refe[6] = {
  */
 void Control_Init() {
     /* 位置环 */
-    PID_TypeStructInit(&pid_x, 7, 300, 0, 155, 
-        PWM_Refe[XMAX_PWM] - PWM_Refe[XMid_PWM], PWM_Refe[XMid_PWM] - PWM_Refe[XMIN_PWM]);
-    PID_TypeStructInit(&pid_y, 9, 300, 0, 118, 
-        PWM_Refe[YMAX_PWM] - PWM_Refe[YMid_PWM], PWM_Refe[YMid_PWM] - PWM_Refe[YMIN_PWM]);
+    PID_TypeStructInit(&pid_x, 12, 700, 0.06, 155, 
+        PWM_Refe[XMAX_PWM] - PWM_Refe[XMid_PWM], 
+        PWM_Refe[XMid_PWM] - PWM_Refe[XMIN_PWM],1000);
+    PID_TypeStructInit(&pid_y, 12, 700, 0.06, 118, 
+        PWM_Refe[YMAX_PWM] - PWM_Refe[YMid_PWM], 
+        PWM_Refe[YMid_PWM] - PWM_Refe[YMIN_PWM],1000);
     /* 速度环  */
-    PID_TypeStructInit(&pid_xs, 3000, -2000, 0, 0, 
-        PWM_Refe[XMAX_PWM] - PWM_Refe[XMid_PWM], PWM_Refe[XMid_PWM] - PWM_Refe[XMIN_PWM]);
-    PID_TypeStructInit(&pid_ys, -3000, 0, 0, 0,
-        PWM_Refe[YMAX_PWM] - PWM_Refe[YMid_PWM], PWM_Refe[YMid_PWM] - PWM_Refe[YMIN_PWM]);
+    PID_TypeStructInit(&pid_xs,0, -0, -0, 0, 
+        PWM_Refe[XMAX_PWM] - PWM_Refe[XMid_PWM], 
+        PWM_Refe[XMid_PWM] - PWM_Refe[XMIN_PWM],1000);
+    PID_TypeStructInit(&pid_ys, 0, -0, -0, 0,
+        PWM_Refe[YMAX_PWM] - PWM_Refe[YMid_PWM], 
+        PWM_Refe[YMid_PWM] - PWM_Refe[YMIN_PWM],1000);
     /* 注册最终pid计算输出函数(最终输出在位置环pid计算里)  */
     pid_x.PID_Update = PID_forX;
     pid_y.PID_Update = PID_forY;
@@ -43,3 +47,4 @@ void Control() {
     Motor_x = pid_x.output + PWM_Refe[XMid_PWM];
     Motor_y = pid_y.output + PWM_Refe[YMid_PWM];
 }
+

@@ -20,6 +20,8 @@ void USART1_Init(SYS_Port *port){
     usart_init.GPIO_Pin_Source[AF_1] = 10;
     usart_init.GPIO_AF = 7;
     usart.bsp_usart_x_inti(&usart_init);
+    printf(CLEAR_SCREEN);
+    printf("system is start\n");
 }
 
 /**

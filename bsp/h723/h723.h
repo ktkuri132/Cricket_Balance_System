@@ -7,7 +7,7 @@
 #include <stdint.h>
 #include <stddef.h>
 #include "stm32h723xx.h"
-
+#include <Serial.h>
 #include <stdbool.h>
 
 typedef  uint32_t u32;

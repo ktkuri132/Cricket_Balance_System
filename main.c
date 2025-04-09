@@ -45,15 +45,15 @@ int main() {
     port->System_Init();
     syscall.NVIC_Configuration();
     port->SysTick_Init();
+    USART1_Init(port);
     Stde_DataTypeDef_Init(&USART2_Data);
     Sys_cmd_Init();
     LED_Init(port);
-    USART1_Init(port);
     USART2_Init(port);
     PWM_Init(port);
-    Motor_x = 2700;
-    Motor_y = 3200;
-    // Motor_x = 2200;
+    // Motor_x = 3300;
+    // Motor_y = 1400;
+    // Motor_x = 4500;
     // Motor_y = 1900;
     Control_Init();
     TIM2_INT_Init(5);
@@ -61,7 +61,7 @@ int main() {
     while (1) {
         if (sfp.syspfunc != NULL) {
             sfp.syspfunc(sfp.argc,sfp.Parameters);  // 执行系统函数
-            sfp.syspfunc = NULL;
+            sfp.syspfunc         = NULL;
             printf(CURSOR_SHOW);
         }
     }

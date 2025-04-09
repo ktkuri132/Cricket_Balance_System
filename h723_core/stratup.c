@@ -6,7 +6,8 @@
 
 #include <stddef.h>
 #include "main.h"
-
+#include <stdint.h>
+#include <stdio.h>
 extern void *_estack;
 
 /* External symbols defined in linker script */
@@ -404,5 +405,13 @@ void Reset_Handler(void) {
 /* Default handler for unhandled interrupts */
 void Default_Handler(void) {
     /* Infinite loop */
-    while (1);
+    static int timer = 5;
+    printf("\033[31m""\033[1m""The system has encountered a fatal bug.\n""\033[0m");
+    while (timer > 0){
+        printf("\033[31m""The system is restarting. Please wait for %d seconds.\n""\033[0m",timer);
+        timer--;
+        uint32_t  i = 0;
+        for (i--; i > 1; i-=5);
+    }
+    NVIC_SystemReset();  // Reset the system
 }

@@ -355,7 +355,7 @@ void loading_bar(uint8_t x,uint8_t y,uint8_t color,int sta,int end,int curr) {
     bar[bar_length] = '\0';  // 添加字符串结束符
 
     // 显示进度条
-    Wirte_String(x, y, color, "[%s] %d%%", bar, percentage);  // 使用绿色显示
+    Wirte_String(x, y, color, "[%s] %d%%  ", bar, percentage);  // 使用绿色显示
 }
 
 #endif
