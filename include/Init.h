@@ -21,4 +21,6 @@ void DisPlay_SystemData(int argc,void *argv[]);
 void __led(int argc,void * argv[]);
 void __pid(int argc,void *argv[]);
 void __refe(int argc,void *argv[]);
+void __mode(int argc, void *argv[]);
+void __Site(int argc, void *argv[]);
 #endif

@@ -239,7 +239,10 @@ project/CMakeFiles/projectlib.dir/Control/tool.c.obj: C:/Users/34575/Desktop/Cri
   C:/Users/34575/Desktop/Cricket_Balance_System/h723_core/STM32H7xx_HAL_Driver/inc/stm32h7xx_hal_usart.h \
   C:/Users/34575/Desktop/Cricket_Balance_System/h723_core/STM32H7xx_HAL_Driver/inc/stm32h7xx_hal_usart_ex.h \
   C:/Users/34575/Desktop/Cricket_Balance_System/h723_core/STM32H7xx_HAL_Driver/inc/stm32h7xx_ll_adc.h \
-  C:/Users/34575/Desktop/Cricket_Balance_System/include/control.h
+  C:/Users/34575/Desktop/Cricket_Balance_System/include/Init.h \
+  C:/Users/34575/Desktop/Cricket_Balance_System/include/control.h \
+  C:/Users/34575/Desktop/Cricket_Balance_System/include/pid.h \
+  C:/Users/34575/Desktop/Cricket_Balance_System/project/Project.h
 
 project/CMakeFiles/projectlib.dir/Dev/env.c.obj: C:/Users/34575/Desktop/Cricket_Balance_System/project/Dev/env.c \
   C:/Program\ Files\ (x86)/Arm\ GNU\ Toolchain\ arm-none-eabi/13.3\ rel1/arm-none-eabi/include/_ansi.h \

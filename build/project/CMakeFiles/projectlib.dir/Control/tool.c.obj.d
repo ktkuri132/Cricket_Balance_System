@@ -78,4 +78,8 @@ project/CMakeFiles/projectlib.dir/Control/tool.c.obj: \
  C:\Users\34575\Desktop\Cricket_Balance_System\h723_core/stm32h723xx.h \
  C:\Users\34575\Desktop\Cricket_Balance_System\bsp/Serial.h \
  C:/PROGRA~2/ARMGNU~1/133167~1.3RE/lib/gcc/arm-none-eabi/13.3.1/include/stdbool.h \
- C:\Users\34575\Desktop\Cricket_Balance_System\h723_core/syscall.h
+ C:\Users\34575\Desktop\Cricket_Balance_System\h723_core/syscall.h \
+ C:\Users\34575\Desktop\Cricket_Balance_System\include/pid.h \
+ C:\Users\34575\Desktop\Cricket_Balance_System\project/Project.h \
+ C:\Users\34575\Desktop\Cricket_Balance_System\include/Init.h \
+ C:\Users\34575\Desktop\Cricket_Balance_System\include/pid.h

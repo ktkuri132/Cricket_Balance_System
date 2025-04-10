@@ -34,6 +34,14 @@ EnvVar MyEnv[] = {
         .callback = __refe,
     },
     {
+        .name     = "mode",
+        .callback = __mode,
+    },
+    {
+        .name     = "site",
+        .callback = __Site,
+    },
+    {
         .name = NULL, 
         .callback = NULL
     }
@@ -53,8 +61,8 @@ int main() {
     PWM_Init(port);
     // Motor_x = 3300;
     // Motor_y = 1400;
-    // Motor_x = 4500;
-    // Motor_y = 1900;
+    // Motor_x = 5000;
+    // Motor_y = 1500;
     Control_Init();
     TIM2_INT_Init(5);
     printf(CURSOR_SHOW);

@@ -5,6 +5,7 @@
 #include <sysport.h>
 
 #include "Serial.h"
+#include "control.h"
 
 extern Bie_ShellTypeDef *USART1_Data;
 extern SYS_Port *port;
@@ -44,7 +45,7 @@ void __reset(int argc, void *argv[]) {
 }
 
 /*
-XMid_PWM 变小时,球会偏向x轴外侧,变大时,球会偏向x轴内侧
+XMid_PWM 变小时,球会偏向x轴内侧,变大时,球会偏向x轴外侧
 YMid_PWM 变小时,球会偏向y轴右侧,变大时,球会偏向y轴左侧
 */
 /**
@@ -77,6 +78,70 @@ void __refe(int argc, void *argv[]) {
     }
 }
 
+void __Site(int argc, void *argv[]){
+    if (argv == NULL) {
+        printf(FG_RED "Invalid argument for site command:NULL\n" RESET_ALL);
+        return;
+    }
+    if (argc < 1) {
+        printf(FG_RED "Too few arameters for site command\n" RESET_ALL);
+        return;
+    } else if (argc > 2) {
+        printf(FG_RED "Too many argument to site command\n" RESET_ALL);
+        return;
+    }
+    int32_t arg_value = strtol(argv[0], NULL, 10);  // 将字符串转换为整数
+    Site_set(arg_value);  // 设置PWM参考值
+    return;
+}
+
+void __mode(int argc, void *argv[]) {
+    if (argv == NULL) {
+        printf(FG_RED "Invalid argument for mode command:NULL\n" RESET_ALL);
+        return;
+    }
+    if (argc < 1) {
+        printf(FG_RED "Too few arameters for mode command\n" RESET_ALL);
+        return;
+    } else if (argc > 2) {
+        printf(FG_RED "Too many argument to mode command\n" RESET_ALL);
+        return;
+    }
+    if (!strcmp(argv[0], "1")) {
+        Goto_space(5,2);
+        syscall.bsp_systick_delay_ms(1000);
+        Goto_space(2, 0);  
+    } else if (!strcmp(argv[0], "2")) {
+        Goto_space(2, 1);
+        syscall.bsp_systick_delay_ms(2000);
+        Goto_space(1, 0);
+        syscall.bsp_systick_delay_ms(4000);
+        Goto_space(1,5);
+        syscall.bsp_systick_delay_ms(2000);
+        Goto_space(5,0);
+        syscall.bsp_systick_delay_ms(10000);
+        printf(FG_GREEN "Mode 2: Ball is in the center\n" RESET_ALL);
+        return;
+    } else if(!strcmp(argv[0], "3")) {
+        Goto_space(5,1);
+        syscall.bsp_systick_delay_ms(5000);
+        Goto_space(1,0);
+        syscall.bsp_systick_delay_ms(6000);
+        Goto_space(1,4);
+        syscall.bsp_systick_delay_ms(5000);
+        Goto_space(4,0);
+        syscall.bsp_systick_delay_ms(6000);
+        Goto_space(4,5);
+        syscall.bsp_systick_delay_ms(5000);
+        Goto_space(5,0);
+        syscall.bsp_systick_delay_ms(7000);
+        printf(FG_GREEN "Mode 3: Ball is in the center\n" RESET_ALL);
+        return;
+    }else {
+        printf(FG_RED "Invalid argument for mode command\n" RESET_ALL);
+    }
+}
+
 /**
  * @brief 处理 pid 命令
  * @note 该命令用于设置PID参数
@@ -95,7 +160,7 @@ void __pid(int argc, void *argv[]) {
     }
     char *endptr;
     int32_t arg_value = strtol(argv[2], &endptr, 10);  // 将字符串转换为整数
-    float arg_value_f = strtof(argv[2], &endptr);  // 将字符串转换为浮点数
+    float arg_value_f = strtof(argv[2], &endptr);      // 将字符串转换为浮点数
     if (!strcmp(argv[0], "x")) {
         if (strcmp(argv[1], "kp") == 0) {
             pid_x.Kp = arg_value;  // 设置PID参数
@@ -136,7 +201,7 @@ void __pid(int argc, void *argv[]) {
         } else {
             printf(FG_RED "Invalid argument for pid ys command\n" RESET_ALL);
         }
-    } else if(!strcmp(argv[0],"xy")){
+    } else if (!strcmp(argv[0], "xy")) {
         if (strcmp(argv[1], "kp") == 0) {
             pid_x.Kp = arg_value;  // 设置PID参数
             pid_y.Kp = arg_value;
@@ -146,7 +211,7 @@ void __pid(int argc, void *argv[]) {
         } else if (strcmp(argv[1], "ki") == 0) {
             pid_x.Ki = arg_value_f;
             pid_y.Ki = arg_value_f;
-        } else if(strcmp(argv[1], "del") == 0){
+        } else if (strcmp(argv[1], "del") == 0) {
             pid_x.Kp = 0;
             pid_y.Kp = 0;
             pid_x.Kd = 0;
@@ -156,7 +221,7 @@ void __pid(int argc, void *argv[]) {
         } else {
             printf(FG_RED "Invalid argument for pid xy command\n" RESET_ALL);
         }
-    } else if(!strcmp(argv[0],"xys")){
+    } else if (!strcmp(argv[0], "xys")) {
         if (strcmp(argv[1], "kp") == 0) {
             pid_xs.Kp = arg_value;  // 设置PID参数
             pid_ys.Kp = arg_value;
@@ -166,14 +231,14 @@ void __pid(int argc, void *argv[]) {
         } else if (strcmp(argv[1], "ki") == 0) {
             pid_xs.Ki = arg_value_f;
             pid_ys.Ki = arg_value_f;
-        } else if(!strcmp(argv[1], "del")){
+        } else if (!strcmp(argv[1], "del")) {
             pid_xs.Kp = 0;
             pid_ys.Kp = 0;
             pid_xs.Kd = 0;
             pid_ys.Kd = 0;
             pid_xs.Ki = 0;
             pid_ys.Ki = 0;
-        }else {
+        } else {
             printf(FG_RED "Invalid argument for pid xys command\n" RESET_ALL);
         }
     }
@@ -224,13 +289,13 @@ void DisPlay_SystemData(int argc, void *argv[]) {
     Wirte_String(14, 1, 1, "|                                                                  |");
     Wirte_String(15, 1, 1, "|------------------------------------------------------------------|");
 
-    Wirte_String(9, 2, 2, "Time:    Conut:      Sec:    Min:");  // 显示数字
-    Wirte_String(10, 2, 2, "OpenMV_y:     PidOut:        speed_x:     speed_y:     ");             // 显示数字
-    refresh_Partscreen(0, 1, 1);                                 // 刷新屏幕
+    Wirte_String(9, 2, 2, "Time:    Conut:      Sec:    Min:");                         // 显示数字
+    Wirte_String(10, 2, 2, "OpenMV_y:     PidOut:        speed_x:     speed_y:     ");  // 显示数字
+    refresh_Partscreen(0, 1, 1);                                                        // 刷新屏幕
     while (!USART1_Data->RunStae) {
         Wirte_String(9, 27, 2, "%d   ", srt.SysRunTimeSec);  // 显示秒
         Wirte_String(9, 35, 2, "%d   ", srt.SysRunTimeMin);  // 显示分钟
-        Wirte_String(10, 11, 2, "%d  ", OpenMVData_X);      // 显示数字
+        Wirte_String(10, 11, 2, "%d  ", OpenMVData_X);       // 显示数字
         Wirte_String(10, 23, 2, "%d   ", Motor_x);           // 显示数字
         Wirte_String(10, 39, 2, "%d   ", pid_xs.current);
         Wirte_String(10, 52, 2, "%d   ", pid_ys.current);  // 显示数字
