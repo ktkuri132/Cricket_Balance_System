@@ -28,12 +28,17 @@ typedef enum {
     S7,S8,S9
 } Space_Site;
 
+typedef enum {
+    A,B,C,D
+}ABCD;
+
 #define Motor_x TIM3->CCR4
 #define Motor_y TIM3->CCR3
 
 void Control_Init();
 void Control();
 
+void split_digits(const char *str, int *digits);
 int32_t Get_Blobs_Speed(int32_t dir,uint32_t current);
 void Goto_space(int x,int y);
 void Site_set(int x);

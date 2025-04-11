@@ -24,7 +24,11 @@ extern int32_t Space_Sit[9][2];
 extern PID pid_x;
 extern PID pid_y;
 
-
+void split_digits(const char *str, int *digits) {
+    for (int i = 0; i < strlen(str); i++) {
+        digits[i] = str[i] - '0'; // 将字符转换为整数
+    }
+}
 
 /**
  * @brief 对应所有的点位情况

@@ -1,6 +1,7 @@
 #include <pid.h>
 #include <shell.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <string.h>
 #include <sysport.h>
 
@@ -103,7 +104,7 @@ void __mode(int argc, void *argv[]) {
     if (argc < 1) {
         printf(FG_RED "Too few arameters for mode command\n" RESET_ALL);
         return;
-    } else if (argc > 2) {
+    } else if (argc > 3) {
         printf(FG_RED "Too many argument to mode command\n" RESET_ALL);
         return;
     }
@@ -169,9 +170,19 @@ void __mode(int argc, void *argv[]) {
         syscall.bsp_systick_delay_ms(7000);
         return;
     } else if(!strcmp(argv[0], "6")) {
-        while(!strcmp(argv[0], "exit")) {
-            
-        }
+        int digits[4] = {0};
+        split_digits(argv[1], digits);
+        Goto_space(digits[A],digits[B]);
+        syscall.bsp_systick_delay_ms(2000);
+        Goto_space(digits[B],0);
+        syscall.bsp_systick_delay_ms(2000);
+        Goto_space(digits[B],digits[C]);
+        syscall.bsp_systick_delay_ms(2000);
+        Goto_space(digits[C],0);
+        syscall.bsp_systick_delay_ms(2000);
+        Goto_space(digits[C],digits[D]);
+        syscall.bsp_systick_delay_ms(2000);
+        Goto_space(digits[D],0);
         return;
     } else if(!strcmp(argv[0], "7")) {
         Goto_space(5,4);
