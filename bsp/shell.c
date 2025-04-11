@@ -22,7 +22,6 @@ void BIE_UART(USART_TypeDef *USARTx, Bie_ShellTypeDef *ShellTypeStruct, EnvVar *
                 printf("\n");                      // 换行
                 Shell_Deal(ShellTypeStruct, env);  // 解析并执行命令
                 ShellTypeStruct->Res_len = 0;      // 重置输入长度
-                // memset(ShellTypeStruct->Data, 0, sizeof(ShellTypeStruct->Data));  // 清空输入数据
                 printf("stm32@root:");             // 显示提示符
                 fflush(stdout);
             }
@@ -40,7 +39,6 @@ void BIE_UART(USART_TypeDef *USARTx, Bie_ShellTypeDef *ShellTypeStruct, EnvVar *
                     ShellTypeStruct->Data[ShellTypeStruct->Res_len++] =
                         c;            // 保存字符
                     printf("%c", c);  // 实时显示字符
-             
                     fflush(stdout);
                 }
             }

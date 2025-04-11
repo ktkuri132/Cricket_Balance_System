@@ -58,6 +58,7 @@ int main() {
     Sys_cmd_Init();
     LED_Init(port);
     USART2_Init(port);
+    USART3_Init(port);
     PWM_Init(port);
     // Motor_x = 3300;
     // Motor_y = 1400;
@@ -114,5 +115,11 @@ void USART2_IRQHandler(void) {
     USART2->ICR |= USART_ICR_ORECF;
 }
 
+void USART3_IRQHandler(void){
+    if (USART3->ISR & USART_ISR_RXNE_RXFNE) {
+        STDE_UART(USART3, &USART2_Data);
+    }
+    USART3->ICR |= USART_ICR_ORECF;
+}
 
 

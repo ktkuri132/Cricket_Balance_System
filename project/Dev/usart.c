@@ -44,3 +44,20 @@ void USART2_Init(SYS_Port *port){
     usart_init.GPIO_AF = 7;
     usart.bsp_usart_x_inti(&usart_init);
 }
+
+
+void USART3_Init(SYS_Port *port){
+    RCC->AHB4ENR |= RCC_AHB4ENR_GPIOBEN;
+    RCC->APB1LENR |= RCC_APB1LENR_USART3EN;
+    USART_Parameters usart_init;
+    usart_init.USARTx   = USART3;
+    usart_init.baudrate = 9600;
+    usart_init.GPIOx    = GPIOB;
+    usart_init.GPIO_Mode_x = 2;
+    usart_init.GPIO_PuPd_x = 0;
+    usart_init.GPIO_Speed_x = 3;
+    usart_init.GPIO_Pin_Source[AF_0] = 10;
+    usart_init.GPIO_Pin_Source[AF_1] = 11;
+    usart_init.GPIO_AF = 7;
+    usart.bsp_usart_x_inti(&usart_init);
+}

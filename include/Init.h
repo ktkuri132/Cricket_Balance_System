@@ -11,6 +11,7 @@ void LED_OFF(SYS_Port *port);
 void LED_Flip(SYS_Port *port);
 void USART1_Init(SYS_Port *port);
 void USART2_Init(SYS_Port *port);
+void USART3_Init(SYS_Port *port);
 void PWM_Init(SYS_Port *port);
 void TIM2_INT_Init(uint8_t ms);
 

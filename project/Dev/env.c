@@ -124,20 +124,94 @@ void __mode(int argc, void *argv[]) {
         return;
     } else if(!strcmp(argv[0], "3")) {
         Goto_space(5,1);
-        syscall.bsp_systick_delay_ms(5000);
+        syscall.bsp_systick_delay_ms(2000);
         Goto_space(1,0);
         syscall.bsp_systick_delay_ms(6000);
         Goto_space(1,4);
-        syscall.bsp_systick_delay_ms(5000);
+        syscall.bsp_systick_delay_ms(2000);
         Goto_space(4,0);
         syscall.bsp_systick_delay_ms(6000);
         Goto_space(4,5);
-        syscall.bsp_systick_delay_ms(5000);
+        syscall.bsp_systick_delay_ms(2000);
         Goto_space(5,0);
         syscall.bsp_systick_delay_ms(7000);
         printf(FG_GREEN "Mode 3: Ball is in the center\n" RESET_ALL);
         return;
-    }else {
+    } else if(!strcmp(argv[0], "4")) {
+        Goto_space(5,1);
+        syscall.bsp_systick_delay_ms(2000);
+        Goto_space(1,0);
+        syscall.bsp_systick_delay_ms(6000);
+        Goto_space(5,0);
+        syscall.bsp_systick_delay_ms(2000);
+        Goto_space(5,9);
+        syscall.bsp_systick_delay_ms(2000);
+        Goto_space(9,0);
+        syscall.bsp_systick_delay_ms(7000);
+        printf(FG_GREEN "Mode 4: Ball is in the center\n" RESET_ALL);
+        return;
+    } else if(!strcmp(argv[0], "5")) {
+        Goto_space(5,1);
+        syscall.bsp_systick_delay_ms(2000);
+        Goto_space(1,0);
+        syscall.bsp_systick_delay_ms(4000);
+        Goto_space(1,2);
+        syscall.bsp_systick_delay_ms(2000);
+        Goto_space(2,0);
+        syscall.bsp_systick_delay_ms(4000);
+        Goto_space(2,6);
+        syscall.bsp_systick_delay_ms(2000);
+        Goto_space(6,0);
+        syscall.bsp_systick_delay_ms(4000);
+        Goto_space(6,9);
+        syscall.bsp_systick_delay_ms(2000);
+        Goto_space(9,0);
+        syscall.bsp_systick_delay_ms(7000);
+        return;
+    } else if(!strcmp(argv[0], "6")) {
+        while(!strcmp(argv[0], "exit")) {
+            
+        }
+        return;
+    } else if(!strcmp(argv[0], "7")) {
+        Goto_space(5,4);
+        syscall.bsp_systick_delay_ms(2000);
+        Goto_space(4,0);
+        syscall.bsp_systick_delay_ms(2000);
+        int i = 0;
+        do{
+            Goto_space(4,2);
+            syscall.bsp_systick_delay_ms(2000);
+            Goto_space(2,0);
+            syscall.bsp_systick_delay_ms(2000);
+            Goto_space(2,6);
+            syscall.bsp_systick_delay_ms(2000);
+            Goto_space(6,0);
+            syscall.bsp_systick_delay_ms(2000);
+            Goto_space(6,8);
+            syscall.bsp_systick_delay_ms(2000);
+            Goto_space(8,0);
+            syscall.bsp_systick_delay_ms(2000);
+            Goto_space(8,4);
+            syscall.bsp_systick_delay_ms(2000);
+            Goto_space(4,0);    
+            syscall.bsp_systick_delay_ms(2000);
+            i++;
+        } while(i < 3);
+            Goto_space(4,2);
+            syscall.bsp_systick_delay_ms(2000);
+            Goto_space(2,0);
+            syscall.bsp_systick_delay_ms(2000);
+            Goto_space(2,6);
+            syscall.bsp_systick_delay_ms(2000);
+            Goto_space(6,0);
+            syscall.bsp_systick_delay_ms(2000);
+            Goto_space(6,9);
+            syscall.bsp_systick_delay_ms(2000);
+            Goto_space(9,0);
+            syscall.bsp_systick_delay_ms(7000);
+            return;
+    } else {
         printf(FG_RED "Invalid argument for mode command\n" RESET_ALL);
     }
 }

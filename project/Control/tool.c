@@ -8,17 +8,11 @@ int32_t Get_Blobs_Speed(int32_t dir,uint32_t current) {
     static int32_t tempx = 0, tempy = 0;
     if(dir == X) {
         tempx = current - Blobs_Speed[X];
-        // if((tempx<3)||(tempx > -3)){
-        //     tempx = 0;
-        // }
         tempx = tempx*3;
         Blobs_Speed[X] = current;
         return tempx;
     } else if(dir == Y) {
         tempy = current - Blobs_Speed[Y];
-        // if((tempy<3)||(tempy > -3)){
-        //     tempy = 0;
-        // }
         tempy = tempy*3;
         Blobs_Speed[Y] = current;
         return tempy;
@@ -47,6 +41,7 @@ void Goto_space(int x, int y) {
         PWM_Refe[YMid_PWM] = 2850;
     } else if ((x == 3) && (y == 0)) {
         PWM_Refe[XMid_PWM] = 2300;
+        PWM_Refe[YMid_PWM] = 1900;
     } else if ((x == 4) && (y == 0)) {
         PWM_Refe[XMid_PWM] = 3200;
         PWM_Refe[YMid_PWM] = 3800;
@@ -54,14 +49,17 @@ void Goto_space(int x, int y) {
         PWM_Refe[XMid_PWM] = 3200;
         PWM_Refe[YMid_PWM] = 2850;
     } else if ((x == 6) && (y == 0)) {
-        // 处理从6到0的逻辑
+        PWM_Refe[XMid_PWM] = 3200;
+        PWM_Refe[YMid_PWM] = 1900;
     } else if ((x == 7) && (y == 0)) {
-        // 处理从7到0的逻辑
+        PWM_Refe[XMid_PWM] = 4000;
+        PWM_Refe[YMid_PWM] = 3800;
     } else if ((x == 8) && (y == 0)) {
-        // 处理从8到0的逻辑
+        PWM_Refe[XMid_PWM] = 4000;
+        PWM_Refe[YMid_PWM] = 2850;
     } else if ((x == 9) && (y == 0)) {
-        PWM_Refe[XMid_PWM] = 4100;
-        
+        PWM_Refe[XMid_PWM] = 4000;
+        PWM_Refe[YMid_PWM] = 1900;
     } else if (((x == 1) && (y == 2)) || ((x == 2) && (y == 1))) {
         PWM_Refe[XMid_PWM] = 2500;
         PWM_Refe[YMid_PWM] = 3000;
@@ -72,14 +70,16 @@ void Goto_space(int x, int y) {
         PWM_Refe[XMid_PWM] = 2900;
         PWM_Refe[YMid_PWM] = 3300;
     } else if (((x == 2) && (y == 3)) || ((x == 3) && (y == 2))) {
-        // 处理2和3相邻的逻辑
+        PWM_Refe[YMid_PWM] = 2400;
     } else if (((x == 2) && (y == 4)) || ((x == 4) && (y == 2))) {
-        // 处理2和4相邻的逻辑
+        PWM_Refe[XMid_PWM] = 2900;
+        PWM_Refe[YMid_PWM] = 3300;
     } else if (((x == 2) && (y == 5)) || ((x == 5) && (y == 2))) {
         PWM_Refe[XMid_PWM] = 2800;
         PWM_Refe[YMid_PWM] = 2850;
     } else if (((x == 2) && (y == 6)) || ((x == 6) && (y == 2))) {
-        // 处理2和6相邻的逻辑
+        PWM_Refe[XMid_PWM] = 2900;
+        PWM_Refe[YMid_PWM] = 2400;
     } else if (((x == 3) && (y == 5)) || ((x == 5) && (y == 3))) {
         // 处理3和5相邻的逻辑
     } else if (((x == 3) && (y == 6)) || ((x == 6) && (y == 3))) {
@@ -90,23 +90,29 @@ void Goto_space(int x, int y) {
     } else if (((x == 4) && (y == 7)) || ((x == 7) && (y == 4))) {
         // 处理2和5相邻的逻辑
     } else if (((x == 4) && (y == 8)) || ((x == 8) && (y == 4))) {
-        // 处理2和5相邻的逻辑
+        PWM_Refe[XMid_PWM] = 3600;
+        PWM_Refe[YMid_PWM] = 3400;
     } else if (((x == 5) && (y == 6)) || ((x == 6) && (y == 5))) {
-        // 处理5和6相邻的逻辑
+        PWM_Refe[XMid_PWM] = 3200;
+        PWM_Refe[YMid_PWM] = 2400;
     } else if (((x == 5) && (y == 7)) || ((x == 7) && (y == 5))) {
         // 处理5和7相邻的逻辑
     } else if (((x == 5) && (y == 8)) || ((x == 8) && (y == 5))) {
         // 处理5和7相邻的逻辑
     } else if (((x == 5) && (y == 9)) || ((x == 9) && (y == 5))) {
-        // 处理5和7相邻的逻辑
+        PWM_Refe[XMid_PWM] = 3600;
+        PWM_Refe[YMid_PWM] = 2400;
     } else if (((x == 6) && (y == 8)) || ((x == 8) && (y == 6))) {
-        // 处理6和7相邻的逻辑
+        PWM_Refe[XMid_PWM] = 3600;
+        PWM_Refe[YMid_PWM] = 2400;
     } else if (((x == 6) && (y == 9)) || ((x == 9) && (y == 6))) {
-        // 处理6和7相邻的逻辑
+        PWM_Refe[XMid_PWM] = 3600;
+        PWM_Refe[YMid_PWM] = 1900;
     } else if (((x == 7) && (y == 8)) || ((x == 8) && (y == 7))) {
         // 处理7和8相邻的逻辑
     } else if (((x == 8) && (y == 9)) || ((x == 9) && (y == 8))) {
-        // 处理8和9相邻的逻辑
+        PWM_Refe[XMid_PWM] = 4000;
+        PWM_Refe[YMid_PWM] = 2400;
     } else {
         // 处理其他情况
     }

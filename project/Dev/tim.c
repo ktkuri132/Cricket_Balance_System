@@ -19,7 +19,6 @@ void PWM_Init(SYS_Port *port){
     tim3_init.Channel[Channel_3] = ENABLE;
     tim3_init.OCMode = 1;
     tim.bsp_tim_x_inti(&tim3_init);
-    TIM3->CCR3 = 3500;
 }
 
 void TIM2_INT_Init(uint8_t ms){
