@@ -62,17 +62,17 @@ void H723_GPIO_Config(void* const Parameters)
     for (int i = 0; i < 16; i++) {
         if (GPIO_Parameter->GPIO_Pin_Source[i]) {
             GPIO_Parameter->GPIOx->MODER &= ~(3 << (2 * i));
-            GPIO_Parameter->GPIOx->MODER |= 2 << (2 * i);
+            GPIO_Parameter->GPIOx->MODER |= GPIO_Parameter->GPIO_Mode_x << (2 * i);
             GPIO_Parameter->GPIOx->OSPEEDR &= ~(3 << (2 * i));
             GPIO_Parameter->GPIOx->OSPEEDR |= 3 << (2 * i);
             GPIO_Parameter->GPIOx->PUPDR &= ~(3 << (2 * i));
-            GPIO_Parameter->GPIOx->PUPDR |= 1 << (2 * i);
+            GPIO_Parameter->GPIOx->PUPDR |= GPIO_Parameter->GPIO_PuPd_x << (2 * i);
             GPIO_Parameter->GPIOx->AFR[i / 8] &=
                 ~(0x0F << (4 * (i % 8)));
                 GPIO_Parameter->GPIOx->AFR[i / 8] |=
                 GPIO_Parameter->GPIO_AF_x << (4 * (i % 8));
                 GPIO_Parameter->GPIOx->OTYPER &= ~(1 << i);
-                GPIO_Parameter->GPIOx->OTYPER |= 0 << i;
+                GPIO_Parameter->GPIOx->OTYPER |= GPIO_Parameter->GPIO_OType_xx << i;
         }
     }
 }
