@@ -99,6 +99,7 @@ void __Site(int argc, void *argv[]){
 void __mode(int argc, void *argv[]) {
     if (argv == NULL) {
         printf(FG_RED "Invalid argument for mode command:NULL\n" RESET_ALL);
+        Goto_space(5,0);
         return;
     }
     if (argc < 1) {
@@ -110,7 +111,7 @@ void __mode(int argc, void *argv[]) {
     }
     if (!strcmp(argv[0], "1")) {
         Goto_space(5,2);
-        syscall.bsp_systick_delay_ms(1000);
+        syscall.bsp_systick_delay_ms(2000);
         Goto_space(2, 0);  
     } else if (!strcmp(argv[0], "2")) {
         Goto_space(2, 1);
@@ -120,7 +121,7 @@ void __mode(int argc, void *argv[]) {
         Goto_space(1,5);
         syscall.bsp_systick_delay_ms(2000);
         Goto_space(5,0);
-        syscall.bsp_systick_delay_ms(10000);
+        // syscall.bsp_systick_delay_ms(10000);
         printf(FG_GREEN "Mode 2: Ball is in the center\n" RESET_ALL);
         return;
     } else if(!strcmp(argv[0], "3")) {
@@ -135,20 +136,22 @@ void __mode(int argc, void *argv[]) {
         Goto_space(4,5);
         syscall.bsp_systick_delay_ms(2000);
         Goto_space(5,0);
-        syscall.bsp_systick_delay_ms(7000);
+        // syscall.bsp_systick_delay_ms(7000);
         printf(FG_GREEN "Mode 3: Ball is in the center\n" RESET_ALL);
         return;
     } else if(!strcmp(argv[0], "4")) {
         Goto_space(5,1);
         syscall.bsp_systick_delay_ms(2000);
         Goto_space(1,0);
-        syscall.bsp_systick_delay_ms(6000);
-        Goto_space(5,0);
+        syscall.bsp_systick_delay_ms(5000);
+        Goto_space(2,5);
+        syscall.bsp_systick_delay_ms(2000);
+        Goto_space(5,6);
         syscall.bsp_systick_delay_ms(2000);
         Goto_space(5,9);
         syscall.bsp_systick_delay_ms(2000);
         Goto_space(9,0);
-        syscall.bsp_systick_delay_ms(7000);
+        // syscall.bsp_systick_delay_ms(7000);
         printf(FG_GREEN "Mode 4: Ball is in the center\n" RESET_ALL);
         return;
     } else if(!strcmp(argv[0], "5")) {
@@ -167,21 +170,21 @@ void __mode(int argc, void *argv[]) {
         Goto_space(6,9);
         syscall.bsp_systick_delay_ms(2000);
         Goto_space(9,0);
-        syscall.bsp_systick_delay_ms(7000);
+        // syscall.bsp_systick_delay_ms(7000);
         return;
     } else if(!strcmp(argv[0], "6")) {
         int digits[4] = {0};
         split_digits(argv[1], digits);
         Goto_space(digits[A],digits[B]);
-        syscall.bsp_systick_delay_ms(2000);
+        syscall.bsp_systick_delay_ms(4000);
         Goto_space(digits[B],0);
-        syscall.bsp_systick_delay_ms(2000);
+        syscall.bsp_systick_delay_ms(4000);
         Goto_space(digits[B],digits[C]);
-        syscall.bsp_systick_delay_ms(2000);
+        syscall.bsp_systick_delay_ms(4000);
         Goto_space(digits[C],0);
-        syscall.bsp_systick_delay_ms(2000);
+        syscall.bsp_systick_delay_ms(4000);
         Goto_space(digits[C],digits[D]);
-        syscall.bsp_systick_delay_ms(2000);
+        syscall.bsp_systick_delay_ms(4000);
         Goto_space(digits[D],0);
         return;
     } else if(!strcmp(argv[0], "7")) {

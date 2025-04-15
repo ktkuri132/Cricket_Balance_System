@@ -39,37 +39,37 @@ void split_digits(const char *str, int *digits) {
 void Goto_space(int x, int y) {
     if ((x == 1) && (y == 0)) {
         PWM_Refe[XMid_PWM] = 2300;
-        PWM_Refe[YMid_PWM] = 3700;
+        PWM_Refe[YMid_PWM] = 3650;
     } else if ((x == 2) && (y == 0)) {
         PWM_Refe[XMid_PWM] = 2300;
-        PWM_Refe[YMid_PWM] = 2850;
+        PWM_Refe[YMid_PWM] = 2700;
     } else if ((x == 3) && (y == 0)) {
         PWM_Refe[XMid_PWM] = 2300;
-        PWM_Refe[YMid_PWM] = 1900;
+        PWM_Refe[YMid_PWM] = 1800;
     } else if ((x == 4) && (y == 0)) {
         PWM_Refe[XMid_PWM] = 3200;
-        PWM_Refe[YMid_PWM] = 3700;
+        PWM_Refe[YMid_PWM] = 3580;
     } else if ((x == 5) && (y == 0)) {
-        PWM_Refe[XMid_PWM] = 3150;
+        PWM_Refe[XMid_PWM] = 3200;
         PWM_Refe[YMid_PWM] = 2700;
     } else if ((x == 6) && (y == 0)) {
-        PWM_Refe[XMid_PWM] = 3200;
-        PWM_Refe[YMid_PWM] = 1900;
+        PWM_Refe[XMid_PWM] = 3250;
+        PWM_Refe[YMid_PWM] = 1800;
     } else if ((x == 7) && (y == 0)) {
         PWM_Refe[XMid_PWM] = 4000;
-        PWM_Refe[YMid_PWM] = 3700;
+        PWM_Refe[YMid_PWM] = 3600;
     } else if ((x == 8) && (y == 0)) {
         PWM_Refe[XMid_PWM] = 4000;
-        PWM_Refe[YMid_PWM] = 2850;
+        PWM_Refe[YMid_PWM] = 2700;
     } else if ((x == 9) && (y == 0)) {
-        PWM_Refe[XMid_PWM] = 4000;
-        PWM_Refe[YMid_PWM] = 1900;
+        PWM_Refe[XMid_PWM] = 4100;
+        PWM_Refe[YMid_PWM] = 1800;
     } else if (((x == 1) && (y == 2)) || ((x == 2) && (y == 1))) {
         PWM_Refe[XMid_PWM] = 2500;
         PWM_Refe[YMid_PWM] = 3270;
     } else if (((x == 1) && (y == 4)) || ((x == 4) && (y == 1))) {
         PWM_Refe[XMid_PWM] = 2750;
-        PWM_Refe[YMid_PWM] = 3700;
+        PWM_Refe[YMid_PWM] = 3500;
     } else if (((x == 1) && (y == 5)) || ((x == 5) && (y == 1))) {
         PWM_Refe[XMid_PWM] = 2900;
         PWM_Refe[YMid_PWM] = 3300;
