@@ -4,7 +4,7 @@
 # compile C with C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.3 rel1/bin/arm-none-eabi-gcc.exe
 C_DEFINES = 
 
-C_INCLUDES = -IC:\Users\34575\Desktop\Cricket_Balance_System\h723_core -IC:\Users\34575\Desktop\Cricket_Balance_System\h723_core\STM32H7xx_HAL_Driver\inc -IC:\Users\34575\Desktop\Cricket_Balance_System\h723_core\STM32H7xx_HAL_Driver\inc\Legacy
+C_INCLUDES = -IC:\Users\423\Desktop\Cricket_Balance_System_1\h723_core -IC:\Users\423\Desktop\Cricket_Balance_System_1\h723_core\STM32H7xx_HAL_Driver\inc -IC:\Users\423\Desktop\Cricket_Balance_System_1\h723_core\STM32H7xx_HAL_Driver\inc\Legacy
 
 C_FLAGS = -g -std=gnu11 -mfloat-abi=hard -mfpu=fpv5-d16 -mcpu=cortex-m7 -mthumb -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Og -g
 

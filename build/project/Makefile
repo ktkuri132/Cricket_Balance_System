@@ -47,19 +47,19 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "C:\Program Files (x86)\cmake-4.0.0-windows-x86_64\bin\cmake.exe"
+CMAKE_COMMAND = "C:\Program Files\CMake\bin\cmake.exe"
 
 # The command to remove a file.
-RM = "C:\Program Files (x86)\cmake-4.0.0-windows-x86_64\bin\cmake.exe" -E rm -f
+RM = "C:\Program Files\CMake\bin\cmake.exe" -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\34575\Desktop\Cricket_Balance_System
+CMAKE_SOURCE_DIR = C:\Users\423\Desktop\Cricket_Balance_System_1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\34575\Desktop\Cricket_Balance_System\build
+CMAKE_BINARY_DIR = C:\Users\423\Desktop\Cricket_Balance_System_1\build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -67,7 +67,7 @@ CMAKE_BINARY_DIR = C:\Users\34575\Desktop\Cricket_Balance_System\build
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake cache editor..."
-	"C:\Program Files (x86)\cmake-4.0.0-windows-x86_64\bin\cmake-gui.exe" -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	"C:\Program Files\CMake\bin\cmake-gui.exe" -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -77,7 +77,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake to regenerate build system..."
-	"C:\Program Files (x86)\cmake-4.0.0-windows-x86_64\bin\cmake.exe" --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	"C:\Program Files\CMake\bin\cmake.exe" --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -86,14 +86,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(CMAKE_COMMAND) -E cmake_progress_start C:\Users\34575\Desktop\Cricket_Balance_System\build\CMakeFiles C:\Users\34575\Desktop\Cricket_Balance_System\build\project\\CMakeFiles\progress.marks
-	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 project/all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\34575\Desktop\Cricket_Balance_System\build\CMakeFiles 0
+	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(CMAKE_COMMAND) -E cmake_progress_start C:\Users\423\Desktop\Cricket_Balance_System_1\build\CMakeFiles C:\Users\423\Desktop\Cricket_Balance_System_1\build\project\\CMakeFiles\progress.marks
+	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 project/all
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\423\Desktop\Cricket_Balance_System_1\build\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 project/clean
+	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 project/clean
 .PHONY : clean
 
 # The main clean target
@@ -102,22 +102,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 project/preinstall
+	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 project/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 project/preinstall
+	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 project/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 1
+	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 project/CMakeFiles/projectlib.dir/rule:
-	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 project/CMakeFiles/projectlib.dir/rule
+	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 project/CMakeFiles/projectlib.dir/rule
 .PHONY : project/CMakeFiles/projectlib.dir/rule
 
 # Convenience name for target.
@@ -126,7 +126,7 @@ projectlib: project/CMakeFiles/projectlib.dir/rule
 
 # fast build rule for target.
 projectlib/fast:
-	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/build
+	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/build
 .PHONY : projectlib/fast
 
 Control/control.obj: Control/control.c.obj
@@ -134,7 +134,7 @@ Control/control.obj: Control/control.c.obj
 
 # target to build an object file
 Control/control.c.obj:
-	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Control/control.c.obj
+	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Control/control.c.obj
 .PHONY : Control/control.c.obj
 
 Control/control.i: Control/control.c.i
@@ -142,7 +142,7 @@ Control/control.i: Control/control.c.i
 
 # target to preprocess a source file
 Control/control.c.i:
-	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Control/control.c.i
+	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Control/control.c.i
 .PHONY : Control/control.c.i
 
 Control/control.s: Control/control.c.s
@@ -150,7 +150,7 @@ Control/control.s: Control/control.c.s
 
 # target to generate assembly for a file
 Control/control.c.s:
-	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Control/control.c.s
+	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Control/control.c.s
 .PHONY : Control/control.c.s
 
 Control/pid.obj: Control/pid.c.obj
@@ -158,7 +158,7 @@ Control/pid.obj: Control/pid.c.obj
 
 # target to build an object file
 Control/pid.c.obj:
-	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Control/pid.c.obj
+	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Control/pid.c.obj
 .PHONY : Control/pid.c.obj
 
 Control/pid.i: Control/pid.c.i
@@ -166,7 +166,7 @@ Control/pid.i: Control/pid.c.i
 
 # target to preprocess a source file
 Control/pid.c.i:
-	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Control/pid.c.i
+	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Control/pid.c.i
 .PHONY : Control/pid.c.i
 
 Control/pid.s: Control/pid.c.s
@@ -174,7 +174,7 @@ Control/pid.s: Control/pid.c.s
 
 # target to generate assembly for a file
 Control/pid.c.s:
-	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Control/pid.c.s
+	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Control/pid.c.s
 .PHONY : Control/pid.c.s
 
 Control/tool.obj: Control/tool.c.obj
@@ -182,7 +182,7 @@ Control/tool.obj: Control/tool.c.obj
 
 # target to build an object file
 Control/tool.c.obj:
-	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Control/tool.c.obj
+	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Control/tool.c.obj
 .PHONY : Control/tool.c.obj
 
 Control/tool.i: Control/tool.c.i
@@ -190,7 +190,7 @@ Control/tool.i: Control/tool.c.i
 
 # target to preprocess a source file
 Control/tool.c.i:
-	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Control/tool.c.i
+	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Control/tool.c.i
 .PHONY : Control/tool.c.i
 
 Control/tool.s: Control/tool.c.s
@@ -198,7 +198,7 @@ Control/tool.s: Control/tool.c.s
 
 # target to generate assembly for a file
 Control/tool.c.s:
-	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Control/tool.c.s
+	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Control/tool.c.s
 .PHONY : Control/tool.c.s
 
 Dev/env.obj: Dev/env.c.obj
@@ -206,7 +206,7 @@ Dev/env.obj: Dev/env.c.obj
 
 # target to build an object file
 Dev/env.c.obj:
-	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Dev/env.c.obj
+	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Dev/env.c.obj
 .PHONY : Dev/env.c.obj
 
 Dev/env.i: Dev/env.c.i
@@ -214,7 +214,7 @@ Dev/env.i: Dev/env.c.i
 
 # target to preprocess a source file
 Dev/env.c.i:
-	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Dev/env.c.i
+	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Dev/env.c.i
 .PHONY : Dev/env.c.i
 
 Dev/env.s: Dev/env.c.s
@@ -222,7 +222,7 @@ Dev/env.s: Dev/env.c.s
 
 # target to generate assembly for a file
 Dev/env.c.s:
-	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Dev/env.c.s
+	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Dev/env.c.s
 .PHONY : Dev/env.c.s
 
 Dev/led.obj: Dev/led.c.obj
@@ -230,7 +230,7 @@ Dev/led.obj: Dev/led.c.obj
 
 # target to build an object file
 Dev/led.c.obj:
-	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Dev/led.c.obj
+	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Dev/led.c.obj
 .PHONY : Dev/led.c.obj
 
 Dev/led.i: Dev/led.c.i
@@ -238,7 +238,7 @@ Dev/led.i: Dev/led.c.i
 
 # target to preprocess a source file
 Dev/led.c.i:
-	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Dev/led.c.i
+	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Dev/led.c.i
 .PHONY : Dev/led.c.i
 
 Dev/led.s: Dev/led.c.s
@@ -246,7 +246,7 @@ Dev/led.s: Dev/led.c.s
 
 # target to generate assembly for a file
 Dev/led.c.s:
-	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Dev/led.c.s
+	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Dev/led.c.s
 .PHONY : Dev/led.c.s
 
 Dev/test.obj: Dev/test.c.obj
@@ -254,7 +254,7 @@ Dev/test.obj: Dev/test.c.obj
 
 # target to build an object file
 Dev/test.c.obj:
-	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Dev/test.c.obj
+	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Dev/test.c.obj
 .PHONY : Dev/test.c.obj
 
 Dev/test.i: Dev/test.c.i
@@ -262,7 +262,7 @@ Dev/test.i: Dev/test.c.i
 
 # target to preprocess a source file
 Dev/test.c.i:
-	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Dev/test.c.i
+	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Dev/test.c.i
 .PHONY : Dev/test.c.i
 
 Dev/test.s: Dev/test.c.s
@@ -270,7 +270,7 @@ Dev/test.s: Dev/test.c.s
 
 # target to generate assembly for a file
 Dev/test.c.s:
-	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Dev/test.c.s
+	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Dev/test.c.s
 .PHONY : Dev/test.c.s
 
 Dev/tim.obj: Dev/tim.c.obj
@@ -278,7 +278,7 @@ Dev/tim.obj: Dev/tim.c.obj
 
 # target to build an object file
 Dev/tim.c.obj:
-	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Dev/tim.c.obj
+	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Dev/tim.c.obj
 .PHONY : Dev/tim.c.obj
 
 Dev/tim.i: Dev/tim.c.i
@@ -286,7 +286,7 @@ Dev/tim.i: Dev/tim.c.i
 
 # target to preprocess a source file
 Dev/tim.c.i:
-	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Dev/tim.c.i
+	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Dev/tim.c.i
 .PHONY : Dev/tim.c.i
 
 Dev/tim.s: Dev/tim.c.s
@@ -294,7 +294,7 @@ Dev/tim.s: Dev/tim.c.s
 
 # target to generate assembly for a file
 Dev/tim.c.s:
-	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Dev/tim.c.s
+	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Dev/tim.c.s
 .PHONY : Dev/tim.c.s
 
 Dev/usart.obj: Dev/usart.c.obj
@@ -302,7 +302,7 @@ Dev/usart.obj: Dev/usart.c.obj
 
 # target to build an object file
 Dev/usart.c.obj:
-	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Dev/usart.c.obj
+	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Dev/usart.c.obj
 .PHONY : Dev/usart.c.obj
 
 Dev/usart.i: Dev/usart.c.i
@@ -310,7 +310,7 @@ Dev/usart.i: Dev/usart.c.i
 
 # target to preprocess a source file
 Dev/usart.c.i:
-	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Dev/usart.c.i
+	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Dev/usart.c.i
 .PHONY : Dev/usart.c.i
 
 Dev/usart.s: Dev/usart.c.s
@@ -318,7 +318,7 @@ Dev/usart.s: Dev/usart.c.s
 
 # target to generate assembly for a file
 Dev/usart.c.s:
-	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Dev/usart.c.s
+	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(MAKE) $(MAKESILENT) -f project\CMakeFiles\projectlib.dir\build.make project/CMakeFiles/projectlib.dir/Dev/usart.c.s
 .PHONY : Dev/usart.c.s
 
 # Help Target
@@ -365,6 +365,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /d C:\Users\34575\Desktop\Cricket_Balance_System\build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 0
+	cd /d C:\Users\423\Desktop\Cricket_Balance_System_1\build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

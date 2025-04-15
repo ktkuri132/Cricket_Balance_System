@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/34575/Desktop/Cricket_Balance_System/h723_core
+# Install script for directory: C:/Users/423/Desktop/Cricket_Balance_System_1/h723_core
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,6 +40,6 @@ endif()
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "C:/Users/34575/Desktop/Cricket_Balance_System/build/h723_core/install_local_manifest.txt"
+  file(WRITE "C:/Users/423/Desktop/Cricket_Balance_System_1/build/h723_core/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

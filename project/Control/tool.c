@@ -39,7 +39,7 @@ void split_digits(const char *str, int *digits) {
 void Goto_space(int x, int y) {
     if ((x == 1) && (y == 0)) {
         PWM_Refe[XMid_PWM] = 2300;
-        PWM_Refe[YMid_PWM] = 3800;
+        PWM_Refe[YMid_PWM] = 3700;
     } else if ((x == 2) && (y == 0)) {
         PWM_Refe[XMid_PWM] = 2300;
         PWM_Refe[YMid_PWM] = 2850;
@@ -48,16 +48,16 @@ void Goto_space(int x, int y) {
         PWM_Refe[YMid_PWM] = 1900;
     } else if ((x == 4) && (y == 0)) {
         PWM_Refe[XMid_PWM] = 3200;
-        PWM_Refe[YMid_PWM] = 3800;
+        PWM_Refe[YMid_PWM] = 3700;
     } else if ((x == 5) && (y == 0)) {
-        PWM_Refe[XMid_PWM] = 3200;
-        PWM_Refe[YMid_PWM] = 2850;
+        PWM_Refe[XMid_PWM] = 3150;
+        PWM_Refe[YMid_PWM] = 2700;
     } else if ((x == 6) && (y == 0)) {
         PWM_Refe[XMid_PWM] = 3200;
         PWM_Refe[YMid_PWM] = 1900;
     } else if ((x == 7) && (y == 0)) {
         PWM_Refe[XMid_PWM] = 4000;
-        PWM_Refe[YMid_PWM] = 3800;
+        PWM_Refe[YMid_PWM] = 3700;
     } else if ((x == 8) && (y == 0)) {
         PWM_Refe[XMid_PWM] = 4000;
         PWM_Refe[YMid_PWM] = 2850;
@@ -66,10 +66,10 @@ void Goto_space(int x, int y) {
         PWM_Refe[YMid_PWM] = 1900;
     } else if (((x == 1) && (y == 2)) || ((x == 2) && (y == 1))) {
         PWM_Refe[XMid_PWM] = 2500;
-        PWM_Refe[YMid_PWM] = 3000;
+        PWM_Refe[YMid_PWM] = 3270;
     } else if (((x == 1) && (y == 4)) || ((x == 4) && (y == 1))) {
-        PWM_Refe[XMid_PWM] = 2800;
-        PWM_Refe[YMid_PWM] = 3800;
+        PWM_Refe[XMid_PWM] = 2750;
+        PWM_Refe[YMid_PWM] = 3700;
     } else if (((x == 1) && (y == 5)) || ((x == 5) && (y == 1))) {
         PWM_Refe[XMid_PWM] = 2900;
         PWM_Refe[YMid_PWM] = 3300;
@@ -79,7 +79,7 @@ void Goto_space(int x, int y) {
         PWM_Refe[XMid_PWM] = 2900;
         PWM_Refe[YMid_PWM] = 3300;
     } else if (((x == 2) && (y == 5)) || ((x == 5) && (y == 2))) {
-        PWM_Refe[XMid_PWM] = 2800;
+        PWM_Refe[XMid_PWM] = 2750;
         PWM_Refe[YMid_PWM] = 2850;
     } else if (((x == 2) && (y == 6)) || ((x == 6) && (y == 2))) {
         PWM_Refe[XMid_PWM] = 2900;
@@ -91,7 +91,7 @@ void Goto_space(int x, int y) {
         // 处理3和6相邻的逻辑
     } else if (((x == 4) && (y == 5)) || ((x == 5) && (y == 4))) {
         PWM_Refe[XMid_PWM] = 3200;
-        PWM_Refe[YMid_PWM] = 3400;
+        PWM_Refe[YMid_PWM] = 3270;
     } else if (((x == 4) && (y == 7)) || ((x == 7) && (y == 4))) {
         // 处理2和5相邻的逻辑
     } else if (((x == 4) && (y == 8)) || ((x == 8) && (y == 4))) {
